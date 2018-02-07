@@ -1,10 +1,11 @@
 # 使用
 
-> widget 中的所有代码都是可以根据业务来自行封装和修改的。 
+> `widget` 是前端基于客户端拓展出来的 modules 相关功能的二次封装，以vue插件的形式，通过 appboard 全部注入到客户端的 framework Vue 原型上，我们直接通过 vue 中的 this 来快速使用。
 
-widget 是前端基于客户端拓展出来的 modules 相关功能的二次封装，以vue插件的形式，通过 appboard 全部注入到客户端的 framework Vue 原型上，我们直接通过 vue 中的 this 来快速使用。主要目的是为了简化使用逻辑，聚合更高的业务关注度。
+我们已经封装好提交到了 npm 上，根据文档您已经执行完 `cnpm/npm install` 了，已经下载到了本地，并且已经在 appboard JS Bundle (默认 config/index) 中注入了配置。
 
-`widget`其实就是内嵌到本木基础库中的一个`js bundle`，在每打开一个`页面`（加载一个`js bundle`）的时候就会预先执行，每个页面都会执行的原因是，客户端的 `framework Vue`每次生成一个`vue实例`都是通过`新的Vue构造函数`来生成的，而我们把`widget`放在客户端内置的好处是，每个页面打包的js bundle体积会小，不会产生冗余代码。
+# 更新
+只需要 `cnpm/npm install` 即可。
 
 #### 使用方法
 

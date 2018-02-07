@@ -1,4 +1,4 @@
-### 项目结构
+### 项目结构
 * iconfont：存放本地 iconfont，自动会打包到内置包中，可以通过 bmlocal的方式来进行加载 `bmlocal://iconfont/*.ttf`。
 * assets：存放内置版本的 iconfont ，自动会打包到内置包中，可以通过 bmlocal的方式来进行加载 `bmlocal://assets/*.png`。
 * mediator：所有页面的中介者，类似全局公用bus，你的页面都可以订阅上面的事件，也可以向中介者发布事件，这个页面是常驻内存的，但不会很耗内存，请谨慎而又潇洒的使用。
@@ -10,9 +10,9 @@
     * pages：页面 js 地址别名配置，我们在跳转页面的时候提供操作路由的 api。
     * index：iconfont配置。
     * push: 个推相关，对接了个推之后客户端都会把消息推动到这里的 **pushMessage** 事件里。
-  * css：可根据业务自行修改。
+  * css：可根据业务自行修改。
   * pages：所有页面都放在这里，**这里就是你的playground！**我们内置了 demo，可以查看源码。
-  * widget：widget源码，由于 appboard 的机制，我们可以在开发中实时修改。
+  * widget：widget源码，由于 appboard 的机制，我们可以在开发中实时修改。
   * utils：存放工具函数的地方，可以随意增删改。
 
 * mock：本地mock数据的地方，当启动服务时候便可以进行访问。
@@ -85,5 +85,5 @@ exports: [
 
 #### $notice
 
-开发过 Vue 的你不难发现，我们什么依赖都没引入，插件都没注册，你就可以在 this 上使用 $notice 这个对象中的方法了，这都是**依赖我们本木组件库基于 appboard 机制，通过内置的 widget 来实现的**，widget 到底如何使用呢，我们往下看。
+开发过 Vue 的你不难发现，我们什么依赖都没引入，插件都没注册，你就可以在 this 上使用 $notice 这个对象中的方法了，这都是**依赖我们本木组件库基于 appboard 机制，通过内置的 widget 来实现的**，widget 到底如何使用呢，我们往下看。
 

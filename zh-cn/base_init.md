@@ -1,0 +1,65 @@
+> 执行此节之前，请确保环境全都安装完成。
+
+## 生成开发模板 
+通过脚手架自动生成 eros 目录，并进入生成的项目目录下：
+```bash
+$ eros init
+```
+ 依次填写:
+ 
+* 项目名称，默认 `eros-demo`。
+* 初始版本号，默认 `1.0.0`。
+* 安卓包名，默认 `com.benmu.wx`。
+
+**安卓手机上不能出现 2 个包名相同的应用，如果有，需要卸载，为了同时安装多个 `eros app `设置请勿重复。**
+
+脚手架会自动从 NPM 上拉取最新的 [eros-template 开发模板](https://github.com/bmfe/eros-template)，按照提示一直到 `eros install` 完成。
+
+
+> 请再次保证您的 windows 环境已经安装 `git bash`， 并甚至为 `.sh` 文件的默认执行程序， 来执行自动化脚本，否则必会失败。
+
+## iOS 导入工程
+ios 开发者如果已经安装配置完环境，eros install ios 成功之后，便会自动打开 `xcode`，然后在选择相应的模拟器，点击`绿色箭头`运行即可。
+  
+您也可以手动打开项目：找到项目目录下 `platforms/ios/WeexEros/WeexEros.xcworkspace` 文件，双击打开即可；
+
+## Android 导入工程
+android 开发者需要多几个步骤:
+
+1.点击 `AndroidStudio` 上方的` File---&gt;New---&gt;Import Project`。
+
+![](https://img.benmu-health.com/gitbook/1505963461481.jpg)
+2.找到eros在你本地的地址，选择`platforms/android/WeexFrameworkWrapper`,点击`OK`。
+
+![](https://img.benmu-health.com/gitbook/1505963624252.jpg)
+3.待项目构建完成，点击AndroidStudio上方工具栏的**Run**，即可运行项目。![](https://img.benmu-health.com/gitbook/1505963683163.jpg)
+
+> 第一次打开 AndroidStuido 时，由于本地环境未配置好，AndroidStuido 会提示错误，按照 IDE 提示，点击 `sync` 同步一下，大部分环境问题都可以解决。
+
+
+## 模板目录结构
+
+```bash
+├── CHANGELOG.md            // 版本升级变动
+├── README.md               // 首页
+├── config                  
+│   ├── eros.dev.js         // 脚手架相关配置
+│   └── eros.native.js      // 客户端相关配置
+├── dist                    // 静态资源生成目录
+├── node_modules            // 依赖
+├── scripts                 // 自动化脚本
+├── package.json            
+├── platforms               // 平台基础代码
+│   ├── android
+│   └── ios
+└── src                     // 开发路径
+    ├── assets              // 静态资源路径 一般存放图片
+    ├── iconfont            // 静态资源路径 一般存放 iconfont
+    ├── js                  // js bundle 开发路径
+    └── mock                // 本地请求 mock 地址
+```
+
+首次打开我们已经为您内置了由一些 `demo`，您可以看到相关的页面，下面在开发之前还需要进行一些相关的配置和调试的学习。
+
+
+> 如果在此节中出现任何问题均不能正常运行 demo，请在 [issue](https://github.com/bmfe/eros-template/issues?q=is%3Aissue+is%3Aclosed) 或者 [Q&A](https://bmfe.github.io/eros-docs/#/zh-cn/QA)中来寻到解决方法，如果还未找到，麻烦给我们[提issue](https://github.com/bmfe/eros-template/issues/new)。

@@ -58,15 +58,15 @@ A:
 - Fiddler 使用教程：http://www.jianshu.com/p/99b6b4cd273c
 
 
-## Q：iOS资源下载慢，或者等待时间巨长（eros install --ios 命令）
+## Q: iOS资源下载慢，或者等待时间巨长（eros install ios 命令）
 
 A:
 
-执行 `eros install --ios` 命令后会从 git 上加载iOS工程所需要的三方SDK，由于网络原因，或者是墙的原因一些资源加载巨慢，甚至会加载失败如下图：
+执行 `eros install ios` 命令后会从 git 上加载iOS工程所需要的三方SDK，由于网络原因，或者是墙的原因一些资源加载巨慢，甚至会加载失败如下图：
 
 ![](./image/iosInstallError.jpeg)
 
-**解决方法**:从 https://github.com/xiaohuapunk/WeexEros3Rd 仓库将里面的资源文件下载到本地，并拷贝到 (你的工程目录)/platforms/ios/WeexEros 中，然后再次执行`eros install --ios`命令即可；
+**解决方法**:从 https://github.com/xiaohuapunk/WeexEros3Rd 仓库将里面的资源文件下载到本地，并拷贝到 (你的工程目录)/platforms/ios/WeexEros 中，然后再次执行`eros install ios`命令即可；
 
 ## Q: IOS模板工程无证书真机调试
 
@@ -105,7 +105,7 @@ A:
 
 ##### 3.在将 Team 设置为自己的账户即可
 
-## 升级工程文件
+##### 升级工程文件
 > 更新前记得将工程备份 <br>
 > 有些更新需要更新工程文件，通过 `instal`更新不到，需要使用 `eros update` 命令；<br>
 
@@ -116,9 +116,9 @@ A:
 - Info：`/platforms/ios/WeexEros/WeexEros/Info.plist`
 - Podfile：`/platforms/ios/WeexEros/Podfile`
 - AppDelegate.m: `/platforms/ios/WeexEros/WeexEros/AppDelegate.m` <br>
-升级完后需要再次执行 `eros install --ios`
+升级完后需要再次执行 `eros install ios`
 
-## 移除ATSDK
+##### 移除ATSDK
 `Weex`默认集成了的 `ATSDK 性能监测工具`，`Eros` 中之前也集成了这个sdk，sdk中用到了私有api，会导致审核不通过，Eros 现在已经将其移除，如果你已经使用`Eros`开发了iOS app 下面是移除方法:
 
 > 2017.12.22 之后初始化的工程不需要此操作
@@ -128,7 +128,7 @@ A:
 - Podfile：`eros update`，path 填写 `/platforms/ios/WeexEros/Podfile`。
 
 
-##### 2.升级完后需要再次执行 `eros install --ios`
+##### 2.升级完后需要再次执行 `eros install ios`
 ##### 3.修改配置文件
 
 > 在Xcode中：找到Other Linker Flags 并展开，在`Debug`和`Release`中，移除 `ATSDK`的引用，注意：需要将上面的 `-framework`也一同移除
@@ -137,7 +137,7 @@ A:
 
 ##### 4.重新运行,成功运行起来则说明移除成功了
 
-## Q：errCode->wx_network_error msg->Unable to resolve host 'app.weex-eros.com':No address associated with hostname 
+## Q: errCode->wx_network_error msg->Unable to resolve host 'app.weex-eros.com':No address associated with hostname 
 
 A:
 发生这个错误证明您的手机或者模拟器无法连接到您的服务，你需要检查以下情况排查为何无法连接到服务。
@@ -150,7 +150,7 @@ A:
    然后请重新pack运行 Android程序
 
 
-## Q：Android 如何修改包名（同一个手机可以跑2个eros 项目）。
+## Q: Android 如何修改包名（同一个手机可以跑2个eros 项目）。
 
 A: (本答案由 网友 阿古和刘鹏 贡献~)  
 1.修改applicationId（gradle.properties）。  
@@ -166,7 +166,7 @@ com.benmu.weex.example.categoty.debug改成一样的，
 com.xuesi.demo.example.categoty.web，  
 com.xuesi.demo.example.categoty.debug  
 
-## Q：可能您Import Project 之后会发现
+## Q: Failed to resolve: com.android.support:appcompat
 ```
 Failed to resolve: com.android.support:appcompat-v7:25.3.1 
 Add Google Maven repository and sync project 
