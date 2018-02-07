@@ -149,6 +149,21 @@ A:
    您可以将eros-demo/config/eros.native.js 文件里 jsServer 字段改成您的 ip (如果有端口记得加上)。
    然后请重新pack运行 Android程序
 
+## Q：Could not resolve project :wxframework.  (sdk、bmwidget)
+```
+Unable to resolve dependency for ':app@samplechannelDebug/compileClasspath': Could not resolve project :wxframework.
+```
+![如图](https://github.com/myliuyx/source/blob/master/9151790013.jpg)
+
+A: 如果发生此错误证明您没有执行
+```
+eros install
+``` 
+请您进入 eros 目录并执行 ```eros install```命令。
+如果您已经执行过命令还是发生错误，请查看 /platforms/android/WeexFrameworkWrapper 文件夹里面是否有
+wxframework、sdk、bmwidget 3个文件夹。 如果不存在这3个文件夹，或者这3个文件夹里只有xxx.iml文件的话
+那么您可能```eros install ```命令执行错误，或者执行失败了， 请确保您在eros的根目录执行命令（如：eros_demo目录）
+
 
 ## Q：Android 如何修改包名（同一个手机可以跑2个eros 项目）。
 
@@ -174,3 +189,8 @@ Show in File
 Show in Project Structure dialog 
 ```
 A： 这时候您可以直接点击 Add Google Maven repository and sync project 等待编译完成即可
+
+## Q： 如何替换 Image 中默认图片
+A: 
+默认的图片位置. /platforms/android/WeexFrameworkWrapper/wxframework/src/main/res/drawable-xhdpi/place_holder.png
+如需替换可直接替换文件及可。
