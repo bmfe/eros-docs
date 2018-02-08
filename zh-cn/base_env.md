@@ -1,20 +1,23 @@
-以下为不同 OS 开发不同客户端所需环境。
 
-# hosts
-为了真机调试，我们推荐配置 `hosts` 文件，添加如下地址，当然您也可以默认为公司固定资源文件访问地址，这样通过证书还能进行线上抓包分析问题。
+> 我们推荐全部都安装，**但标注必须的环境必须安装，不然无法开发与调试**。
+
+# hosts`(可选)`
+为了真机调试，我们推荐配置 `hosts` 文件，添加如下地址，当然您也可以默认为公司固定资源文件访问地址，这样通过证书还能进行线上抓包分析问题，注意配置前面加 `#` 号是注释的意思。
 ```
 127.0.0.1   app.weex-eros.com
 ```
-## 脚手架
+
+* windows 修改方法请戳这里 [教程](https://jingyan.baidu.com/article/b907e627d86be046e6891c41.html)
+
+* mac/linux 修改方法: 打开终端输入命令 `$ sudo vi /etc/hosts` 在最后一行添加即可 
+
+## 基础环境`(必须)`
 darwin: 
 * Node.js (>=6.x), npm version 4+ 
 
 windows: 
-* Git bash 
+* Git bash (并确定已经设置为`.sh脚本的默认执行程序`)
 
-> 因为脚手架依赖了`node-sass`，安装失败有很多解决办法，可自行查找。
-
-## 脚手架安装
 ```
 $ npm i eros-cli -g
 ```
@@ -22,7 +25,10 @@ $ npm i eros-cli -g
 ```
 $ cnpm i eros-cli -g 
 ```
-## darwin 开发 iOS
+
+> 因为脚手架依赖了`node-sass`，安装失败有很多解决办法，可自行查找。
+
+## darwin 开发 iOS`(必须)`
 * Xcode
 * CocoaPods
     * 升级 Ruby 环境：`$ sudo gem update --system`
@@ -32,7 +38,7 @@ $ cnpm i eros-cli -g
     * 如果以上命令报错则执行：`$ sudo gem install -n /usr/local/bin cocoapods --pre`
     * 最后执行：`$ pod setup 过程比较漫长，请耐心等待执行完成`
 
-## darwin/windows/linux 开发 Android
+## darwin/windows/linux 开发 Android`(必须)`
 * 下载并安装 [JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)。
 * 下载并安装 [Android Studio](https://developer.android.google.cn/studio/index.html)。
 
@@ -40,23 +46,23 @@ JDK 是 JAVA 开发包，AndroidStudio 是 Android开发IDE，这两项不再做
 
 > 如果您使用虚拟机进行跨平台开发，也需要配置好对应平台的所需环境。
 
-## 模拟器安装
+## 模拟器安装`(必须)`
 * ios 开发中 xcode 已经自带了模拟器
 * android 开发者推荐下载 `Genymotion`模拟器
 
 >当然市面上的如 `夜神模拟器` 也是可以的，[调试教程](http://blog.csdn.net/qq_34653571/article/details/53007044?locationNum=14&fps=1)，但是在 weex 0.17 中会出现 weex 实例化失败的问题，所以还是推荐 `Genymotion`。
 
-## weex-toolkit
-安装 weex-toolkit, 可以赋予开发进行`断点调试` app 的能力。
+## weex-toolkit`(可选)`
+`断点调试` app 的能力。
 ```
-$ npm i -g weex-toolkit
+$ cnpm i -g weex-toolkit
 ```
 > [weex-toolkit](https://github.com/weexteam/weex-toolkit) 是 weex 官方提供的一个脚手架命令行工具，你可以使用它进行 weex 项目的创建，调试以及打包等功能，我们这里只使用它的调试功能( `weex debug` )；
 
-## 代理软件
-代理软件能赋予开发进行`真机调试`的能力，原理就是我们能在 app 中访问电脑本地的 js bundle。
-* windows 推荐下载 `fidder`
-* darwin/linux 推荐下载 `Charles` [下载Charles](http://xclient.info/s/charles.html?_=b75d1488fca52bf0f85a4d11ac1200e3)
+## 代理软件`(可选)`
+`真机调试`的能力，让我们能在 app 中访问电脑本地的 JS Bundle，同时抓取我们的请求，方便我们对于请求的调试与分析。
+* windows 推荐下载 `fidder`。
+* darwin/linux 推荐下载 [Charles](http://xclient.info/s/charles.html?_=b75d1488fca52bf0f85a4d11ac1200e3)。
 
 下完完成之后需要进行相关的配置：
 

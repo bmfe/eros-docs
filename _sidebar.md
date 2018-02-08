@@ -10,6 +10,7 @@
 	- [配置相关](/zh-cn/base_config)
 	- [开发调试](/zh-cn/base_debug)
 	- [业务开发](/zh-cn/base_dev)
+	- [依赖更新](/zh-cn/base_dependencies)
 	
 
 - [ 拓展 ]
@@ -23,7 +24,6 @@
 
 - [ Android 开发相关 ]
 	- [配置](/zh-cn/android_config)
-	- [环境配置](/zh-cn/android_env)
 	- [发布打包](/zh-cn/android_pack)
 
 - [ iOS 开发相关 ]

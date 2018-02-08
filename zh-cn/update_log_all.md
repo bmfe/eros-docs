@@ -1,3 +1,35 @@
+## 2018.02.08
+开发模板 eros-template v1.0.0：
+* [del]: 删除了 widget 目录及其源码
+* [del]: 删除了 lodash 依赖
+* [add]: 添加了 eros-widget 依赖
+* [mod]: 修改了 src/js/config/index widget的引入方式
+
+> eros-widget 目前已经独立出来，欢迎所有开发者 pr，[git地址](https://github.com/bmfe/eros-widget)
+
+脚手架 eros-cli v2.0.5:
+
+* [add]: eros install all 可同时下载两端的 eros-sdk
+* [add]: 支持在 init 的时候输入安卓的包名
+* [fix]: eros mock 报错问题
+* [mod]: eros cli 的帮助日志更新
+* [del]: 由于 widget 已提交到 npm 上，目录下不在存在 widget，所以去掉 eros update widget 指令
+
+sdk 相关：
+* eros-ios-sdk[fix]: 修复ios读取本地放在assets目录中的gif图时，无法出现动效的问题感谢 shawn-tangsc PR
+* eros-ios-sdk[fix]: 修复由于ios系统版本不同导致 调用BMNavigatrModule设置导航栏按钮大小不一致的问题
+* eros-android-sdk[fix]: 解决 个推 通知栏点击不跳转问题
+
+文档相关：
+* eros-docs[add]: 迁移所有文档，并完善了 QA 部分。
+
+老版本迁移：
+1. 升级脚手架
+2. 删除 widget 目录
+3. cnpm i eros-widget -S
+4. 把 src/js/config/index 的引入 widget 的路径替换为 `import Widget from 'eros-widget'`
+5. eros update ios or android
+
 ## 2018.02.01
 ### 简述：
 * 目前可任意使用 echart 的大部分所有实例运行了！！！

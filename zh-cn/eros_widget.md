@@ -1,33 +1,89 @@
-# 使用
+# 下载使用
 
 > `widget` 是前端基于客户端拓展出来的 modules 相关功能的二次封装，以vue插件的形式，通过 appboard 全部注入到客户端的 framework Vue 原型上，我们直接通过 vue 中的 this 来快速使用。
 
 我们已经封装好提交到了 npm 上，根据文档您已经执行完 `cnpm/npm install` 了，已经下载到了本地，并且已经在 appboard JS Bundle (默认 config/index) 中注入了配置。
 
-# 更新
-只需要 `cnpm/npm install` 即可。
 
-#### 使用方法
+# 页面生命周期
 
-直接在 this 上调用，比如我们发一个 **get 请求。**
+在不影响vue生命周期的前提下，eros 暴露出了额外的生命周期钩子函数供您使用。
+
+**结合 widget 使用方法：**
 
 ```js
-this.$fetch({
-    method: 'GET',
-    name: 'COMMON_getInfo' //当前是在apis中配置的别名，你也可以直接绝对路径请求 url: http://xx.xx.com/xxx/xxx
-    data: {
-        count: 1
+export default {
+    created() {},  // vue 生命周期
+    bmRouter: {
+    
+        viewWillAppear(params, options) {},
+
+        viewDidAppear(params, options) {},
+
+        viewWillBackAppear(params, options) {},
+
+        viewDidBackAppear(params, options) {},
+
+        viewWillDisappear(options) {},
+
+        viewDidDisappear(options) {}
     }
-}).then(resData => {
-    // 成功回调
-    console.log(resData)
-}, error => {
-    // 错误回调
-    console.log(error)
-})
+}
 ```
 
-下面看看我们到底拓展了哪些 widget。
+**注意事项：**
+
+1. 这些钩子函数都是**异步**的
+ 
+2. 若用到`<embed>`标签，`<embed>`中的内容是**不会触发**此生命周期的
+
+
+**Api：**
+
+- viewWillAppear( params, options )
+
+    触发时机：通过`$router.open`进入本页面，在本页面【即将出现】时触发
+
+    params：`$router.open` 时传递的 params
+    
+    options：目前仅包括属性`type`，值为`open`、`refresh`，前端同学暂时用不到
+
+- viewDidAppear( params, options )
+
+    触发时机：通过`$router.open`进入本页面，在本页面【已经出现】时触发
+
+    params：`$router.open` 时传递的 params
+    
+    options：目前仅包括属性`type`，值为`open`、`refresh`，前端同学暂时用不到
+
+- viewWillBackAppear( params, options )
+
+    触发时机：通过`$router.back`等方法从下一个页面返回本页面，在本页面【即将出现】时触发
+
+    params：`$router.setBackParams` 时设置的 params
+    
+    options：目前仅包括属性`type`，值为`back`，前端同学暂时用不到
+
+- viewDidBackAppear( params, options )
+
+    触发时机：通过`$router.back`等方法从下一个页面返回本页面，在本页面【已经出现】时触发
+
+    params：`$router.setBackParams` 时设置的 params
+    
+    options：目前仅包括属性`type`，值为`back`，前端同学暂时用不到
+
+- viewWillDisappear(options)
+
+    触发时机：在本页面【即将消失】时触发
+    
+    options：目前仅包括属性`type`，值为`open`、`refresh`、`back`，前端同学暂时用不到
+
+- viewDidDisappear(options)
+
+    触发时机：在本页面【已经消失】时触发
+    
+    options：目前仅包括属性`type`，值为`open`、`refresh`、`back`，前端同学暂时用不到
+
 
 # $axios（请求）
 
@@ -1122,13 +1178,12 @@ Toast.install = (Vue, options) => {
 
 Vue.use(Toast)
 ```
-在 `widget/index` 导入一下
+在 `Config/index` 导入一下(需在 eros.dev.js 配置 alias 别名 Widget)。
 ```
-import './toast'
+import 'Widget/toast'
 ```
-toast widget 已经大功告成。
+toast widget 已经大功告成，使用一下。
 
-使用：
 ```js
 this.$toast({
     message: '我自己拓展的',
@@ -1136,7 +1191,6 @@ this.$toast({
 })
 ```
 
-当然开发者也可以根据 `es6` 的 `class` 来编写自己的 widget，widget 中已有 **axios** 和 **router** 为`class` 编写，可以自行参考
 
 
 
