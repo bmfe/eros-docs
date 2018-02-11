@@ -39,3 +39,5 @@
 	<!-- - [eros-android-sdk](/zh-cn/update_log_android) -->
 	<!-- - [eros-cli](/zh-cn/update_log_cli) -->
 	<!-- - [eros-publish](/zh-cn/update_log_publish) -->
+- [三方]
+	- [个推相关](/zh-cn/getuiInfo)
