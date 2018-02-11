@@ -41,10 +41,35 @@
 	```	
 	{"payload":"{\"aps\":{\"alert\":\"test\"}}"}
 	```
+	也可以将你要的标准json通过下列方式贴进去
+	
+	![addGetuiJson](https://github.com/shawn-tangsc/eros-docs/blob/getui/zh-cn/image/addGetuiJson.jpeg)
 
+* 下图是各参数的解释
 
+	![getui](https://github.com/shawn-tangsc/eros-docs/blob/getui/zh-cn/image/getui.jpg)
+	
+### 应用内如何接受
+
+* 在demo的config目录中，有一个push.js 文件。
+
+```
+globalEvent.addEventListener('pushMessage', function (options) {
+    modal.alert({
+        message: 'hello'+JSON.stringify(options),
+        duration: 0.3
+    }, function (value) {
+        console.log('alert callback', value)
+    })
+    console.log('》》》》》》》》'+JSON.stringify(options));
+})
+
+```	
+你可以选择把消息用弹框弹出来，也可以直接看一下控制台。有特殊处理，就在这里直接处理就好了。
+	
 ### 后台调试
 * 个推数据返回格式
+
 ```
 {
 	"payload":{  
