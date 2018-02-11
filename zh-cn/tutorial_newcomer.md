@@ -177,7 +177,6 @@ iOS 模拟器比较特殊，是因为 iOS 模拟器和 Mac 共用一套网络设
     │   ├── css                         // 可抽离公共 css 逻辑
     │   ├── mediator                    // 中介者
     │   ├── pages                       // 页面开发，所有页面都放置在这里
-    │   └── widget                      // widget 源码
     └── mock
         └── test                        // mock 服务，在 eros.dev.js 可进行配置
 ```
@@ -202,13 +201,13 @@ iOS 模拟器比较特殊，是因为 iOS 模拟器和 Mac 共用一套网络设
     <div style="margin-top: 50px;">
         <text class="title">Hello，</text>
         <text class="title">developer</text>
-        <bui-button class="btn-250" type="primary" value="show eros">show eros</bui-button>
+        <wxc-button class="btn-250" text="show eros" >show eros</wxc-button>
     </div>
 </template>
 <script>
-    import buiButton from 'Eros/bui/components/bui-button'
+    import { WxcButton } from 'weex-ui';
     export default {
-        components: { buiButton }
+        components: { WxcButton }
     }
 </script>
 <style>
@@ -301,13 +300,13 @@ export default {
     <div style="margin-top: 50px;">
         <text class="title">Hello，</text>
         <text class="title">developer</text>
-        <bui-button class="btn-250" type="primary" value="show eros" @click="showEros">show eros</bui-button>
+        <wxc-button class="btn-250" text="show eros" @wxcButtonClicked="showEros">show eros</wxc-button>
     </div>
 </template>
 <script>
-    import buiButton from 'Eros/bui/components/bui-button'
+    import { WxcButton } from 'weex-ui';
     export default {
-        components: { buiButton },
+        components: { WxcButton }
         methods: {
             // 这里给按钮添加 showEros 事件来跳转
             showEros() {
