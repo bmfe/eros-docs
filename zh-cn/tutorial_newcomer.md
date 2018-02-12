@@ -69,14 +69,14 @@ JDK 是 JAVA 开发包，AndroidStudio 是 Android开发IDE，这两项不再做
 * android 开发者可以下载 `Genymotion`。
 
 # 模板生成
-1. 首先通过脚手架自动生成开发模板(我们不推荐用sudo来执行)。
+1.首先通过脚手架自动生成开发模板(我们不推荐用sudo来执行)。
 ```
 $ eros init
 ```
 按提示选择模板，填写 app/项目名称和版本后在当前路径下会生成对应模板，然后 `cd` 到项目中。
 ![eros-init](http://upload.ouliu.net/i/20171213130643p940k.gif)
-2. 下载所需依赖
-前端依赖：
+
+2.下载所需依赖前端依赖：
 ```
 $ npm install
 ```
@@ -84,25 +84,32 @@ eros sdk 依赖：
 ```
 $ eros install
 ```
+
 eros install 会让你选择下载依赖：
+
 * ios: eros ios 开发所需依赖
 * android: eros android 开发所需依赖
 
-**每次 eros 解决了 bug 或者开发/更改了 module 和 component 时，只需要 eros install ，ios 更新前请关闭 xcode， android 会在编辑器 android studio 中弹出 `sync` 同步，点击即可。**
+**每次 eros 解决了 bug 或者开发/更改了 module 和 component 时，只需要 eros update ios(或android)即可，ios 更新前请关闭 xcode， android 会在编辑器 android studio 中弹出 `sync` 同步，点击即可。**
 
 ![安卓同步](http://upload.ouliu.net/i/201712121849520zq84.jpeg)
 
 > `eros install` 是执行 iOS/Android 目录中的 scripts/install.platform.sh，所以 windows 系统下最好用 Git Bash 等工具，不然无法下载。
 
-3. 安装完依赖之后:
+3.安装完依赖之后:
 * iOS: 会自动打开 `Xcode` ，然后选择一个模拟器，点击左上角的播放(运行)按钮，即可看到内置包中已经内置好的 eros demo.
 
 * Android:首次生成项目开发者需要多几个步骤，之后每次 eros install 都会有同步提示:
-1. 点击AndroidStudio上方的 **File---&gt;New---&gt;Import Project。**
+1.点击AndroidStudio上方的 **File---&gt;New---&gt;Import Project。**
+
 ![](https://img.benmu-health.com/gitbook/1505963461481.jpg)
-2. 找到eros在你本地的地址，选择 **platforms/android/WeexFrameworkWrapper** ,点击**OK。**
+
+2.找到eros在你本地的地址，选择 **platforms/android/WeexFrameworkWrapper** ,点击**OK。**
+
 ![](https://img.benmu-health.com/gitbook/1505963624252.jpg)
-3. 待项目构建完成，点击 AndroidStudio 上方工具栏的 **Run** ，即可运行项目。![](https://img.benmu-health.com/gitbook/1505963683163.jpg)
+
+3.待项目构建完成，点击 AndroidStudio 上方工具栏的 **Run** ，即可运行项目。
+![](https://img.benmu-health.com/gitbook/1505963683163.jpg)
 
 注意：
 > 第一次打开 AndroidStuido 时，由于本地环境未配置好，AndroidStuido 会提示错误，按照 IDE 提示，大部分环境问题都可以解决。
@@ -188,12 +195,14 @@ iOS 模拟器比较特殊，是因为 iOS 模拟器和 Mac 共用一套网络设
 # Hello Eros
 我们来简单开发一个 Hello World：
 
-1. 首先**关闭调试中的拦截器**，让 app 访问服务包，这时候刷新页面肯定是空白的，因为都没有服务。
+1.首先**关闭调试中的拦截器**，让 app 访问服务包，这时候刷新页面肯定是空白的，因为都没有服务。
 
-2. 项目根目录下运行开发服务 **`eros dev`**，运行成功之后刷新出现内置的 demo 页面，这是其实你已经可以任意修改 pages/eros-demo 中代码，刷新后看效果了，有兴趣可以到处试一试。
+2.项目根目录下运行开发服务 **`eros dev`**，运行成功之后刷新出现内置的 demo 页面，这是其实你已经可以任意修改 pages/eros-demo 中代码，刷新后看效果了，有兴趣可以到处试一试。
+
 > tips: 双击调试按钮即可刷新。
 
-3. 在 pages 目录下新建一个 `Hello.vue` 文件。
+3.在 pages 目录下新建一个 `Hello.vue` 文件。
+
 ![Hello.vue](http://upload.ouliu.net/i/20171213143653v844z.jpeg)
 文件中写一些很简单的语法：
 ```js
@@ -220,10 +229,11 @@ iOS 模拟器比较特殊，是因为 iOS 模拟器和 Mac 共用一套网络设
 </style>
 ```
 
-4. 修改 **`eros.dev.js`** 中的 exports，如果不需要，可以把 eros-demo 中的路径都删掉，只填入新的文件入口 :
+4.修改 **`eros.dev.js`** 中的 exports，如果不需要，可以把 eros-demo 中的路径都删掉，只填入新的文件入口 :
+
 ```js
 "exports": [
-    // appBoard 
+    // appBoard 
     "js/config/index.js",
     // mediator
     "js/mediator/index.vue",
@@ -234,21 +244,25 @@ iOS 模拟器比较特殊，是因为 iOS 模拟器和 Mac 共用一套网络设
 
 这里注意上面两个是和 eros.native.js 中的 appBoard，mediator 一一对应的，如果这里两边修改没有对应上会导致报错，建议平时不用变动。
 
-5. 告诉 app 我要重新改变首页，修改 **eros.native.js** 中的 page.homePage 路径：
+5.告诉 app 我要重新改变首页，修改 **eros.native.js** 中的 page.homePage 路径：
+
 ```js
 "page": {
     "homePage": "/pages/Hello.js",
 }
 ```
-6. **断开 `eros dev` 服务**，因为要告诉脚手架配置文件的变动。
-7. **`eros pack` 打内置包**，因为要告诉 app 配置文件中的变动。
-8. 重新运行（run）app。
+
+6.**断开 `eros dev` 服务**，因为要告诉脚手架配置文件的变动。
+
+7.**`eros pack` 打内置包**，因为要告诉 app 配置文件中的变动。
+
+8.重新运行（run）app。
 
 这时首页就已经开发好了：
 ![首页](http://upload.ouliu.net/i/20171213151248dyqs1.jpeg)
 下面我们修改做一个页面间的跳转，试一试 Widget:
 
-9. 再在 `pages `目录下新建一个页面 **`Eros.vue`**
+9.再在 `pages `目录下新建一个页面 **`Eros.vue`**
 ```js
 <template>
     <div style="margin-top: 50px;">
@@ -267,10 +281,11 @@ iOS 模拟器比较特殊，是因为 iOS 模拟器和 Mac 共用一套网络设
 </style>
 ```
 
-10. 修改 **`eros.dev.js`** 告诉脚手架添加页面了:
+10.修改 **`eros.dev.js`** 告诉脚手架添加页面了:
+
 ```js
 "exports": [
-    // appBoard 
+    // appBoard 
     "js/config/index.js",
     // mediator
     "js/mediator/index.vue",
@@ -281,7 +296,8 @@ iOS 模拟器比较特殊，是因为 iOS 模拟器和 Mac 共用一套网络设
 ],
 ```
 
-11. 注册路由，修改 **`js/config/pages.js`**，清空 demo 中现有的配置:
+11.注册路由，修改 **`js/config/pages.js`**，清空 demo 中现有的配置:
+
 ```js
 export default {
     'Eros': {
@@ -292,7 +308,7 @@ export default {
 ```
 这里的 url 是填写 dist 目录中打包出来 JS Bundle 的相对路径（现在并没有这个 JS Bundle，需要重启开发服务读取配置才会有），注意因为是 JS Bundle 所以以 .js 为结尾。
 
-12. 重启 eros dev，刷新一下，并无任何变化，这时候还无法跳转到新建的页面，因为只是配置了路由，并未触发跳转方法，我们需要修改下 
+12.重启 eros dev，刷新一下，并无任何变化，这时候还无法跳转到新建的页面，因为只是配置了路由，并未触发跳转方法，我们需要修改下 
 
 **`Hello.vue`**:
 ```js
@@ -327,7 +343,8 @@ export default {
 </style>
 ```
 
-13. 双击调试按钮刷新，跳转逻辑已经完成了！
+13.双击调试按钮刷新，跳转逻辑已经完成了！
+
 ![router](http://upload.ouliu.net/i/20171213154813lms38.gif)
 
 至此 Hello world 已经编写完成，可以便根据文档来编写你的业务了。
