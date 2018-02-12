@@ -94,7 +94,7 @@ eros install 会让你选择下载依赖：
 
 ![安卓同步](http://upload.ouliu.net/i/201712121849520zq84.jpeg)
 
-> `eros install` 是执行 iOS/Android 目录中的 scripts/install.platform.sh，所以 windows 系统下最好用 Git Bash 等工具，不然无法下载。
+> `eros install / eros update` 是执行 iOS/Android 目录中的 scripts/install.platform.sh，所以 windows 系统下最好用 Git Bash 等工具，不然无法下载。
 
 3.安装完依赖之后:
 * iOS: 会自动打开 `Xcode` ，然后选择一个模拟器，点击左上角的播放(运行)按钮，即可看到内置包中已经内置好的 eros demo.
