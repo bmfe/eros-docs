@@ -43,11 +43,11 @@
 	```
 	也可以将你要的标准json通过下列方式贴进去
 	
-	![addGetuiJson](https://github.com/shawn-tangsc/eros-docs/blob/getui/zh-cn/image/addGetuiJson.jpeg)
+	![addGetuiJson](zh-cn/image/addGetuiJson.jpeg)
 
 * 下图是各参数的解释
 
-	![getui](https://github.com/shawn-tangsc/eros-docs/blob/getui/zh-cn/image/getui.jpg)
+	![getui](zh-cn/image/getui.jpg)
 	
 ### 应用内如何接受
 
