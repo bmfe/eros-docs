@@ -152,7 +152,7 @@ A:
 
 ## Q: Android 如何修改包名（同一个手机可以跑2个eros 项目）。
 
-A: 修改gradle.properties 文件 APPLICATION_ID （gradle.properties 文件在项目有的跟目录）。
+A: 修改gradle.properties 文件 APPLICATION_ID （gradle.properties 文件在项目的跟目录）。
 
 
 ## Q: Failed to resolve: com.android.support:appcompat
