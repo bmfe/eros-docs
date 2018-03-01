@@ -1,6 +1,4 @@
-# iOS工程
-
-### 工程简介
+## 工程简介
 
 打开 iOS 工程首先看一下主工程目录，你会发现项目非常的清爽，只包含几个必要的文件，连一个 `UIViewController`都不存在，我们将代码都封装到 Pods 库 BMBaseLibrary 里面，通过 Pods 的方式加载进来。在工程里还有三个文件：
 
@@ -13,7 +11,7 @@ bundle.config		// js bundle 版本信息；描述当前 js 的版本，作为版
 ```
 接下来看一下工程是如何引用 WeexSDK、及 BMBaseLibrary Pods 库的；
 
-#### Podfile
+## Podfile
 
 看一下 Podfile 就一目了然了
 
@@ -25,7 +23,7 @@ pod 'BMBaseLibrary', :path=>'./Benmu-iOS-Library'
 
 你会发现是从本地加载的 WeexSDK 及 BMBaseLibrary，在运行命令 `$ bm eros install` 后会将 WeexiOSSDK 及 Benmu-iOS-Library下载到工程中，之后再运行 `pod install` 就会将这个两个库了加载到工程中了；
 
-#### Module 扩展
+## Module 扩展
 
 `Module`是 js 与 native 交互的机制，比如像页面跳转、网络请求等一些操作，需要 native 通过扩展 `Module` 的方式提供接口供 js 调用，自定义 module 的步骤：
 
@@ -138,7 +136,7 @@ axios.fetch({
 })
 ```
 
-#### Component 扩展
+## Component 扩展
 
 Weex 官方已经扩展了一些比较基础的 Component，利用这些组件可以写出一些基本的页面，但在实际开发过程中，有些复杂的页面使用这些组件写起来可能会比较麻烦，或者之前 native 端已经写好的一些炫酷的原生 view 想要在weex中使用，都可以通过 Component 的方式来实现。自定义 Component 的基本步骤：
 

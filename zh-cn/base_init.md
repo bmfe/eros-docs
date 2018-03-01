@@ -18,20 +18,10 @@ $ eros init
 > 请再次保证您的 windows 环境已经安装 `git bash`， 并甚至为 `.sh` 文件的默认执行程序， 来执行自动化脚本，否则必会失败。
 
 
-## iOS 导入工程
+## iOS 运行项目
 确保您已经安装完成 [iOS 所需环境](/zh-cn/base_env)。
 
-
-进入到刚刚生成的项目模板中，下载 `eros ios sdk` 的依赖。
-
-```
-$ cd eros-demo       	// 默认名字是 eros-demo
-$ eros install ios   	// 下载 eros ios sdk
-```
-
-> 注：一般这一步问题出错，都是跟 iOS 包管理器 pod 安装有关。
-
-依赖下载成功之后，不出意外便会自动打开 `xcode`，然后在选择相应的模拟器，点击`绿色箭头`运行即可。
+iOS不需要向 Xcode 中导入工程,执行完`eros install` 命令后，不出意外便会自动打开 `xcode`，然后在选择相应的模拟器，点击`▶`按钮运行即可。
   
 您也可以手动打开项目：找到项目目录下 `platforms/ios/WeexEros/WeexEros.xcworkspace` 文件，双击打开即可；
 
