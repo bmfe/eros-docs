@@ -152,19 +152,8 @@ A:
 
 ## Q: Android 如何修改包名（同一个手机可以跑2个eros 项目）。
 
-A: (本答案由 网友 阿古和刘鹏 贡献~)  
-1.修改applicationId（gradle.properties）。  
-2.修改签名设置app/build.gradle里面的signingConfigs。  
-AS下创建新的签名文件教程：http://blog.csdn.net/donkor_/article/details/53487133 
+A: 修改gradle.properties 文件 APPLICATION_ID （gradle.properties 文件在项目有的跟目录）。
 
-创建好后，将对应的参数填写到signingConfigs中。  
-3.修改app/src/main/AndroidManifest.xml和wxframework\src\main\java\com\benmu\framework\constant\Constant.java  
-把两个文件中的com.benmu.weex.example.categoty.page，  
-com.benmu.weex.example.categoty.web，  
-com.benmu.weex.example.categoty.debug改成一样的，  
-比如：com.xuesi.demo.example.categoty.page，  
-com.xuesi.demo.example.categoty.web，  
-com.xuesi.demo.example.categoty.debug  
 
 ## Q: Failed to resolve: com.android.support:appcompat
 ```
