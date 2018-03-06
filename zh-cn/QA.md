@@ -48,16 +48,6 @@ import buiButton from 'Eros/bui/components/buiButton'
 
 这样能明显减少包体积大小。
 
-## Q: 手机设置代理后不能上网
-
-A:
-
-1.首先请在查看一次`开发调试`的文档，确认一下是否打开了代理工具（charles、fiddler或其他），如果没有打开请打开相关代理工具；
-
-- Charles 使用教程：http://www.jianshu.com/p/fdd7c681929c
-- Fiddler 使用教程：http://www.jianshu.com/p/99b6b4cd273c
-
-
 ## Q: iOS资源下载慢，或者等待时间巨长（eros install ios 命令）
 
 A:
