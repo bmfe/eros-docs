@@ -1,3 +1,78 @@
+## 2018.03.07
+### 重点更新
+* `weex sdk ios/android` 均升级 `0.18.0`
+* 告别 `if (process.env.NODE_ENV === 'development') require('Config’)`
+* `全局事件`，`生命周期`的使用均优化了名称(可选，需谨慎)
+
+### 老版本更新指南
+项目根目录下
+* `cnpm i eros-cli -g` 更新脚手架
+* `eros update template platforms/android/WeexFrameworkWrapper/app/build.gradle` 删除不需要的ndk 架构 (weex sdk 0.18.0 需要)。
+* `eros update ios` 或 `eros update android`
+* `cnpm i` 可选，注意升级完之后需要也需要改代码中原有使用生命周期的代码，[查看文档](http://localhost:3000/#/zh-cn/eros_widget?id=%e9%a1%b5%e9%9d%a2%e5%85%a8%e5%b1%80%e4%ba%8b%e4%bb%b6)，如果想保留之前写法，不执行此行代码更新 `eros-widget` 即可。
+
+### eros-cli 2.0.6-beta.1 
+* [feature] 添加 	`eros run ios`，当本地环境安装成功可直接运行模拟器。
+* [optimize] 优化 自动在 `eros dev` 的时候拼接 appboard js bundle ，从而避免了使用 `if (process.env.NODE_ENV === 'development') require('Config’)`，也解决了 weex debug 中 eros dev 时全局事件会执行两次问题
+* [optimize] eslint 支持编译 await/async. (by 阳光只要七十米)
+
+### eros-template 1.0.1-beta.1 `可选更新`
+* [optimize] demo 兼容 0.18.0，并做了部分优化。
+* [optimize] eslint 支持编译 await/async. (by 阳光只要七十米)
+
+### eros-widget 1.0.1-beta.1 `可选更新`
+* [rebuild] 在 mixins.js 中重做了全局事件的注入，并变更为更语义化的单词，使用方法可参考 demo 中的生命周期
+```js
+export default {
+    eros: {
+        appActive() {
+            console.log('appActive');
+        },
+        appDeactive() {
+            console.log('appDeactive');
+        },
+        beforeAppear (params, options) {
+            console.log('beforeAppear');
+        },
+        beforeBackAppear (params, options) {
+            console.log('beforeBackAppear');
+        },
+
+        appeared (params, options) {
+            console.log('appeared');
+        },
+
+        backAppeared (params, options) {
+            console.log('backAppeared');
+        },
+
+        beforeDisappear (options) {
+            console.log('beforeDisappear');
+        },
+
+        disappeared (options) {
+            console.log('disappeared');
+        },
+
+		pushMessage (options) {
+            console.log('pushMessage');
+        }
+    }
+}
+```
+
+### eros-android-sdk
+* [bugfix] 修复增量更新可能失败问题.
+* [update] 集成升级SDK 0.18版本.
+* [update] 集成升级 weex-debugger 0.13.4版本.
+* [optimize] 修改拦截器关闭不拼接app borad.
+* [feature] 增加全局属性 deviceHeight、deviceWidth
+
+### eros-ios-sdk
+* [update] 集成升级SDK 0.18版本.
+* [optimize] 修改拦截器关闭不拼接app board.
+
+---
 ## 2018.02.08
 开发模板 eros-template v1.0.0：
 * [del]: 删除了 widget 目录及其源码
@@ -30,6 +105,7 @@ sdk 相关：
 4. 把 src/js/config/index 的引入 widget 的路径替换为 `import Widget from 'eros-widget'`
 5. eros update ios or android
 
+---
 ## 2018.02.01
 ### 简述：
 * 目前可任意使用 echart 的大部分所有实例运行了！！！
@@ -65,6 +141,7 @@ sdk 相关：
 * add: eros update template your_path
 * add: eros update widget
 
+---
 ## 2018.01.24
 
 ### eros-template:
@@ -94,6 +171,7 @@ sdk 相关：
 * 新项目 或者 如果需要查看demo 建议重新 eros init 项目
 * 老版本如果更新sdk 只需要 eros install 即可
 
+---
 ## 2018.01.10
 ### 脚手架及其模板
 * 添加编译时 eslint ，并添加 eslint 对应配置文件，在 `eros.dev.js` 中添加 eslint 参数来配置是否需要在编译时进行 eslint 检测，eslint 默认为false。
@@ -116,6 +194,7 @@ sdk 相关：
 1. 修改 module 拨打电话的传参方式
 2. 修改返回格式status问题，统一返回 `Number`
 
+---
 ## 2018.01.05
 ### 安卓/IOS
 * 添加一键调试，不需要扫一扫即可调用调试，模拟器现在也可以调试了；需要在 `eros.native.js` 中添加 `debugServer`，添加方式请看[eros.native.js 配置教程](https://github.com/bmfe/eros-template/wiki/%E9%85%8D%E7%BD%AE%E7%9B%B8%E5%85%B3) (感谢：周晗)
