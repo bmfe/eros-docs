@@ -29,6 +29,7 @@
 - [ iOS 开发相关 ]
 	- [App名称、版本号设置](/zh-cn/ios_config)
 	- [图片相关配置](/zh-cn/ios_image)
+	- [工程简介及扩展](/zh-cn/ios_project)
 
 - [ Q & A ]
 	- [问题集合](/zh-cn/QA)

@@ -66,7 +66,7 @@ $ cnpm i -g weex-toolkit
 
 下完完成之后需要进行相关的配置：
 
-* [fidder 手机抓包](http://blog.csdn.net/gld824125233/article/details/52588275)
+* [fidder 手机抓包](http://blog.csdn.net/gld824125233/article/details/52588275)(如果未生效可尝试重启fidder)
 * [charles 手机抓包](http://blog.csdn.net/suifeng3051/article/details/52087343)
 
 至此，所有的相关的工具和软件都已下载完毕，下面我们开始创建一个 `eros-demo` 工程。
