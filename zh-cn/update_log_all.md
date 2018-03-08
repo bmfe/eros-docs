@@ -5,6 +5,8 @@
 * `全局事件`，`生命周期`的使用均优化了名称(可选，需谨慎)
 
 ### 老版本更新指南
+> 因近期两会原因，还有前不久 github 刚刚遭受了最大的 DDOS 攻击，导致相关操作有些缓慢，甚至会断开，还需要多尝试几次，如若不行，参考 `scripts` 文件夹中的更新脚本，手动进入项目更新即可。
+
 项目根目录下
 * `cnpm i eros-cli -g` 更新脚手架
 * `eros update template platforms/android/WeexFrameworkWrapper/app/build.gradle` 删除不需要的ndk 架构 (weex sdk 0.18.0 需要)。
