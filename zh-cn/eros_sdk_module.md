@@ -559,6 +559,7 @@ router.open({
     type: '',                                     // 客户端定义动态类型，默认值为 PUSH 1. PUSH (将页面压栈到当前容器栈) 2.PRESENT （新建容器栈在进行压栈,从下面弹出新页面）3.TRANSLATION (动画类似QQ的侧滑抽屉效果) 
     params: {},                                   // 传到下一个页面的参数，params 通过 router.getParams(callback) 获取 
     canBack: true,                                // 是否需要返回按钮
+    gesBack: true,							      // 是否开启手势返回（默认开启，仅支持 iOS）
     navTitle: '',                                 // 页面标题
     navShow: true,                                // 是否显示原生导航栏
     statusBarStyle: 'Default||LightContent',      // 系统状态栏文字颜色 1.Default：黑色， 2.LightContent: 白色 
