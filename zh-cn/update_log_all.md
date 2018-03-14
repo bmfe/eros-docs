@@ -7,7 +7,7 @@
 请直接 init 新项目
 
 ### 老版本更新指南
-强烈建议 重新 eros inint 进行迁移
+> **强烈建议，重新 `eros init` 进行迁移。**
 
 * `cnpm i eros-cli -g` 更新脚手架
 * `eros update template scripts`
