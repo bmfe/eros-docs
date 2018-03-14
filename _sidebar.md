@@ -20,6 +20,7 @@
 	- [eros-component](/zh-cn/eros_sdk_component)
 
 - [进阶]
+	- [bindingx](/zh-cn/advanced_bindingx)
 	- [发布更新](/zh-cn/advanced_diff)
 
 - [ Android 开发相关 ]
