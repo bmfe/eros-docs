@@ -266,6 +266,7 @@ Api：
   * `PRESENT`底部弹出。
 * **params（Object）**：需要传递的参数。
 * **canBack（Boolean）**：目标页面是否可以返回。
+* **gesBack（Boolean）**：目标页面是否开启手势返回。默认开启仅支持iOS；
 * **navShow（Boolean）**：是否显示导航条。
 * **navTitle（String）**：导航条文案。
 * **statusBarStyle（String）**：状态栏\(电量，信号\)样式。
