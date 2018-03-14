@@ -14,15 +14,15 @@
 
 `weex native` 项目的使用过程中需要注意：
 
-1. 传入的元素需要多取一层 `ref` 属性，假设我们给一个元素上面 `ref` 属性赋值为 `box` ，则使用时候按照以下方式才可：
+1.传入的元素需要多取一层 `ref` 属性，假设我们给一个元素上面 `ref` 属性赋值为 `box` ，则使用时候按照以下方式才可：
 
 ```js
 this.$refs.box.ref
 ```
 
-2. 如果引用方式为 `requireModule('bindingx')` 这种 weex 引入 module 的写法，bind 方法按照文档中的方式是无效的，需要做特殊处理，后面会说到。
+2.如果引用方式为 `requireModule('bindingx')` 这种 weex 引入 module 的写法，bind 方法按照文档中的方式是无效的，需要做特殊处理，后面会说到。
 
-3. ios 端引入的时候需要做下页面手势返回处理 (eros 中拓展了`$router gesBack` 属性)，防止右滑时候出现`手势冲突`。
+3.ios 端引入的时候需要做下页面手势返回处理 (eros 中拓展了`$router gesBack` 属性)，防止右滑时候出现`手势冲突`。
 
 ## eros 中使用
 

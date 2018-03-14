@@ -1,3 +1,49 @@
+## 2018.03.14
+### 重点更新
+* eros android 底层组件化
+* 支持 [bindingx](https://bmfe.github.io/eros-docs/#/zh-cn/advanced_bindingx)
+
+### 新版本 
+请直接 init 新项目
+
+### 老版本更新指南
+强烈建议 重新 eros inint 进行迁移
+
+* `cnpm i eros-cli -g` 更新脚手架
+* `eros update template scripts`
+* `eros update template package.json`
+* `eros update template /platforms/android/WeexFrameworkWrapper/settings.gradle`
+* `eros update template /platforms/android/WeexFrameworkWrapper/app/build.gradle`
+* `eros update template /platforms/android/WeexFrameworkWrapper/app/src/main/java/com/benmu/wx/activity/SplashActivity.java`
+* `eros update ios`
+* `eros install android` (注意此次安卓升级较大，不得使用 update 命令，如果改动了底层代码，请直接 init 项目来 diff 差别)
+* `rm -rf node_modules` 删除前端依赖
+* `cnpm install` 重新下载前端依赖
+
+### eros-cli 2.0.6-beta.1 
+* [feature] 更新 `weex-loader` 到最新版，支持 recyle-list
+* [feature] 添加 socket 服务，准备开发保存自动刷新
+* [bugfix] `eros build -d` 报错问题
+
+### eros-template 1.0.1-beta.1 `可选更新`
+* [feature] 添加 bindindx demo
+* [update] weex-ui demo
+
+### eros-widget 1.0.1-beta.6
+* [feature] 支持 $bindingx，重写 $bindingx 的引用方法，重写了 bind 方法，支持所有内部暴露出来的方法
+* [bugfix] 父子组件同时注册生命周期，执行两次的 bug
+
+### eros-android-sdk
+* [feature] 插件化重构，拆分amap；
+* [feature] 集成 BindingX； 
+* [update] BMChart 修改默认背景颜色为透明；
+* [bugfix] 订阅传递纯数字字符是可能有问题；
+
+### eros-ios-sdk
+* [feature] 集成 BindingX；
+* [feature] BMRouter open方法添加 gesBack字段，控制是否开启手势返回；
+* [update] BMChart 修改默认背景颜色为透明；
+
 ## 2018.03.07
 ### 重点更新
 * `weex sdk ios/android` 均升级 `0.18.0`
