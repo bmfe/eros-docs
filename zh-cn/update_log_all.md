@@ -7,8 +7,22 @@
 请直接 init 新项目
 
 ### 老版本更新指南
-> **强烈建议，重新 `eros init` 进行迁移。**
 
+如果您未变动到开发底层 platforms/android/ 下的文件，请按以下指令更新：
+* `cnpm i eros-cli -g` 更新脚手架
+* `eros update template scripts`
+* `eros update template package.json`
+* `eros update template /platforms/android`
+* `eros update ios`
+* `rm -rf node_modules` 删除前端依赖
+* `cnpm install` 重新下载前端依赖
+
+如果您的 eros 客户端底层变动较大，如下更新比较合适：
+* `eros init` 最新模板
+* 直接把你项目中的 `src` 目录拷贝进来
+* `diff` 底层的变动，进行迁移
+
+如果您变动了不多，请尝试以下更新：
 * `cnpm i eros-cli -g` 更新脚手架
 * `eros update template scripts`
 * `eros update template package.json`
@@ -16,9 +30,11 @@
 * `eros update template /platforms/android/WeexFrameworkWrapper/app/build.gradle`
 * `eros update template /platforms/android/WeexFrameworkWrapper/app/src/main/java/com/benmu/wx/activity/SplashActivity.java`
 * `eros update ios`
-* `eros install android` (注意此次安卓升级较大，不得使用 update 命令，如果改动了底层代码，请直接 init 项目来 diff 差别)
+* `eros install android` (注意此次安卓升级较大，不得使用 update 命令，如果改动了底层代码覆盖了你得逻辑，还是直接 init 项目来 diff 差别)
 * `rm -rf node_modules` 删除前端依赖
 * `cnpm install` 重新下载前端依赖
+
+如果您距离当前版本过久没更新，**强烈建议，重新 `eros init` 进行迁移。**
 
 ### eros-cli 2.0.6-beta.1 
 * [feature] 更新 `weex-loader` 到最新版，支持 recyle-list
