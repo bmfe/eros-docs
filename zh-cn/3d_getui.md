@@ -43,12 +43,11 @@
 	```
 	也可以将你要的标准json通过下列方式贴进去
 	
-	![addGetuiJson](zh-cn/image/addGetuiJson.jpeg)
-
+	addGetuiJson![](https://raw.githubusercontent.com/myliuyx/source/master/addGetuiJson.jpeg)
 * 下图是各参数的解释
 
-	![getui](zh-cn/image/getui.jpg)
-	
+	getui![](https://raw.githubusercontent.com/myliuyx/source/master/getui.jpg)
+
 ### 应用内如何接受
 
 * 在demo的config目录中，有一个push.js 文件。
