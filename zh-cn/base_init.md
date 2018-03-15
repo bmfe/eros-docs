@@ -34,7 +34,7 @@ iOS不需要向 Xcode 中导入工程,执行完`eros install` 命令后，不出
 
 ```
 $ cd eros-demo       	 // 默认名字是 eros-demo
-$ eros install android   // 下载 eros android sdk
+$ eros install --android   // 下载 eros android sdk
 ```
 
 手动导入：

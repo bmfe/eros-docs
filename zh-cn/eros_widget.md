@@ -5,42 +5,71 @@
 我们已经封装好提交到了 npm 上，根据文档您已经执行完 `cnpm/npm install` 了，已经下载到了本地，并且已经在 appboard JS Bundle (默认 config/index) 中注入了配置。
 
 
-# 页面生命周期
+# 页面全局事件
 
-在不影响vue生命周期的前提下，eros 暴露出了额外的生命周期钩子函数供您使用。
+在不影响 vue 生命周期的前提下，eros 基于 `globalEvent` 暴露出了额外的事件供您使用。
 
 **结合 widget 使用方法：**
 
 ```js
 export default {
     created() {},  // vue 生命周期
-    bmRouter: {
-    
-        viewWillAppear(params, options) {},
+    eros: {
+        // app 前后台相关 start 
+        appActive() {
+            console.log('appActive');
+        },
+        appDeactive() {
+            console.log('appDeactive');
+        },
+        // app 前后台相关 end 
 
-        viewDidAppear(params, options) {},
+        // 页面周期相关 start 
+        beforeAppear (params, options) {
+            console.log('beforeAppear');
+        },
+        beforeBackAppear (params, options) {
+            console.log('beforeBackAppear');
+        },
+        appeared (params, options) {
+            console.log('appeared');
+        },
 
-        viewWillBackAppear(params, options) {},
+        backAppeared (params, options) {
+            console.log('backAppeared');
+        },
+        beforeDisappear (options) {
+            console.log('beforeDisappear');
+        },
+        disappeared (options) {
+            console.log('disappeared');
+        },
+        // 页面周期相关 end 
 
-        viewDidBackAppear(params, options) {},
-
-        viewWillDisappear(options) {},
-
-        viewDidDisappear(options) {}
-    }
+        // 局部个推通知 
+        pushMessage (options) {
+            console.log('pushMessage');
+        }
+    }    
 }
 ```
 
 **注意事项：**
 
-1. 这些钩子函数都是**异步**的
+1. 这些钩子函数都是**异步**的。
  
-2. 若用到`<embed>`标签，`<embed>`中的内容是**不会触发**此生命周期的
-
+2. 若用到`<embed>`标签，`<embed>`中的内容是**不会触发**全局事件的。
 
 **Api：**
+- **appActive( )**
+    
+    触发时机：通过【后台】切换至【前台】时触发。
 
-- viewWillAppear( params, options )
+- **appDeactive( )**
+
+    触发时机：通过【前台】切换至【后台】时触发。
+
+- **beforeAppear( params, options )**
 
     触发时机：通过`$router.open`进入本页面，在本页面【即将出现】时触发
 
@@ -48,7 +77,7 @@ export default {
     
     options：目前仅包括属性`type`，值为`open`、`refresh`，前端同学暂时用不到
 
-- viewDidAppear( params, options )
+- **appeared( params, options )**
 
     触发时机：通过`$router.open`进入本页面，在本页面【已经出现】时触发
 
@@ -56,7 +85,7 @@ export default {
     
     options：目前仅包括属性`type`，值为`open`、`refresh`，前端同学暂时用不到
 
-- viewWillBackAppear( params, options )
+- **beforeBackAppear( params, options )**
 
     触发时机：通过`$router.back`等方法从下一个页面返回本页面，在本页面【即将出现】时触发
 
@@ -64,7 +93,7 @@ export default {
     
     options：目前仅包括属性`type`，值为`back`，前端同学暂时用不到
 
-- viewDidBackAppear( params, options )
+- **backAppeared( params, options )**
 
     触发时机：通过`$router.back`等方法从下一个页面返回本页面，在本页面【已经出现】时触发
 
@@ -72,18 +101,23 @@ export default {
     
     options：目前仅包括属性`type`，值为`back`，前端同学暂时用不到
 
-- viewWillDisappear(options)
+- **beforeDisappear(options)**
 
     触发时机：在本页面【即将消失】时触发
     
     options：目前仅包括属性`type`，值为`open`、`refresh`、`back`，前端同学暂时用不到
 
-- viewDidDisappear(options)
+- **disappeared(options)**
 
     触发时机：在本页面【已经消失】时触发
     
     options：目前仅包括属性`type`，值为`open`、`refresh`、`back`，前端同学暂时用不到
 
+- **pushMessage(options)**
+
+    触发时机：收到个推发送信息且在使用页面时触发
+    
+    options：推送信息
 
 # $axios（请求）
 
@@ -232,6 +266,7 @@ Api：
   * `PRESENT`底部弹出。
 * **params（Object）**：需要传递的参数。
 * **canBack（Boolean）**：目标页面是否可以返回。
+* **gesBack（Boolean）**：目标页面是否开启手势返回。默认开启仅支持iOS；
 * **navShow（Boolean）**：是否显示导航条。
 * **navTitle（String）**：导航条文案。
 * **statusBarStyle（String）**：状态栏\(电量，信号\)样式。
