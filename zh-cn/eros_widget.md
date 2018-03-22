@@ -207,7 +207,7 @@ Api：
 
 我们在 routes.js 中配置页面对应 js 的别名，和导航条显示文案。
 
-> **主页的导航条默认是隐藏的，如果需要，便在bmRouter的生命周期 viewWillAppear 中调用 this.$nav.setNavigationInfo 来自行设置。**
+> **主页的导航条默认是隐藏的，如果需要，便在全局事件 eros.beforeAppear 中调用 this.$nav.setNavigationInfo 来自行设置。**
 
 ```js
 // src/js/config/routes.js
@@ -345,8 +345,8 @@ this.$router.setBackParams({
 
 // 目标页面
 export default {
-    bmRouter: {
-        viewWillBackAppear(params) {
+    eros: {
+        beforeAppear(params) {
             console.log(params)
         }
     }
