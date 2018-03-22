@@ -2,13 +2,13 @@
 # 介绍
 **eros 是基于 [weex](https://weex-project.io/cn/) 封装面向前端的 vue 写法的解决方案，由于 app 开发的特殊性，eros 则更偏重关心于整个 app 项目。**
 
-| iOS 端内置 DEMO | Android 端内置 DEMO |
-|---------|---------|---------|
-|![eros-demo](/image/show.gif)|![Android-demo](/image/androidDemo.gif)|
-
-| ios 版下载 | android版下载 |
+| Eros iOS gif | Eros Android gif |
 |---------|---------|
-|![ios下载](http://chuantu.biz/t6/214/1516790387x-1404793130.png)|![android 下载](http://upload.ouliu.net/i/201801241911376ee1z.png)|
+|[eros-demo](https://bmfe.github.io/eros-docs/zh-cn/image/show.gif)|[eros-demo](https://bmfe.github.io/eros-docs/zh-cn/image/androidDemo.gif)|
+
+| iOS download QR code | Android download QR code |
+|---------|---------|
+|![ios下载](https://bmfe.github.io/eros-docs/zh-cn/image/iosqr.png)|![android 下载](http://upload.ouliu.net/i/201801241911376ee1z.png)|
 
 * [iOS 下载链接](http://fir.im/eros)
 * [Android 下载链接](https://fir.im/weexerosandroid)
