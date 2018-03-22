@@ -1,3 +1,53 @@
+## 2018.03.22
+### 重点更新
+* 全新 demo
+* 真机/模拟器(单个/多个) 热刷新
+* 开发中代理软件成为可选项
+* eros.native.js 以后不需要每次 pack 生效，修改完后，重启 eros dev，重新 build app 即可.
+
+### 新版本 
+请直接 init 新项目
+
+### 老版本更新指南
+如果 3.14 版本未更新的话，看下面的更新指南。
+如果您未变动到开发底层 platforms/android/ 下的文件，请按以下指令更新：
+* `cnpm i eros-cli -g` 更新脚手架
+* `eros update template package.json`
+* `eros update ios`
+* `eros update android`
+* `rm -rf node_modules` 删除前端依赖
+* `cnpm install` 重新下载前端依赖
+
+
+如果您距离当前版本过久没更新，**强烈建议，重新 `eros init` 进行迁移。**
+
+### eros-cli 2.0.7-beta.1 
+* [feature] 更新 `weex-loader` 到最新版，支持 recyle-list
+* [feature] 添加 socket 服务，支持热刷新可动态代理 ip 写入
+* [optimize] 添加 happypack 减少打包体积 
+
+### eros-template 1.0.1-beta.2 `可选更新`
+* [feature] 全新的 demo
+* [update] 升级了 weex-ui 版本
+
+### eros-widget 1.0.1-beta.8
+* [feature] alert/confirm 去掉 message 为空限制
+
+### eros-android-sdk
+* [feature] 增加热刷新功能。
+* [modify] 修改Input 默认字体为黑色
+* [modify] 修改Image标签的 默认加载动画菊花 由 placeholder 属性控制，默认不展示。
+* [update] bindingx 升级到了 1.0.2
+* [bugfix] 页面旋转崩溃问题 (PR By 韩琉鑫)
+* [bugfix] 修改Emit参数类型转化异常
+* [bugfix] 修复扫码遇到Json串可能崩溃问题。
+* [bugfix] 所有弹窗均改为原生 
+
+### eros-ios-sdk
+* [feature] 增加热刷新功能。
+* [update] bindingx 升级到了 1.0.1
+
+
 ## 2018.03.14
 ### 重点更新
 * eros android 底层组件化
