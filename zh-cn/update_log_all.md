@@ -2,9 +2,20 @@
 ### 重点更新
 * 全新 demo
 * 真机/模拟器(单个/多个) 热刷新
-* 开发中代理软件成为可选项
+* 开发中代理软件成为可选项，不需要代理软件就可以通过真机/模拟器进行实时修改预览。
 * eros.native.js 以后不需要每次 pack 生效，修改完后，重启 eros dev，重新 build app 即可.
 
+> 特别注意：weex-loader 升级之后 sass 中 变量 $ 不生效，确认为官方 weex-loader 问题，已提issues，如果想继续使用，在全局脚手架中自行降级即可
+
+热刷新使用
+```js
+// eros.dev.js 中添加如下配置 开启 websocket
+'socketServer': {
+    'port': 8899,
+    'switch': true
+}
+```
+然后看自己 eros.native.js url.jsServer 是否还存在，目前已经采取动态ip 写入，你需要删除此项配置，重新 eros dev，build app 即可。
 ### 新版本 
 请直接 init 新项目
 
@@ -18,10 +29,9 @@
 * `rm -rf node_modules` 删除前端依赖
 * `cnpm install` 重新下载前端依赖
 
-
 如果您距离当前版本过久没更新，**强烈建议，重新 `eros init` 进行迁移。**
 
-### eros-cli 2.0.7-beta.1 
+### eros-cli 2.0.7-beta.3
 * [feature] 更新 `weex-loader` 到最新版，支持 recyle-list
 * [feature] 添加 socket 服务，支持热刷新可动态代理 ip 写入
 * [optimize] 添加 happypack 减少打包体积 
