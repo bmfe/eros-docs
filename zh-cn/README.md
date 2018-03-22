@@ -4,7 +4,7 @@
 
 | iOS 端内置 DEMO | ios 版下载 | android版下载 |
 |---------|---------|---------|
-|![eros-demo](http://upload.ouliu.net/i/20180122162536pcw67.gif)|![ios下载](http://chuantu.biz/t6/214/1516790387x-1404793130.png)|![android 下载](http://upload.ouliu.net/i/201801241911376ee1z.png)|
+|![eros-demo](/image/show.gif)|![ios下载](http://chuantu.biz/t6/214/1516790387x-1404793130.png)|![android 下载](http://upload.ouliu.net/i/201801241911376ee1z.png)|
 
 * [iOS 下载链接](http://fir.im/eros)
 * [Android 下载链接](https://fir.im/weexerosandroid)
