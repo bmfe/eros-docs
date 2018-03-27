@@ -177,7 +177,7 @@ export const responseHandler = (options, resData, resolve, reject) => {
 // 示例
 this.$fetch({
     method: 'GET',    
-    name: 'common.getInfo', //当前是在apis中配置的别名，你也可以直接绝对路径请求 http://xx.xx.com/xxx/xxx
+    name: 'common.getInfo', //当前是在apis中配置的别名，你也可以直接绝对路径请求 如：url:http://xx.xx.com/xxx/xxx
     data: {
         count: 1
     }
