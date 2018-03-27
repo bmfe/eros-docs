@@ -43,7 +43,7 @@ this.$refs.box.ref
 <template>
   <div class="container" >
     <div class="border">
-      <div :ref="'my'" class="box" @touchstart="ontouchstart">
+      <div ref="box" class="box" @touchstart="ontouchstart">
         <div class="head">
           <div class="avatar"></div>
           <text class="username">HACKER</text>
