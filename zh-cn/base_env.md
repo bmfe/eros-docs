@@ -1,16 +1,6 @@
 
 > 我们推荐全部都安装，**但标注必须的环境必须安装，不然无法开发与调试**。
 
-# hosts`(可选)`
-为了真机调试，我们推荐配置 `hosts` 文件，添加如下地址，当然您也可以默认为公司固定资源文件访问地址，这样通过证书还能进行线上抓包分析问题，注意配置前面加 `#` 号是注释的意思。
-```
-127.0.0.1   app.weex-eros.com
-```
-
-* windows 修改方法请戳这里 [教程](https://jingyan.baidu.com/article/b907e627d86be046e6891c41.html)
-
-* mac/linux 修改方法: 打开终端输入命令 `$ sudo vi /etc/hosts` 在最后一行添加即可 
-
 ## 基础环境`(必须)`
 darwin: 
 * Node.js (>=6.x), npm version 4+ 
@@ -29,7 +19,9 @@ $ cnpm i eros-cli -g
 > 因为脚手架依赖了`node-sass`，安装失败有很多解决办法，可自行查找。
 
 ## darwin 开发 iOS`(必须)`
-* Xcode
+> CocoaPods 使用过程中遇到问题及时 Google，建议不要使用 beta 版本，使用较为稳定的版本，如 `1.4.0`。
+
+* Xcode (appStore 下载)
 * CocoaPods
     * 升级 Ruby 环境：`$ sudo gem update --system`
     * 移除现有 Ruby 镜像：`$ gem sources --remove https://rubygems.org/`
@@ -48,9 +40,9 @@ JDK 是 JAVA 开发包，AndroidStudio 是 Android开发IDE，这两项不再做
 
 ## 模拟器安装`(必须)`
 * ios 开发中 xcode 已经自带了模拟器
-* android 开发者推荐下载 `Genymotion`模拟器
+* android 开发者可以使用 android studio 再带模拟器，为了更好的效果，推荐下载 `Genymotion`模拟器
 
->当然市面上的如 `夜神模拟器` 也是可以的，[调试教程](http://blog.csdn.net/qq_34653571/article/details/53007044?locationNum=14&fps=1)，但是在 weex 0.17 中会出现 weex 实例化失败的问题，所以还是推荐 `Genymotion`。
+>当然市面上的如 `夜神模拟器` 也是可以的，[调试教程](http://blog.csdn.net/qq_34653571/article/details/53007044?locationNum=14&fps=1)，但是在 weex 0.17/0.18 中会出现 weex 实例化失败的问题，所以还是推荐 `Genymotion`。
 
 ## weex-toolkit`(可选)`
 `断点调试` app 的能力。
@@ -60,8 +52,7 @@ $ cnpm i -g weex-toolkit
 > [weex-toolkit](https://github.com/weexteam/weex-toolkit) 是 weex 官方提供的一个脚手架命令行工具，你可以使用它进行 weex 项目的创建，调试以及打包等功能，我们这里只使用它的调试功能( `weex debug` )；
 
 ## 代理软件`(可选)`
-`真机调试`的能力，让我们能在 app 中访问电脑本地的 JS Bundle，同时抓取我们的请求，方便我们对于请求的调试与分析。
-* windows 推荐下载 `fidder`。
+帮助我们进行 app 请求抓包，分析问题。
 * darwin/linux 推荐下载 [Charles](http://xclient.info/s/charles.html?_=b75d1488fca52bf0f85a4d11ac1200e3)。
 
 下完完成之后需要进行相关的配置：

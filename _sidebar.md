@@ -1,9 +1,6 @@
 - 
 	- [主页](/zh-cn/)
 
-- [ 教程 ]
-	- [入门](/zh-cn/tutorial_newcomer)
-
 - [ 基础 ]
 	- [集成环境](/zh-cn/base_env)
 	- [生成项目](/zh-cn/base_init)
@@ -12,6 +9,8 @@
 	- [业务开发](/zh-cn/base_dev)
 	- [依赖更新](/zh-cn/base_dependencies)
 	
+- [ 教程 ]
+	- [入门](/zh-cn/tutorial_newcomer)
 
 - [ 拓展 ]
 	- [eros-增强](/zh-cn/base_extend)
@@ -20,7 +19,10 @@
 	- [eros-component](/zh-cn/eros_sdk_component)
 
 - [进阶]
+	- [appboard (待完善)](/zh-cn/advanced_appboard)
+	- [mediator (待完善)](/zh-cn/advanced_mediator)
 	- [bindingx](/zh-cn/advanced_bindingx)
+	- [插件开发 (待完善)](/zh-cn/advanced_plugin)
 	- [发布更新](/zh-cn/advanced_diff)
 
 - [ Android 开发相关 ]

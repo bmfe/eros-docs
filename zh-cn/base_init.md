@@ -14,6 +14,11 @@ $ eros init
 **安卓手机上不能出现 2 个包名相同的应用，如果有，需要卸载，为了同时安装多个 `eros app `设置请勿重复。**
 
 脚手架会自动从 NPM 上拉取最新的 [eros-template 开发模板](https://github.com/bmfe/eros-template)，按照提示一直到 `eros install` 完成。
+```
+$ cd eros-demo
+$ npm i
+$ eros install
+```
 
 > 请再次保证您的 windows 环境已经安装 `git bash`， 并甚至为 `.sh` 文件的默认执行程序， 来执行自动化脚本，否则必会失败。
 

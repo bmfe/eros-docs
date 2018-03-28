@@ -6,7 +6,7 @@
 
 客户端需要读取的配置文件。
 
-> 注意:  **`eros.native.js` 每次变动，都需要执行命令 `eros pack` 打内置包到对应平台，并重新运行你的 app 。**
+> 注意:  **`eros.native.js` 每次变动，都需要重新执行命令 `eros dev` 并重新运行你的 app 。**
 
 ```javascript
 {
@@ -73,7 +73,7 @@
 * navItemColor:  原生导航栏字体颜色。
 
 #### **`url`**: 路经相关: 
-* jsServer: 本地 js 的服务路径。
+* jsServer: 本地 js 的服务路径。(默认脚手架自动填写)
 * image: 图片上传绝对路径。
 * bundleUpdate: 检测jsBundle更新接口。`(增量发布相关)`
 
@@ -104,7 +104,7 @@
 
 脚手架会去读取此项配置来让开发者进行开发，调试，语法检测，mock，生成增量包和全量包等能力
 
-> 注意: **，`eros.dev.js` 每次变动，都需要重新启 eros dev 开发服务。**`(因为此项配置，是在脚手架启动的时候会回去读取)`。
+> 注意: **，`eros.dev.js` 每次变动，都需要重新启 eros dev 开发服务。**`(因为此项配置，是在脚手架启动的时才会去读取)`。
 
 ```javascript
 {
@@ -141,6 +141,10 @@
     mockServer: { 
         "port": 52077, 
         "mockDir": "./dist/mock" 
+    },
+    socketServer: {
+        "switch": true,
+        "port": 8890
     }
 }
 ```
@@ -165,6 +169,9 @@ import component from 'Components' //对应 js/components
 
 ##### **`mockServer`**
 本地`mock`数据服务，因为`proxy`中已经把`/test`路径代理带`52077`端口，而我们在`52077`端口起了`mock`服务，所以能在本地`mock`数据。
+
+#### **`socketServer`**
+热更新服务`开关`和`端口`，**若没有此项配置，热更新功能是无法使用的。**
 
 
 
