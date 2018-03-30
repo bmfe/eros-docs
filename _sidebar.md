@@ -23,7 +23,8 @@
 	- [mediator (待完善)](/zh-cn/advanced_mediator)
 	- [bindingx](/zh-cn/advanced_bindingx)
 	- [插件开发 (待完善)](/zh-cn/advanced_plugin)
-	- [发布更新](/zh-cn/advanced_diff)
+	- [热更新原理](/zh-cn/advanced_diff)
+	- [eros-publish](/zh-cn/advanced_publish)
 
 - [ Android 开发相关 ]
 	- [配置](/zh-cn/android_config)

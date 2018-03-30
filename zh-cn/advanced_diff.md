@@ -1,4 +1,4 @@
-> 更新逻辑已开源，使用文档 [eros-publish](https://github.com/bmfe/eros-publish)，下面我们说下增量发布的大概实现逻辑。
+> 更新逻辑已开源，使用文档 [eros-publish](https://github.com/bmfe/eros-publish)，下面我们说下增量发布的大概实现逻辑。
 
 ### 需要更新的资源
 
