@@ -214,7 +214,7 @@ eros install 会让你选择下载依赖：
     <div style="margin-top: 50px;">
         <text class="title">Hello，</text>
         <text class="title">developer</text>
-        <wxc-button class="btn-250" text="show eros" >show eros</wxc-button>
+        <wxc-button class="btn-250" text="show eros" ></wxc-button>
     </div>
 </template>
 <script>
@@ -319,7 +319,7 @@ export default {
     <div style="margin-top: 50px;">
         <text class="title">Hello，</text>
         <text class="title">developer</text>
-        <wxc-button class="btn-250" text="show eros" @wxcButtonClicked="showEros">show eros</wxc-button>
+        <wxc-button class="btn-250" text="show eros" @wxcButtonClicked="showEros"></wxc-button>
     </div>
 </template>
 <script>
