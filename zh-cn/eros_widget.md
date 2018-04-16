@@ -1073,6 +1073,10 @@ this.$pay.wechat({
 ```
 
 # $share（分享相关）
+> `eros`中实现了分享到微信朋友圈及微信好友功能，首先需要使用者先在[微信开放平台](https://open.weixin.qq.com)申请App。分享是基于友盟SDK实现的，在使用分享之前，还需要一些配置<br>
+> 1.首先请到友盟平台注册App后，在 `eros.native.js`中填写AppKey; <br>
+> 2.iOS平台请参考[友盟的教程](https://developer.umeng.com/docs/66632/detail/66825)配置**SSO白名单**、及 **URL Scheme**；<br>
+> 3.Android AppId一定要填写对，并且微信后台需要填写app签名，详情请看微信官方教程；
 
 示例：
 
