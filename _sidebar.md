@@ -19,7 +19,7 @@
 	- [eros-component](/zh-cn/eros_sdk_component)
 
 - [进阶]
-	- [appboard (待完善)](/zh-cn/advanced_appboard)
+	- [appboard](/zh-cn/advanced_appboard)
 	- [mediator (待完善)](/zh-cn/advanced_mediator)
 	- [bindingx](/zh-cn/advanced_bindingx)
 	- [插件开发 (待完善)](/zh-cn/advanced_plugin)
