@@ -1,6 +1,3 @@
-- 
-	- [主页](/zh-cn/)
-
 - [ 基础 ]
 	- [集成环境](/zh-cn/base_env)
 	- [生成项目](/zh-cn/base_init)
@@ -13,14 +10,14 @@
 	- [入门](/zh-cn/tutorial_newcomer)
 
 - [ 拓展 ]
-	- [eros-增强](/zh-cn/base_extend)
-	- [eros-widget](/zh-cn/eros_widget)
-	- [eros-module](/zh-cn/eros_sdk_module)
-	- [eros-component](/zh-cn/eros_sdk_component)
+	- [eros | 增强](/zh-cn/base_extend)
+	- [eros | widget](/zh-cn/eros_widget)
+	- [eros | module](/zh-cn/eros_sdk_module)
+	- [eros | component](/zh-cn/eros_sdk_component)
 
 - [进阶]
 	- [appboard](/zh-cn/advanced_appboard)
-	- [mediator (待完善)](/zh-cn/advanced_mediator)
+	- [mediator](/zh-cn/advanced_mediator)
 	- [bindingx](/zh-cn/advanced_bindingx)
 	- [插件开发 (待完善)](/zh-cn/advanced_plugin)
 	- [热更新原理](/zh-cn/advanced_diff)
@@ -44,5 +41,5 @@
 	<!-- - [eros-android-sdk](/zh-cn/update_log_android) -->
 	<!-- - [eros-cli](/zh-cn/update_log_cli) -->
 	<!-- - [eros-publish](/zh-cn/update_log_publish) -->
-- [三方]
+- [ 三方 ]
 	- [个推相关](/zh-cn/3d_getui)
