@@ -86,4 +86,4 @@ $ eros install --android   // 下载 eros android sdk
 首次打开我们已经为您内置了由一些 `demo`，您可以看到相关的页面，下面在开发之前还需要进行一些相关的配置和调试的学习。
 
 
-> 如果在此节中出现任何问题均不能正常运行 demo，请在 [issue](https://github.com/bmfe/eros-template/issues?q=is%3Aissue+is%3Aclosed) 或者 [Q&A](https://bmfe.github.io/eros-docs/#/zh-cn/QA)中来寻到解决方法，如果还未找到，麻烦给我们[提issue](https://github.com/bmfe/eros-template/issues/new)。
+> 如果在此节中出现任何问题均不能正常运行 demo，请在 [issue](https://github.com/bmfe/eros/issues?q=is%3Aissue+is%3Aclosed) 或者 [Q&A](https://bmfe.github.io/eros-docs/#/zh-cn/QA)中来寻到解决方法，如果还未找到，麻烦给我们[提issue](https://github.com/bmfe/eros/issues/new)。

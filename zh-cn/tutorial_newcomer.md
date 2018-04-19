@@ -352,8 +352,8 @@ export default {
 
 至此 Hello world 已经编写完成，可以便根据文档来编写你的业务了。
 
-* [eros 模板地址](https://github.com/bmfe/eros-template)
-* [eros 文档地址](https://github.com/bmfe/eros-template/wiki/eros)
+* [eros 主页地址](https://github.com/bmfe/eros)
+* [eros 文档地址](https://bmfe.github.io/eros-docs/#/)
 
 eros 还有 demo 是根据网易严选 demo 进行改编的（感谢 [zwwill](https://github.com/zwwill) 的开源和指导），开发者也可以进行参考：
 
