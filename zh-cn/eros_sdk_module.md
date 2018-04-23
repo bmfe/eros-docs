@@ -830,7 +830,32 @@ tools.scan(function(resDate){
 
 # bmWebSocket
 bmbmWebSocket用于创建一个webSocket会话
-调用方法如下：
+
+### API
+**引用方式**
+
+```js
+var bmWebSocket = weex.requireModule('bmWebSocket')
+```
+
+#### webSocket(url, protocol)
+创建 WebSockets，并连接服务器
+
+#### send(data)
+通过WebSocket连接向服务器发送数据
+
+#### close(code,reason)
+关闭 WebSockets 的链接
+#### onopen
+链接打开的监听
+#### onmessage(options)
+消息事件的监听器
+#### onclose(options)
+关闭事件的监听器
+#### onerror(options)
+错误事件的监听器
+
+bmWebSocket 具体范例如下：
 
 ```js
 <template>
@@ -937,12 +962,12 @@ bmbmWebSocket用于创建一个webSocket会话
         bmWebSocket.onerror(function(e)
         {
           self.onerrorinfo = e.data;
-        })
+        });
         bmWebSocket.onclose(function(e)
         {
           self.onopeninfo = '';
           self.onerrorinfo = e.code;
-        })
+        });
       },
       send:function(e) {
         var input = this.$refs.input;
@@ -960,26 +985,6 @@ bmbmWebSocket用于创建一个webSocket会话
   }
 </script>
 ```
-
-### API
-#### webSocket(url, protocol)
-创建 WebSockets，并连接服务器
-
-#### send(data)
-通过WebSocket连接向服务器发送数据
-
-#### close(code,reason)
-关闭 WebSockets 的链接
-#### onopen
-链接打开的监听
-#### onmessage(options)
-消息事件的监听器
-#### onclose(options)
-关闭事件的监听器
-#### onerror(options)
-错误事件的监听器
-
-
 
 
 
