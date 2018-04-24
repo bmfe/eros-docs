@@ -829,10 +829,15 @@ tools.scan(function(resDate){
 ```
 
 # bmWebSocket
-bmbmWebSocket用于创建一个webSocket会话，api和使用方式与[weex官方WebSocket](http://weex.apache.org/cn/references/modules/websocket.html)。
-### 引用方式 
-`var bmWebSocket = weex.requireModule('bmWebSocket')`
+bmbmWebSocket用于创建一个webSocket会话
+
 ### API
+**引用方式**
+
+```js
+var bmWebSocket = weex.requireModule('bmWebSocket')
+```
+
 #### webSocket(url, protocol)
 创建 WebSockets，并连接服务器
 
@@ -850,7 +855,136 @@ bmbmWebSocket用于创建一个webSocket会话，api和使用方式与[weex官�
 #### onerror(options)
 错误事件的监听器
 
+bmWebSocket 具体范例如下：
 
+```js
+<template>
+  <scroller>
+    <div>
+      <div style="background-color: #286090">
+        <text class="title" style="height: 80px ;padding: 20px;color: white">websocket</text>
+      </div>
+      <input type="text" placeholder="please input message to send" class="input" autofocus="false" value="" @change="onchange" @input="oninput" ref="input"/>
+      <div style="flex-direction: row; justify-content: center;">
+        <text class="button" @click="connect">connect</text>
+        <text class="button" @click="send">send</text>
+        <text class="button" @click="close">close</text>
+      </div>
+
+      <div style="background-color: lightgray">
+        <text class="title" style="height: 80px ;padding: 20px;color: black">method = send</text>
+      </div>
+      <text style="color: black;height: 80px">{{sendinfo}}</text>
+
+
+      <div style="background-color: lightgray">
+        <text class="title" style="height: 80px ;padding: 20px;color: black">method = onopen</text>
+      </div>
+      <text style="color: black;height: 80px">{{onopeninfo}}</text>
+
+      <div style="background-color: lightgray">
+        <text class="title" style="height: 80px ;padding: 20px;color: black">method = onmessage</text>
+      </div>
+      <text style="color: black;height: 400px">{{onmessage}}</text>
+
+      <div style="background-color: lightgray">
+        <text class="title" style="height: 80px ;padding: 20px;color: black">method = onclose</text>
+      </div>
+      <text style="color: black;height: 80px">{{oncloseinfo}}</text>
+
+      <div style="background-color: lightgray">
+        <text class="title" style="height: 80px ;padding: 20px;color: black">method = onerror</text>
+      </div>
+      <text style="color: black;height: 80px">{{onerrorinfo}}</text>
+
+      <div style="background-color: lightgray">
+        <text class="title" style="height: 80px ;padding: 20px;color: black">method = close</text>
+      </div>
+      <text style="color: black;height: 80px">{{closeinfo}}</text>
+
+    </div>
+
+  </scroller>
+</template>
+
+<style scoped>
+  .input {
+    font-size: 40px;
+    height: 80px;
+    width: 600px;
+  }
+  .button {
+    font-size: 36px;
+    width: 150px;
+    color: #41B883;
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    border-width: 2px;
+    border-style: solid;
+    margin-right: 20px;
+    border-color: rgb(162, 217, 192);
+    background-color: rgba(162, 217, 192, 0.2);
+  }
+</style>
+<script>
+  var bmWebSocket = weex.requireModule('bmWebSocket')
+  export default {
+    data () {
+      return {
+        connectinfo: '',
+        sendinfo: '',
+        onopeninfo: '',
+        onmessage: '',
+        oncloseinfo: '',
+        onerrorinfo: '',
+        closeinfo: '',
+        txtInput:'',
+        navBarHeight: 88,
+        title: 'Navigator',
+        dir: 'examples',
+        baseURL: ''
+      }
+    },
+    methods: {
+      connect:function() {
+        bmWebSocket.WebSocket('ws://echo.websocket.org','');
+        var self = this;
+        self.onopeninfo = 'connecting...'
+        bmWebSocket.onopen(function(e)
+        {
+          self.onopeninfo = 'websocket open';
+        });
+        bmWebSocket.onmessage(function(e)
+        {
+          self.onmessage = e.data;
+        });
+        bmWebSocket.onerror(function(e)
+        {
+          self.onerrorinfo = e.data;
+        });
+        bmWebSocket.onclose(function(e)
+        {
+          self.onopeninfo = '';
+          self.onerrorinfo = e.code;
+        });
+      },
+      send:function(e) {
+        var input = this.$refs.input;
+        input.blur();
+        bmWebSocket.send(this.txtInput);
+        this.sendinfo = this.txtInput;
+      },
+      oninput: function(event) {
+        this.txtInput = event.value;
+      },
+      close:function(e) {
+        bmWebSocket.close();
+      },
+    },
+  }
+</script>
+```
 
 
 
