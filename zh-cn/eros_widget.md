@@ -242,7 +242,6 @@ Api：
 * **$router.refresh**：重载当前weex实例。
 * **$router.setBackParams**：为返回的页面传递参数。
 * **$router.toWebView**：跳转一个webView页面。
-* **$router.toMap**：跳转高德地图。
 ---
 
 ### $router.open
@@ -351,25 +350,6 @@ export default {
         }
     }
 }
-```
-
-### $router.toMap 
-
-跳转地图页面。
-
-示例：
-
-```js
-this.$router.toMap({
-    type:'NAVIGATION', //type类型：NAVIGATION(表现方式为：地图上添加起点终点标示大头针，终点标示上面有个导航的按钮)
-    title: '页面标题', //页面标题
-    navigationInfo: {
-        title: '', //目的地名称
-        address: '', //目的地地址
-        longitude:'', //目的地经度
-        latitude:'' //目的地纬度
-    }
-})
 ```
 
 Api：
@@ -1035,86 +1015,6 @@ Api：
 
 * **message（String）**：吐丝信息。**\(必填\)**
 
-# $pay（支付相关）
-
-目前仅支持微信支付。
-
-#### wechat
-
-> 调起微信支付。
-
-示例：
-
-```js
-this.$pay.wechat({
-    // 微信支付所需必要参数，参考官方文档
-    sign:'',
-    timestamp:'',
-    noncestr:'',
-    partnerid:'',
-    prepayid:'',
-    packageValue:''
-}).then(resData => {
-    // 成功的回调
-}, error => {
-    // 失败的回调
-})
-```
-
-注意：
-
-微信支付需要在`eros.native.js`中配置相关信息：
-```js
-"wechat": {
-    "enabled": "true", //enabled设为true微信相关操作（如分享、支付）才生效
-    "appId": "",
-    "appSecret": ""
-}
-```
-
-# $share（分享相关）
-> `eros`中实现了分享到微信朋友圈及微信好友功能，首先需要使用者先在[微信开放平台](https://open.weixin.qq.com)申请App。分享是基于友盟SDK实现的，在使用分享之前，还需要一些配置<br>
-> 1.首先请到友盟平台注册App后，在 `eros.native.js`中填写AppKey; <br>
-> 2.iOS平台请参考[友盟的教程](https://developer.umeng.com/docs/66632/detail/66825)配置**SSO白名单**、及 **URL Scheme**；<br>
-> 3.Android AppId一定要填写对，并且微信后台需要填写app签名，详情请看微信官方教程；
-
-示例：
-
-```js
-this.$share({
-    title:'',                                     // 分享出去的 title
-    content:'',                                   // 内容
-    url: ''                                       // 用户点击后跳转 url
-    image: '',                                    // 图片url    
-    platforms: ['Pasteboard','WechatSession']     // 选填，不传此属性默认全部，目前支持朋友圈、朋友、复制链接
-}).then(resData => {
-    // 成功的回调
-}, error => {
-    // 失败的回调
-})
-```
-
-Api：
-
-* **title**（**String**）：分享出去的 title。
-* **content**（**String**）：分享的内容简述。
-* **url**（**String**）：用户点击后跳转 url。
-* **img**（**String**）：图片 url。
-* **plaforms**（**Array**）：平台
-  * **Pasteboard**：剪切板。
-  * **WechatSession**：微信好友。
-  * **WechatTimeLine**：分享至朋友圈。
-
-注意：
-
-微信分享需要在`eros.native.js`中配置相关信息：
-```js
-"wechat": {
-    "enabled": "true", //enabled设为true微信相关操作（如分享、支付）才生效
-    "appId": "",
-    "appSecret": ""
-}
-```
 
 # $tools (工具相关)
 
@@ -1138,35 +1038,6 @@ this.$tools.resignKeyboard().then(resData => {
 }, error => {})
 ```
 
-### isInstallWXApp
-
-是否安装微信。
-
-示例：
-
-```js
-this.$tools.isInstallWXApp().then(resData => {
-    // 成功的回调
-}, error => {})
-```
-注意：
-
-**必须在`eros.native.js`中配置才能生效**
-
-### getCid
-
-获取cid 个推的app标识。
-
-示例：
-
-```js
-this.$tools.getCid().then(resData => {
-    // 成功的回调
-}, error => {})
-```
-注意：
-
-**必须在`eros.native.js`中配置才能生效**
 
 ### copyString
 
@@ -1234,20 +1105,3 @@ this.$toast({
     duration: 200
 })
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -25,7 +25,7 @@
     },
     url: {
         jsServer:"https://app.weex-eros.com:8889",
-        image: "https://lev-inf.benmu-health.com/xxx/xxx",
+        image: "https://app.weex-eros.com/xxx/xxx",
         bundleUpdate: "http://localhosts:3001/app/check",
         debugServer:"ws://192.168.15.110:8088/debugProxy/native"
     },
@@ -39,20 +39,6 @@
         appId: "",
         appKey: "",
         appSecret: ""
-    },
-    umeng: {
-        enabled: "false",
-        iOSAppKey: "",
-        androidAppKey: ""
-    },
-    wechat: {
-        enabled: "false",
-        appId: "",
-        appSecret: ""
-    },
-    amap: {
-        enabled: "false",
-        appKey: ""
     }
 }
 ```
@@ -86,17 +72,6 @@
 * enabled: 是否启用个推服务。
 * appId、appKey、appSecret 在个推平台申请。
 
-#### **`umeng`** 友盟统计相关
-* enabled: 是否启用友盟统计，友盟分享服务；
-* iOSAppKey、androidAppKey  友盟后台申请的appkey，分别对应iOS、Android。
-
-#### **`wechat`** 微信支付相关
-* enabled: 是否启用微信支付，微信分享。
-* appId、appSecret 微信开放平台申请。
-
-#### **`amap`** 高德（工具集成了 高德地图SDK）
-* enabled: 是否启用高德地图。
-* appkey 填写从高德开发平台申请的appkey。
 
 > 增量发布相关的配置可以结合着增量发布文章结合着一起看。
 

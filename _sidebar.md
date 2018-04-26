@@ -41,5 +41,8 @@
 	<!-- - [eros-android-sdk](/zh-cn/update_log_android) -->
 	<!-- - [eros-cli](/zh-cn/update_log_cli) -->
 	<!-- - [eros-publish](/zh-cn/update_log_publish) -->
-- [ 三方 ]
-	- [个推相关](/zh-cn/3d_getui)
+- [ Eros-Plugin ]
+	- [微信分享+微信登录](/zh-cn/plugin_wx_share)
+	- [微信支付](/zh-cn/plugin_wx_pay)
+	- [个推推送](/zh-cn/plugin_getui_push)
+	- [高德地图](/zh-cn/plugin_amap)

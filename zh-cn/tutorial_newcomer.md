@@ -46,15 +46,16 @@ $ cnpm i eros-cli -g
 如果安装过程中报错，是因为 eros-cli 依赖了 node-sass，解决的方式有很多，可以自行搜索解决一下。
 
 ### darwin 开发 iOS:
+> CocoaPods 使用过程中遇到问题及时 Google，建议不要使用 beta 版本，使用较为稳定的版本，如 `1.4.0`。
 
-* Xcode
+* Xcode (appStore 下载)
 * CocoaPods
-    *   升级 Ruby 环境：`$ sudo gem update --system`
-    *   移除现有 Ruby 镜像：`$ gem sources --remove https://rubygems.org/`
-    *   添加ruby-china镜像：`$ gem source -a https://gems.ruby-china.org/`
-    *   安装 CocoaPods：`$ sudo gem install cocoapods`
-    *   如果以上命令报错则执行：`$ sudo gem install -n /usr/local/bin cocoapods --pre`
-    *   最后执行：`$ pod setup` 过程比较漫长，请耐心等待执行完成
+    * 升级 Ruby 环境：`$ sudo gem update --system`
+    * 移除现有 Ruby 镜像：`$ gem sources --remove https://rubygems.org/`
+    * 添加ruby-china镜像：`$ gem source -a https://gems.ruby-china.org/`
+    * 安装 CocoaPods：`$ sudo gem install cocoapods -v 1.4.0`
+    * 如果以上命令报错则执行：`$ sudo gem install -n /usr/local/bin cocoapods -v 1.4.0 --pre`
+    * 最后执行：`$ pod setup 过程比较漫长，请耐心等待执行完成`
 
 ### darwin/windows/linux 开发 Android:
 * 下载并安装 [JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)。
@@ -78,41 +79,35 @@ $ eros init
 
 2.下载所需依赖前端依赖（国内地区还是建议使用 cnpm）：
 ```
-$ npm install
-```
-eros sdk 依赖：
-```
-$ eros install
+$ cnpm install
 ```
 
-eros install 会让你选择下载依赖：
+3.运行项目:
 
-* ios: eros ios 开发所需依赖
-* android: eros android 开发所需依赖
+* **iOS**<br>
+`cd`到iOS工程目录`platforms/ios/WeexEros` 执行`pod update`命令来拉取iOS工程的依赖
+```
+$ pod update
+```
 
-**每次 eros 解决了 bug 或者开发/更改了 module 和 component 时，只需要 eros update ios(或android)即可，ios 更新前请关闭 xcode， android 会在编辑器 android studio 中弹出 `sync` 同步，点击即可。**
+	首次执行时间会稍长，命令执行完毕后找到当前目录下 `WeexEros.xcworkspace` 文件，双击即可唤起XCode打开 iOS 工程；<br>
+然后在XCode选择相应的模拟器（比如iPhone 8），点击`▶`按钮来运行项目。
 
-![安卓同步](http://upload.ouliu.net/i/201712121849520zq84.jpeg)
+* **Android**<br>
+首次生成项目开发者需要多几个步骤:<br>
+	1.点击AndroidStudio上方的 **File---&gt;New---&gt;Import Project。**
 
-> `eros install / eros update` 是执行 iOS/Android 目录中的 scripts/install.platform.sh，所以 windows 系统下最好用 Git Bash 等工具，不然无法下载。
+	![](https://img.benmu-health.com/gitbook/1505963461481.jpg)
 
-3.安装完依赖之后:
-* iOS: 会自动打开 `Xcode` ，然后选择一个模拟器，点击左上角的播放(运行)按钮，即可看到内置包中已经内置好的 eros demo.
+	2.找到eros在你本地的地址，选择 **platforms/android/WeexFrameworkWrapper** ,点击**OK。**
 
-* Android:首次生成项目开发者需要多几个步骤，之后每次 eros install 都会有同步提示:
-1.点击AndroidStudio上方的 **File---&gt;New---&gt;Import Project。**
+	![](https://img.benmu-health.com/gitbook/1505963624252.jpg)
 
-![](https://img.benmu-health.com/gitbook/1505963461481.jpg)
+	3.待项目构建完成，点击 AndroidStudio 上方工具栏的 **Run** ，即可运行项目。
+	![](https://img.benmu-health.com/gitbook/1505963683163.jpg)
 
-2.找到eros在你本地的地址，选择 **platforms/android/WeexFrameworkWrapper** ,点击**OK。**
-
-![](https://img.benmu-health.com/gitbook/1505963624252.jpg)
-
-3.待项目构建完成，点击 AndroidStudio 上方工具栏的 **Run** ，即可运行项目。
-![](https://img.benmu-health.com/gitbook/1505963683163.jpg)
-
-注意：
-> 第一次打开 AndroidStuido 时，由于本地环境未配置好，AndroidStuido 会提示错误，按照 IDE 提示，大部分环境问题都可以解决。
+	注意：
+	> 第一次打开 AndroidStuido 时，由于本地环境未配置好，AndroidStuido 会提示错误，按照 IDE 提示，大部分环境问题都可以解决。
 
 于是 eros 的 demo 便能在模拟器中跑起来了。
 
@@ -144,14 +139,9 @@ eros install 会让你选择下载依赖：
 2.bundle 打包体积。
 
 - weex 场景：weex 推荐多页面，所以每个页面都是个 bundle，意味着使用时候如果不做特殊处理，按需引入，每个 bundle 会有很多重复的冗余代码，尽管 weex 相比 rn，bundle 的体积已经小很多了。
-- eros 场景：weex 在本地有一个公共的 js bundle (appboard)，我们把公共逻辑都放入这里，每次打包都打一份代码，并把公共代码在客户端来进行拼接这行，虽然这样不太规范，**但这样的方式使我们的 bundle 大小减少了 60% +，100 多个页面，内置包大小仅仅为 2MB**。
+- eros 场景：weex 在本地有一个公共的 js bundle (appboard)，我们把公共逻辑都放入这里，每次打包都打一份代码，并把公共代码在客户端来进行拼接，虽然这样不太规范，**但这样的方式使我们的 bundle 大小减少了 60% +，100 多个页面，内置包大小仅仅为 2MB**。
 
-3.用户在挂号这条业务线中走到了支付这一步，挂号流程改造，支付的时候多加了些参数。
-
-- weex 场景：发布了新的版本，支付页面跳转了新的压面，前端就需要考虑兼容这两个版本的兼容。
-- eros 场景：客户端本地更新了最新的内置包，不会立即更新，用户完成此次 app 使用，下次进入 app 时才会提示更新。
-
-4...
+3...
 
 其实还有很多场景，内置包的设计，不难看出更贴近于 native 项目，而上面提到的服务包，也成为我们快速调试开发的利器。
 
@@ -193,7 +183,7 @@ eros install 会让你选择下载依赖：
 ```
 
 有个需要注意的地方:
-* **eros.dev.js** 中如果改变，**这是如果你在跑着 `eros dev` 服务，需要断开，让脚手架重新读取配置文件。**（开发中会经常添加新的打包入口）
+* **eros.dev.js** 中如果改变，**这时如果你在跑着 `eros dev` 服务，需要断开，让脚手架重新读取配置文件。**（开发中会经常添加新的打包入口）
 * **eros.native.js** 是**客户端读取的配置文件，目前是客户端在开启 app 的时候统一从内置包中读取**，所以当此文件变动的时候，也是重新运行 `eros dev`，重新运行下 app，即可生效。
 
 # Hello Eros
