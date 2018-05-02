@@ -1,4 +1,4 @@
-## 2018.04.27
+## 2018.05.02
 ### 重点更新
 * native端框架大调整，插件拆分；
 * 新增 `Eros-Plugin` 将微信分享、高德地图等三方库拆分为插件，可以选择性集成，提高灵活性 [查看详情](https://bmfe.github.io/eros-docs/#/zh-cn/eros_plugin)；
