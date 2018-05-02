@@ -4,6 +4,7 @@
 * 新增 `Eros-Plugin` 将微信分享、高德地图等三方库拆分为插件，可以选择性集成，提高灵活性 [查看详情](https://bmfe.github.io/eros-docs/#/zh-cn/eros_plugin)；
 * eros.native.js 中移除 umeng、wechat、amap的配置信息，使用方式请查看[插件集成教程](https://bmfe.github.io/eros-docs/#/zh-cn/plugin_wx_share)；
 * eros cli 脚手架更新；
+  * 优化 eros init命令：可选择初始化带demo示例的 rich 模板，或者 pure 的纯净版本；
   * 删除 install 命令；
   * 优化 eros update 命令只能跟新template工程文件，更新App原生依赖请看最新文档；
 
