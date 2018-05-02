@@ -346,7 +346,7 @@ this.$router.setBackParams({
 // 目标页面
 export default {
     eros: {
-        beforeAppear(params) {
+        beforeBackAppear(params) {
             console.log(params)
         }
     }
