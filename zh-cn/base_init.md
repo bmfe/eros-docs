@@ -21,6 +21,7 @@ $ eros init
 ```
 $ cd eros-demo
 $ cnpm i
+$ eros dev
 ```
 
 ## iOS 运行项目
