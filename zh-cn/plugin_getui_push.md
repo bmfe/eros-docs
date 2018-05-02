@@ -23,7 +23,33 @@
 
 **Android集成方式**
 
-* 打开Android目录`工程目录/platforms/android/WeexFrameworkWrapper/app`,编辑app目录下build.gradle 文件 `dependencies` 下添加引用，代码如下：
+* 1、打开Android目录`工程目录/platforms/android/WeexFrameworkWrapper/app/src/main`,编辑app目录下AndroidManifest.xml 文件 `application` 节点下添加引用，代码如下
+```java
+ <meta-data
+            android:name="PUSH_APPID"
+            android:value="${GETUI_APP_ID}"/>
+        <meta-data
+            android:name="PUSH_APPKEY"
+            android:value="${GETUI_APP_KEY}"/>
+        <meta-data
+            android:name="PUSH_APPSECRET"
+            android:value="${GETUI_APP_SECRET}"/>
+
+        <receiver
+            android:name="com.benmu.erosplugingt.GTPushReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.igexin.sdk.action.${GETUI_APP_ID}"/>
+            </intent-filter>
+        </receiver>
+```
+* 2、`工程目录/platforms/android/WeexFrameworkWrapper`,目录下 gradle.properties 添加 个推相关key
+```java
+GETUI_APPID= your app id
+GETUI_APPKEY= your app key
+GETTUI_APPSECRET= your app secret
+```
+* 3、打开Android目录`工程目录/platforms/android/WeexFrameworkWrapper/app`,编辑app目录下build.gradle 文件 `dependencies` 下添加引用，代码如下：
 
 	```ruby
 	dependencies {
