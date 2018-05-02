@@ -19,15 +19,15 @@ $ cnpm i eros-cli -g
 > 因为脚手架依赖了`node-sass`，安装失败有很多解决办法，可自行查找。
 
 ## darwin 开发 iOS`(必须)`
-> CocoaPods 使用过程中遇到问题及时 Google，建议不要使用 beta 版本，使用较为稳定的版本，如 `1.4.0`。
+> CocoaPods 使用过程中遇到问题及时 Google。
 
 * Xcode (appStore 下载)
 * CocoaPods
     * 升级 Ruby 环境：`$ sudo gem update --system`
     * 移除现有 Ruby 镜像：`$ gem sources --remove https://rubygems.org/`
     * 添加ruby-china镜像：`$ gem source -a https://gems.ruby-china.org/`
-    * 安装 CocoaPods：`$ sudo gem install cocoapods -v 1.4.0`
-    * 如果以上命令报错则执行：`$ sudo gem install -n /usr/local/bin cocoapods -v 1.4.0 --pre`
+    * 安装 CocoaPods：`$ sudo gem install cocoapods`
+    * 如果以上命令报错则执行：`$ sudo gem install -n /usr/local/bin cocoapods`
     * 最后执行：`$ pod setup 过程比较漫长，请耐心等待执行完成`
 
 ## darwin/windows/linux 开发 Android`(必须)`

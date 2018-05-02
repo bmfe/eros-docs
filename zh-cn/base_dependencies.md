@@ -1,4 +1,4 @@
-eros 项目中依赖只有2种，一种是 `JavaScript 依赖`，一种则是 `SDK 相关依赖`。
+eros 项目中依赖只有2种，一种是 `JavaScript 依赖`，一种则是 `App SDK 相关依赖`。
 
 ## JavaScript 依赖
 `JavaScript 依赖`可以参考 package.json：
@@ -29,31 +29,46 @@ eros 项目中依赖只有2种，一种是 `JavaScript 依赖`，一种则是 `S
 
 由于 weex 和 eros 的开发差异性， weex-ui 中的 demo 是需要进行小部分修改即可运行的，基本都是路径的问题，开发时可以自己看脚手架输入日志来解决。
 
-## SDK 相关依赖
-eros-sdk 中有：
-* 拓展的 weex 不具有的 `module`。
-* 拓展的 weex 不具有的 `component`。
-* 拓展的`简易更新逻辑`。
-* 内置了 `weex-sdk`。
-
-> weex-sdk 每次在发布新版本的时候都会有些许的小问题，而不懂原生开发的同学是无法解决的，由 eros 来帮住这些开发者来进行 weex 的版本控制，是非常有必要的。
-
-由此我们不难看出，保持 eros-widget 和 eros-sdk 最新，即可使用我们定期发布的新功能，而我们的更新方法也非常简单。
+## App SDK 相关依赖
+* Eros工程基础库（必须依赖）
+  * 拓展的 weex 不具有的 `module`。
+  * 拓展的 weex 不具有的 `component`。
+  * 拓展的`简易更新逻辑`。
+  * 内置了 `WeexSDK`。
+* 其他插件库（选择依赖） 
+  * 微信分享；
+  * 微信授权登录；
+  * 微信支付；
+  * 高德地图（封装了Weex-Amap);
+  * 持续扩展中； 
 
 ## 依赖更新
-更新 `eros-widget`：
+#### 更新 `eros-widget`：
 
 ``` 
 $ cnpm i eros-widget -S
 ```
 
-更新 `eros-sdk`：
+#### 更新 `App SDK` 相关依赖：
 
-``` js
-// iOS 开发
-$ eros update ios
+**iOS 更新方法** <br>
+> iOS 工程中将Eros基础库，及其他插件都封装成了pod库，采用版本管理，便于大家集成使用及版本更新；<br>
+> （pod简介：全名[CocoaPods](https://cocoapods.org/)，是iOS端的第三方库管理工具，类似 `npm`包管理工具）
 
-// Android 开发
-$ eros update android
-```
+下面以 Eros基础库 BMBaseLibrary 为例说明一下升级依赖库的步骤：
+
+* 打开iOS目录`工程目录/platforms/ios/WeexEros`，编辑Podfile文件，修改版本号（即 tag对应的版本号），库每次升级后都会有相关说明文档，如需升级将 tag 修改为对应的版本即可；
+	```ruby
+	def common
+    	...忽略其他库的引用
+       #Eros iOS 基础库
+    	pod 'BMBaseLibrary', :git => 'https://github.com/bmfe/Benmu-iOS-Library.git', :tag => '1.2.1'
+	end
+	target 'WeexEros' do
+    	common
+	end
+	```
+
+* 在终端中`cd`到此目录下执行 `pod update`，就会重新拉取最新版本的文件，等待命令执行完毕即可；
+
 
