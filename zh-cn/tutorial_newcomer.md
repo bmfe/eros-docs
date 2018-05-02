@@ -355,7 +355,7 @@ eros 还有 demo 是根据网易严选 demo 进行改编的（感谢 [zwwill](ht
 具体更新逻辑可以[点击这里](https://github.com/bmfe/eros-template/wiki/%E5%8F%91%E5%B8%83%E6%9B%B4%E6%96%B0)，这里写下简单的说明。
 
 app 发布有两种情况：
-* 当 platforms ios/android 目录下的代码发生变动（包括 eros install 平台的依赖）的时候，我们是需要重新发布到市场上重新走审核逻辑的，用户需要重新去市场上面下载。
+* 当 platforms ios/android 目录下的代码发生变动的时候，我们是需要重新发布到市场上重新走审核逻辑的，用户需要重新去市场上面下载。
 * 而当项目中的业务逻辑发生变动，如新增页面，修改当前页面逻辑等，最终导致 JS Bundle 发生变化，便可以使用增量发布，每次 app 启动会自动检测更新，下载 JS Bundle 中发生变动的部分，用户重启即生效。
 
 同时 eros-cli 也支持生成全量包和生成增量包：
