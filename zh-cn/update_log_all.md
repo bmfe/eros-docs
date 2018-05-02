@@ -48,9 +48,46 @@ $ pod update
 
 ### Android 升级
 
-待补充
+**1.删除源码依赖模块**
 
+> cd到Android工程目录platforms/android/WeexFrameworkWrapper目录下，删除 settings.properties 里多余的module,保留如下
+```java
+include ':app'
+```
+**2.删除源码依赖**
+打开Android目录`工程目录/platforms/android/WeexFrameworkWrapper/app`,删除app目录下build.gradle 里 `dependencies` 下wxframework引用：
 
+```
+compile project(':wxframework')
+```
+
+**3.下载几个源码文件** </br>
+https://github.com/bmfe/eros-template
+项目的 demo分支。 对应覆盖 几个文件  如下：
+```
+AndroidManifest.xml
+SplashActivity.java
+AppRegister.java
+WXEntryActivity.java
+WXPayEntryActivity.java
+```
+
+**4.添加依赖插件**
+打开Android目录`工程目录/platforms/android/WeexFrameworkWrapper/app`,编辑app目录下build.gradle 文件 `dependencies` 下添加引用，代码如下：
+
+	```ruby
+	dependencies {
+		....
+	//eros base
+    compile 'com.github.bmfe.eros-android-worker:eros-framework:eros_v0.0.1'
+    //eros plugin
+    compile 'com.benmu.eros:plugin-amap:1.0.0'
+    compile 'com.benmu.eros:plugin-getui:1.0.0'
+    compile 'com.benmu.eros:plugin-wxpay:1.0.0'
+    compile 'com.benmu.eros:plugin-wxshare:1.0.0'
+	}
+	```
+* 添加完后，右上角 有一个 sync now。 点击 等待同步完成没有报错证明组件添加成功
 
 
 ## 2018.03.22
