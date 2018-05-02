@@ -1,4 +1,4 @@
-# Amap
+# Amap（1.0.0）
 
 > 功能简介：高德地图相关，`ErosPluginAmap`组件对[Weex-Amap](https://github.com/weex-plugins/weex-amap)进行了封装，便于大家集成使用
 
@@ -12,7 +12,7 @@
 	def common
     	...忽略其他库的引用
     	# 在这里添加引用 ErosPluginWXShare
-    	pod 'ErosPluginAmap', :git => 'https://github.com/bmfe/eros-plugin-ios-amap.git', :tag => '0.0.1'
+    	pod 'ErosPluginAmap', :git => 'https://github.com/bmfe/eros-plugin-ios-amap.git', :tag => '1.0.0'
 	end
 	target 'WeexEros' do
     	common
