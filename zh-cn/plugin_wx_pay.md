@@ -1,4 +1,4 @@
-# bmWXPay
+# bmWXPay（1.0.0）
 
 > 功能简介：调用微信支付
 
@@ -12,7 +12,7 @@
 	def common
     	...忽略其他库的引用
    		# 在这里添加引用 ErosPluginWXShare
-    	pod 'ErosPluginWXPay', :git => 'https://github.com/bmfe/eros-plugin-ios-wxpay.git', :tag => '0.0.1'
+    	pod 'ErosPluginWXPay', :git => 'https://github.com/bmfe/eros-plugin-ios-wxpay.git', :tag => '1.0.0'
 	end
 	target 'WeexEros' do
     	common

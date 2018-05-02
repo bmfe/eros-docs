@@ -1,4 +1,4 @@
-# bmWXShare
+# bmWXShare（1.0.0）
 
 > 功能简介：基于友盟ShareSDK实现，微信分享（分享到朋友圈，微信好友）及微信授权登录；
 
@@ -12,7 +12,7 @@
 	def common
     	...忽略其他库的引用
     	# 在这里添加引用 ErosPluginWXShare
-    	pod 'ErosPluginWXShare', :git => 'https://github.com/bmfe/eros-plugin-ios-wxshare.git', :tag => '0.0.1'
+    	pod 'ErosPluginWXShare', :git => 'https://github.com/bmfe/eros-plugin-ios-wxshare.git', :tag => '1.0.0'
 	end
 	target 'WeexEros' do
     	common

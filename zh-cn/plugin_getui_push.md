@@ -1,4 +1,4 @@
-# bmPush
+# bmPush（1.0.0）
 
 > 功能简介：基于GeTuiSDK实现的消息推送服务；
 
@@ -12,7 +12,7 @@
 	def common
     	...忽略其他库的引用
     	# 在这里添加引用 ErosPluginWXShare
-    	pod 'ErosPluginGeTui', :git => 'https://github.com/bmfe/eros-plugin-ios-getui.git', :tag => '0.0.1'
+    	pod 'ErosPluginGeTui', :git => 'https://github.com/bmfe/eros-plugin-ios-getui.git', :tag => '1.0.0'
 	end
 	target 'WeexEros' do
     	common
