@@ -1,3 +1,58 @@
+## 2018.04.27
+### 重点更新
+* native端框架大调整，插件拆分；
+* 新增 `Eros-Plugin` 将微信分享、高德地图等三方库拆分为插件，可以选择性集成，提高灵活性 [查看详情](https://bmfe.github.io/eros-docs/#/zh-cn/eros_plugin)；
+* eros.native.js 中移除 umeng、wechat、amap的配置信息，使用方式请查看[插件集成教程](https://bmfe.github.io/eros-docs/#/zh-cn/plugin_wx_share)；
+* eros cli 脚手架更新；
+
+### 新版本
+
+请按教程 [生成项目](https://bmfe.github.io/eros-docs/#/zh-cn/base_init)
+
+### 老版本更新指南
+> 更新前请做好备份，由于本次更新 native 端改动较大，建议重新生成项目然后迁移；
+
+**更新脚手架**
+
+```
+cnpm i eros-cli -g
+```
+
+### iOS 升级
+
+**1.更新工程文件:Podfile、AppDelegate.h、AppDelegate.m**
+
+**注**：如果你对原生文件有修改，请自行 diff；
+
+```
+$ eros update template /platforms/ios/WeexEros/Podfile
+$ eros update template /platforms/ios/WeexEros/WeexEros/AppDelegate.h
+$ eros update template /platforms/ios/WeexEros/WeexEros/AppDelegate.m
+```
+
+**2.修改配置文件**
+
+> 在Xcode中：找到Other Linker Flags 并展开，在`Debug`和`Release`中，移除图片中选择的引用，注意：需要将上面的 `-framework`也一同移除
+
+![](./image/del_link1.png)
+![](./image/del_link2.png)
+
+**3.更新iOS依赖**
+
+cd到iOS工程目录platforms/ios/WeexEros 执行pod update命令来拉取iOS工程的依赖
+```
+$ pod update
+```
+
+**4.重新编译运行项目**
+
+### Android 升级
+
+待补充
+
+
+
+
 ## 2018.03.22
 ### 重点更新
 * 全新 demo

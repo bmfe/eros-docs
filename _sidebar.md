@@ -42,6 +42,7 @@
 	<!-- - [eros-cli](/zh-cn/update_log_cli) -->
 	<!-- - [eros-publish](/zh-cn/update_log_publish) -->
 - [ Eros-Plugin ]
+	- [插件化](/zh-cn/eros_plugin)
 	- [微信分享+微信登录](/zh-cn/plugin_wx_share)
 	- [微信支付](/zh-cn/plugin_wx_pay)
 	- [个推推送](/zh-cn/plugin_getui_push)
