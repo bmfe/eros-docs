@@ -964,7 +964,7 @@ this.$notice.confirm({
     title: '这是一个弹窗',
     message: '消息',
     okTitle: '确认',
-    cancelTitl: '取消',
+    cancelTitle: '取消',
     okCallback() {
         // 点击确认按钮的回调
     },
