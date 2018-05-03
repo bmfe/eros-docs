@@ -1,6 +1,10 @@
 # bmWXShare（1.0.0）
 
 > 功能简介：基于友盟ShareSDK实现，微信分享（分享到朋友圈，微信好友）及微信授权登录；
+> 在使用分享之前，还需要一些配置 <br>
+1.首先请到友盟平台注册App获取AppKey; <br>
+2.iOS平台请参考友盟的[教程](https://developer.umeng.com/docs/66632/detail/66825)配置SSO白名单、及 URL Scheme；<br>
+3.Android AppId一定要填写对，并且微信后台需要填写app签名，详情请看微信官方教程；
 
 
 ## 集成方式
