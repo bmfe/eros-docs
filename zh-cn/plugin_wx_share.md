@@ -1,4 +1,7 @@
-# bmWXShare（1.0.0）
+# bmWXShare
+
+iOS 1.0.1<br>
+Android 1.0.0
 
 > 功能简介：基于友盟ShareSDK实现，微信分享（分享到朋友圈，微信好友）及微信授权登录；
 > 在使用分享之前，还需要一些配置 <br>
@@ -10,7 +13,7 @@
 ## 集成方式
 **iOS集成方式**
 
-* 打开iOS目录`工程目录/platforms/ios/WeexEros`，编辑Podfile文件，添加`ErosPluginWXShare`组件的引用，添加代码如下
+* 打开iOS目录`工程目录/platforms/ios/WeexEros`，编辑Podfile文件，添加`ErosPluginWXShare`组件的引用，添加代码如下，**注意**版本号改为最新的版本
 
 	```ruby
 	def common
@@ -80,12 +83,13 @@ var bmWXShare = weex.requireModule('bmWXShare')
 
 	```js
 	bmWXShare.share({
-		title:'',                   		// 分享的标题
-   		content:'',                     	// 分享的文字内容
-   		url: ''                         	// 分享对应的URL地址，如h5、音乐链接、视频链接、小程序的链接
-   		image: '',                       	// 分享的图片url
-   		path: '',							// 分享小程序用到的页面路径
-   		shareType: 'Webpage'				// 分享的类型
+	   title:'',                  // 分享的标题
+   	content:'',                // 分享的文字内容
+   	url: '',                   // 分享对应的URL地址，如h5、音乐链接、视频链接、小程序的链接
+   	image: '',                 // 分享的图片url
+   	path: '',                  // 分享小程序用到的页面路径
+   	shareType: 'Webpage',       // 分享的类型
+   	platform: 'WechatSession'   // 分享平台 朋友圈/好友
 	},function(resData){
     	// 成功回调
 	},function(resData){
@@ -118,3 +122,8 @@ var bmWXShare = weex.requireModule('bmWXShare')
 		// console.log(resData)
 	});
 	```
+
+## Change Log
+
+**iOS 1.0.1** <br>
+1.修复友盟SDK报错的问题；
