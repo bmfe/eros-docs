@@ -35,6 +35,22 @@
 
 ## 使用
 
+* 引用Module
+
+	```js
+	var amap = weex.requireModule('amap')
+	```
+
+**Api**
+
+* 初始化方法 initAmap('appkey')
+
+	```js
+	amap.initAmap('appkey')
+	```
+
+其他使用方法请参考Weex-Amap使用教程
+
 引用[Weex-Amap](https://github.com/weex-plugins/weex-amap)官方教程
 
 一款高德地图weex插件，当前版本支持定位，缩放等地图常用操作。    

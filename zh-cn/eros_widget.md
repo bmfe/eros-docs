@@ -682,7 +682,9 @@ this.$font.getFontSize().then(resData => {
 
 #### get
 
-> 获取当前位置坐标。
+> 获取当前位置坐标（GCJ-02 火星坐标系，高德，腾讯，Google中国所使用）。
+
+**注意**：Android 平台的定位是基于高德地图SDK实现的，所以需要集成高德地图并调用初始化方法后[集成方法](https://bmfe.github.io/eros-docs/#/zh-cn/plugin_amap)，才可以使用此api获取位置信息，iOS平台可以直接调用，不需要集成；
 
 示例：
 
