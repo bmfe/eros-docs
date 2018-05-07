@@ -820,7 +820,7 @@ bmWebSocket 具体范例如下：
     },
     methods: {
       connect:function() {
-        bmWebSocket.WebSocket('ws://echo.websocket.org','');
+        bmWebSocket.webSocket('ws://echo.websocket.org','');
         var self = this;
         self.onopeninfo = 'connecting...'
         bmWebSocket.onopen(function(e)
