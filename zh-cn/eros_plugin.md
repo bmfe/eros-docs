@@ -9,4 +9,5 @@
 
 **Android 教程**
 
-待补充
+[android-eros-plugin-simple](https://github.com/bmfe/android-eros-plugin-simple)
+具体 插件开发可参考此demo
