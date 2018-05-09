@@ -33,6 +33,7 @@ eros 项目中依赖只有2种，一种是 `JavaScript 依赖`，一种则是 `A
 
 ``` 
 $ cnpm i eros-widget -S
+```
 
 ## App SDK 相关依赖
 * Eros工程基础库（必须依赖）
@@ -46,10 +47,6 @@ $ cnpm i eros-widget -S
   * 微信支付；
   * 高德地图（封装了Weex-Amap);
   * 持续扩展中； 
-
-```
-
-## 更新 `App SDK` 相关依赖：
 
 #### **iOS 更新方法**
 
