@@ -49,9 +49,10 @@ $ cnpm i eros-widget -S
 
 ```
 
-#### 更新 `App SDK` 相关依赖：
+## 更新 `App SDK` 相关依赖：
 
-**iOS 更新方法** <br>
+#### **iOS 更新方法**
+
 > iOS 工程中将Eros基础库，及其他插件都封装成了pod库，采用版本管理，便于大家集成使用及版本更新；<br>
 > （pod简介：全名[CocoaPods](https://cocoapods.org/)，是iOS端的第三方库管理工具，类似 `npm`包管理工具）
 
@@ -72,7 +73,7 @@ $ cnpm i eros-widget -S
 * 在终端中`cd`到此目录下执行 `pod update`，就会重新拉取最新版本的文件，等待命令执行完毕即可；
 
 
-**Android 更新方法** <br>
+#### **Android 更新方法**
 
 * 打开Android目录`工程目录/platforms/android/WeexFrameworkWrapper/app`，编辑build.gradle文件，`dependencies` 下 修改版本号（即 :1.0.0），库每次升级后都会有相关说明文档，如需升级将 版本 修改为对应的版本即可；
 ```java	
