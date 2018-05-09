@@ -29,6 +29,11 @@ eros 项目中依赖只有2种，一种是 `JavaScript 依赖`，一种则是 `A
 
 由于 weex 和 eros 的开发差异性， weex-ui 中的 demo 是需要进行小部分修改即可运行的，基本都是路径的问题，开发时可以自己看脚手架输入日志来解决。
 
+#### 更新 `eros-widget`：
+
+``` 
+$ cnpm i eros-widget -S
+
 ## App SDK 相关依赖
 * Eros工程基础库（必须依赖）
   * 拓展的 weex 不具有的 `module`。
@@ -42,11 +47,6 @@ eros 项目中依赖只有2种，一种是 `JavaScript 依赖`，一种则是 `A
   * 高德地图（封装了Weex-Amap);
   * 持续扩展中； 
 
-## 依赖更新
-#### 更新 `eros-widget`：
-
-``` 
-$ cnpm i eros-widget -S
 ```
 
 #### 更新 `App SDK` 相关依赖：
@@ -55,7 +55,7 @@ $ cnpm i eros-widget -S
 > iOS 工程中将Eros基础库，及其他插件都封装成了pod库，采用版本管理，便于大家集成使用及版本更新；<br>
 > （pod简介：全名[CocoaPods](https://cocoapods.org/)，是iOS端的第三方库管理工具，类似 `npm`包管理工具）
 
-下面以 Eros基础库 BMBaseLibrary 为例说明一下升级依赖库的步骤：
+下面以 Eros 基础库 BMBaseLibrary 为例说明一下升级依赖库的步骤：
 
 * 打开iOS目录`工程目录/platforms/ios/WeexEros`，编辑Podfile文件，修改版本号（即 tag对应的版本号），库每次升级后都会有相关说明文档，如需升级将 tag 修改为对应的版本即可；
 	```ruby
