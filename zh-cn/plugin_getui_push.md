@@ -54,7 +54,7 @@ GETTUI_APPSECRET= your app secret
 	```ruby
 	dependencies {
 		....
-		 implementation 'com.github.bmfe:eros-plugin-android-getui:0.0.1'
+		 implementation 'com.github.bmfe:eros-plugin-android-getui:0.0.2'
 	}
 	```
 * 添加完后，右上角 有一个 sync now。 点击 等待同步完成没有报错证明组件添加成功

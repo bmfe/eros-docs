@@ -28,7 +28,7 @@
 	```ruby
 	dependencies {
 		....
-		implementation 'com.github.bmfe:eros-plugin-android-wxpay:0.0.1'
+		implementation 'com.github.bmfe:eros-plugin-android-wxpay:0.0.2'
 	}
 	```
 * 添加完后，右上角 有一个 sync now。 点击 等待同步完成没有报错证明组件添加成功
