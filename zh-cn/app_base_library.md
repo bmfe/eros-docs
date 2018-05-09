@@ -26,8 +26,17 @@ Eros 基础库是必须依赖的，初始化中的模板已经添加了基础库
 
 **Android 集成**
 
-[android-eros-plugin-simple](https://github.com/bmfe/android-eros-plugin-simple)
-具体 插件开发可参考此demo
+* 打开Android目录`工程目录/platforms/android/WeexFrameworkWrapper/app`,编辑app目录下build.gradle 文件 `dependencies` 下添加引用，代码如下：
+
+	```ruby
+	dependencies {
+		....
+		implementation 'com.github.bmfe.eros-nexus:nexus:0.0.6'
+    		implementation 'com.github.bmfe:WeexErosFramework:0.0.6'
+	}
+	```
+>  ":"后面的 0.0.6 是版本号， 如需要更新 修改对应版本即可
+* 添加完后，右上角 有一个 sync now。 点击 等待同步完成没有报错证明组件添加成功
 
 ## Change Log
 
