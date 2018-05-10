@@ -1,13 +1,14 @@
 ## 工程简介
 
-打开 iOS 工程首先看一下主工程目录，你会发现项目非常的清爽，只包含几个必要的文件，连一个 `UIViewController`都不存在，我们将代码都封装到 Pods 库 BMBaseLibrary 里面，通过 Pods 的方式加载进来。在工程里还有三个文件：
+打开 iOS 工程首先看一下主工程目录，你会发现项目非常的清爽，只包含几个必要的文件，连一个 `UIViewController`都不存在，我们将代码都封装到 Pods 库 BMBaseLibrary 里面，通过 Pods 的方式加载进来。<br>
+在工程里还有三个文件需要注意：
 
 ```js
 eros.native.json 		// 配置文件: App 启动的时候会从加载里面的配置信息
-bundle.zip			// js bundle，iconfont 资源包：App 首次启动会将相关资源解压到沙盒目录中，之后会从该目录加载 js 资源文件；
-bundle.config		// js bundle 版本信息；描述当前 js 的版本，作为版本管理文件；
+bundle.zip			   // js bundle，iconfont 资源包：App 首次启动会将相关资源解压到沙盒目录中，之后会从该目录加载 js 资源文件；
+bundle.config		    // js bundle 版本信息；描述当前 js 的版本，作为版本管理文件；
 
-这三个文件不需要我们手动管理，在前文 内置打包 一章中有介绍，打包后会自动替换这三个文件；
+这三个文件不需要我们手动管理，在前文 内置打包 一章中有介绍，打包后会自动替换这三个文件，**切记不可删除与修改**；
 ```
 接下来看一下工程是如何引用 WeexSDK、及 BMBaseLibrary Pods 库的；
 
@@ -17,11 +18,14 @@ bundle.config		// js bundle 版本信息；描述当前 js 的版本，作为版
 
 ```js
 // 引入的其他pods库这里就不列举了，请看源文件
-pod 'WeexSDK', :path=>'./WeexiOSSDK/'
-pod 'BMBaseLibrary', :path=>'./Benmu-iOS-Library'
+#WeexSDK
+pod 'WeexSDK', :git => 'https://github.com/bmfe/WeexiOSSDK.git', :tag => '0.18'
+    
+#Eros iOS 基础库
+pod 'BMBaseLibrary', :git => 'https://github.com/bmfe/Benmu-iOS-Library.git', :tag => '1.2.2'
 ```
 
-你会发现是从本地加载的 WeexSDK 及 BMBaseLibrary，在运行命令 `$ bm eros install` 后会将 WeexiOSSDK 及 Benmu-iOS-Library下载到工程中，之后再运行 `pod install` 就会将这个两个库了加载到工程中了；
+运行 `pod update` 就会将这个两个库了加载到工程中了；
 
 ## Module 扩展
 

@@ -242,6 +242,7 @@ Api：
 * **$router.refresh**：重载当前weex实例。
 * **$router.setBackParams**：为返回的页面传递参数。
 * **$router.toWebView**：跳转一个webView页面。
+* **$router.setHomePage**:重新设置启动的首页，并立即跳转页面。
 ---
 
 ### $router.open
@@ -361,6 +362,28 @@ Api：
 * **address（String）**：目的地地址。
 * **longitude（String）**：目的地经度。
 * **latitude（String）**：目的地纬度。
+
+### $router.toWebView 
+
+打开app内置webview页面
+
+示例：
+
+```js
+this.$router.toWebView({
+    url: '',                                    // 页面 url
+    title: '',                                  // 页面 title
+    navShow: true                               // 是否显示native端导航栏，默认是true
+})
+```
+**扩展功能：**
+> native 端在 webview 运行环境注入了一个 bmnative 对象，用于 js 与 Native 端进行交互，js 可以直接调用 bmnative 对象的方法
+
+1. closePage() 方法：关闭webview页面返回上一个页面；
+```js
+// 示例
+bmnative.closePage()
+```
 
 ### $router.openBrowser 
 
