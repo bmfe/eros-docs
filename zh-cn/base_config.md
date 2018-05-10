@@ -24,10 +24,8 @@
         navItemColor:"#ffffff"
     },
     url: {
-        jsServer:"https://app.weex-eros.com:8889",
         image: "https://app.weex-eros.com/xxx/xxx",
-        bundleUpdate: "http://localhosts:3001/app/check",
-        debugServer:"ws://192.168.15.110:8088/debugProxy/native"
+        bundleUpdate: "http://localhosts:3001/app/check"
     },
     zipFolder: {
         server: "home/app",
