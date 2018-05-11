@@ -170,3 +170,31 @@ Show in File
 Show in Project Structure dialog 
 ```
 A： 这时候您可以直接点击 Add Google Maven repository and sync project 等待编译完成即可
+
+## Q: 如何实现安卓的finish
+
+A:
+ 
+1.注册两个属性curHomeBackTriggerTimes: 1,
+      maxHomeBackTriggerTimes: 2,//代表按几次退出APP。
+2.实现方法
+```
+//安卓自定义退出APP
+    androidFinishApp() {
+      const globalEvent = weex.requireModule("globalEvent");
+      globalEvent.addEventListener("homeBack", options => {
+        this.curHomeBackTriggerTimes === this.maxHomeBackTriggerTimes &&
+          this.$router.finish();
+
+        this.$notice.toast({
+          message: `点击返回${
+            this.maxHomeBackTriggerTimes
+          }次之后，会关闭应用，当前点击第${this.curHomeBackTriggerTimes}次`
+        });
+        this.curHomeBackTriggerTimes++;
+      });
+    }
+
+```
+
+3.在created中调用此方法
