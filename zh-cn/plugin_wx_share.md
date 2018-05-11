@@ -99,8 +99,8 @@ var bmWXShare = weex.requireModule('bmWXShare')
 
 	// 分享平台
 	platform:[
-    	WechatSession, // 微信好友
-    	WechatTimeLine // 分享至朋友圈
+	  WechatSession, // 微信好友
+          WechatTimeLine // 分享至朋友圈
 	]
 
 	// 分享类型
