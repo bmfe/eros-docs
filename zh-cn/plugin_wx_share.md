@@ -94,24 +94,24 @@ var bmWXShare = weex.requireModule('bmWXShare')
 	},function(resData){ // 注意： 历史版本返回的是一个promise对象，现在的是callback回调 	
 	  // 成功回调
 	},function(resData){
-    	  // 失败回调
+	  // 失败回调
 	})
 
 	// 分享平台
 	platform:[
-    	WechatSession,          // 微信好友
-    	WechatTimeLine          // 分享至朋友圈
+    	WechatSession, // 微信好友
+    	WechatTimeLine // 分享至朋友圈
 	]
 
 	// 分享类型
 	shareType:[
-		Text,        // 文字
-		Image,       // 图片
-		TextImage,   // 图文
-		Webpage,     // 网页
-		Music,       // 音乐
-		Video,       // 视频
-		MiniProgram  // 小程序
+	  Text, // 文字
+	  Image, // 图片
+	  TextImage, // 图文
+	  Webpage, // 网页
+	  Music, // 音乐
+	  Video, // 视频
+	  MiniProgram // 小程序
 	]
 	```
 
@@ -119,8 +119,8 @@ var bmWXShare = weex.requireModule('bmWXShare')
 
 	```js
 	bmWXShare.authLogin(function(resData){	
-		// 授权结果，成功的话会将所有的userInfo返回
-		// console.log(resData)
+	  // 授权结果，成功的话会将所有的userInfo返回
+	  // console.log(resData)
 	});
 	```
 
