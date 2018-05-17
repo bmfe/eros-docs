@@ -64,7 +64,8 @@
 	```js
 	bmWXPay.pay({
 		// 微信支付所需必要参数
-    	sign:'',
+    	appid:'',
+	sign:'',
     	timestamp:'',
     	noncestr:'',
     	partnerid:'',
