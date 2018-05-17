@@ -176,8 +176,8 @@ export const responseHandler = (options, resData, resolve, reject) => {
 ```js
 // 示例
 this.$fetch({
-    method: 'GET',    
-    name: 'common.getInfo', //当前是在apis中配置的别名，你也可以直接绝对路径请求 如：url:http://xx.xx.com/xxx/xxx
+    method: 'GET',    // 大写
+    name: 'common.getInfo', //当前是在apis中配置的别名，你也可以直接绝对路径请求 如：url:http://xx.xx.com/xxx/xxx
     data: {
         count: 1
     }
@@ -192,7 +192,7 @@ this.$fetch({
 
 Api：
 
-* **method（String）**：请求方式，分为`GET、POST、HEAD、PUT、DELETE、PATCH`。
+* **method（String）**：请求方式，分为`GET、POST、HEAD、PUT、DELETE、PATCH`。`(必须大写)`
 * **name（String）**：请求地址，如果已经在config/apis.js下配置了接口的请求别名，则可以直接调用别名。
 * **url（String）**: 如果你不想配置别名，可以直接输入相对路径或者绝对路径来请求。
 * **data（Object）**：请求携带的参数。

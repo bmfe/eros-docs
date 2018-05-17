@@ -108,21 +108,16 @@ eros 提供了:
 * [eros-node-server 服务器增量发布逻辑](https://github.com/shawn-tangsc/eros-node-server)
 
 # 讨论组
-eros 正式开源到现在已经有了一个拥有大量开发者的微信群 (只能通过邀请)，群里有大量开发者已经有 eros 产品在开发中和已上线，为了维护一个良好的环境，还请先熟知以下群规：
+eros 正式开源到现在已经有了一个拥有大量开发者的群，群里有大量开发者已经有 eros 产品在开发中和已上线，为了维护一个良好的环境，还请先熟知以下群规：
 
 * **此并不是流量群，也并非广告群，是为了大家一起成长，保证信息的有效性，如果发黄赌毒，不和谐言语，与学习无关的广告，推广内容，无关小程序，不会商量，直接会被踢，且不会再有入群机会。**
 * eros开发中遇到任何问题可以随时发到群里 weex开发相关可以一起讨论。
 * 如果不能及时回答也请耐心等待，群里开发丰富经验的同学会帮您一起看问题。
 * 除了 eros 自身紧急 BUG 外的问题，均需要提 issue，我们会按 issue 处理，目的是为了更好的给其他开发者参考，紧急问题请直接抛到群里，我们会直接远程帮助您调试。
 
-
 QQ群:  
 
 <img src="https://bmfe.github.io/eros-docs/zh-cn/image/eros-qq-qrcode.png" width="auto" height="200px">
-
-微信群: 
-
-<img src="https://gitee.com/uploads/images/2017/1026/154652_651ba169_1595985.jpeg" width="auto" height="200px">
 
 # License
 [MIT](https://opensource.org/licenses/MIT)
