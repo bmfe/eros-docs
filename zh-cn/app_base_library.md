@@ -31,11 +31,11 @@ Eros 基础库是必须依赖的，初始化中的模板已经添加了基础库
 	```ruby
 	dependencies {
 		....
-		implementation 'com.github.bmfe.eros-nexus:nexus:0.0.6'
-    		implementation 'com.github.bmfe:WeexErosFramework:0.0.6'
+		compile 'com.github.bmfe.eros-nexus:nexus:1.0.1'
+    	compile 'com.github.bmfe:WeexErosFramework:1.0.1'
 	}
 	```
->  ":"后面的 0.0.6 是版本号， 如需要更新 修改对应版本即可
+>  ":"后面的 1.0.1 是版本号， 如需要更新 修改对应版本即可
 * 添加完后，右上角 有一个 sync now。 点击 等待同步完成没有报错证明组件添加成功
 
 ## Change Log
@@ -43,3 +43,6 @@ Eros 基础库是必须依赖的，初始化中的模板已经添加了基础库
 **iOS 1.2.2**<br>
 1.修复热更新后，新增加的页面提示找不到的问题；
 2.优化webview加载时机，提升加载速度；
+
+** Android **<br>
+
