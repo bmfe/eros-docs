@@ -28,7 +28,7 @@
 	```ruby
 	dependencies {
 		....
-		implementation 'com.github.bmfe:eros-plugin-android-wxpay:0.0.2'
+		compile 'com.github.bmfe:eros-plugin-android-wxpay:1.0.4'
 	}
 	```
 * 添加完后，右上角 有一个 sync now。 点击 等待同步完成没有报错证明组件添加成功
@@ -64,7 +64,8 @@
 	```js
 	bmWXPay.pay({
 		// 微信支付所需必要参数
-    	sign:'',
+    	appid:'',
+	sign:'',
     	timestamp:'',
     	noncestr:'',
     	partnerid:'',
