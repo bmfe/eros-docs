@@ -20,7 +20,12 @@ $ cnpm i eros-cli -g
 
 ## darwin 开发 iOS`(必须)`
 > CocoaPods 使用过程中遇到问题及时 Google。
+### 版本要求
+- ruby: `2.5.0` 以上
+- cocopods: `1.4.0` (最好)
 
+其他版本会有环境问题
+### 安装
 * Xcode (appStore 下载)
 * CocoaPods
     * 升级 Ruby 环境：`$ sudo gem update --system`
@@ -31,10 +36,17 @@ $ cnpm i eros-cli -g
     * 最后执行：`$ pod setup 过程比较漫长，请耐心等待执行完成`
 
 ## darwin/windows/linux 开发 Android`(必须)`
+### 版本要求
+`AndroidStudio` 版本目前最好
+- `3.0.0` - `3.1.0`
+
+### 安装
+
+JDK 是 JAVA 开发包，AndroidStudio 是 Android开发IDE，这两项不再做过多介绍。
+
 * 下载并安装 [JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)。
 * 下载并安装 [Android Studio](https://developer.android.google.cn/studio/index.html)。
 
-JDK 是 JAVA 开发包，AndroidStudio 是 Android开发IDE，这两项不再做过多介绍。
 
 > 如果您使用虚拟机进行跨平台开发，也需要配置好对应平台的所需环境。
 
