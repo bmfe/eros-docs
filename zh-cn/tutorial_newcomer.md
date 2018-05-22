@@ -49,7 +49,7 @@ $ cnpm i eros-cli -g
 > CocoaPods 使用过程中遇到问题及时 Google
 
 * Xcode (appStore 下载)
-* CocoaPods
+* CocoaPods(建议使用pod 1.4.0版本)
     * 升级 Ruby 环境：`$ sudo gem update --system`
     * 移除现有 Ruby 镜像：`$ gem sources --remove https://rubygems.org/`
     * 添加ruby-china镜像：`$ gem source -a https://gems.ruby-china.org/`
@@ -289,7 +289,7 @@ $ pod update
 ],
 ```
 
-10.注册路由，修改 **`js/config/pages.js`**，清空 demo 中现有的配置:
+10.注册路由，修改 **`js/config/routes.js`**，清空 demo 中现有的配置:
 
 ```js
 export default {
