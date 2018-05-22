@@ -20,6 +20,7 @@ $ cnpm i eros-cli -g
 
 ## darwin 开发 iOS`(必须)`
 > CocoaPods 使用过程中遇到问题及时 Google。
+
 ### 版本要求
 - ruby: `2.5.0` 以上
 - cocopods: `1.4.0` (最好)
