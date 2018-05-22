@@ -121,6 +121,8 @@ export default {
 
 # $axios（请求）
 
+**注意：App中后端返回的数据格式通常为`json`，所以请确保你们后端 response header 中content-type：值为 application/json，不然可能无法正常解析数据**
+
 **配置请求config/apis.js**
 
 在`apis`中的`AJAX_MAP`统一配置别名，`responseHandler`中配置接口返回统一配置。
@@ -726,6 +728,8 @@ this.$geo.get().then(data => {
 > 选择本地图片并上传图片。
 
 **项目根目录下 eros.native.js 中 url.image 图片上传的地址为默认上传地址，根据需求来填写。**
+
+**提示：App上传图片的时候请求的 content-type 值是 image/jpeg 或 image/png，Content-Disposition：中 name 字段值是 file，请后端同学解析的时候注意一下；**
 
 示例：
 
