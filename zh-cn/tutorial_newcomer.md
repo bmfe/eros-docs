@@ -336,14 +336,20 @@ export default {
 </style>
 ```
 
-12.双击调试按钮刷新，跳转逻辑已经完成了！
+12.双击调试按钮刷新(开启热更新会自动刷新)，跳转逻辑已经完成了！
 
 ![router](http://upload.ouliu.net/i/20171213154813lms38.gif)
 
 至此 Hello world 已经编写完成，可以便根据文档来编写你的业务了。
 
-* [eros 主页地址](https://github.com/bmfe/eros)
-* [eros 文档地址](https://bmfe.github.io/eros-docs/#/)
+# 内置包更新
+很多时候，我们需要把我们编写的 JS bundle，更新到对应 native 的代码中，可以打开拦截器，断开数据线给其他人使用或者演示：
+```
+$ eros pack
+```
+选择对应平台即可，也提供了 `eros pack ios`, `eros pack android`, `eros pack all` 三个指令快捷操作。
+
+# demo 
 
 eros 还有 demo 是根据网易严选 demo 进行改编的（感谢 [zwwill](https://github.com/zwwill) 的开源和指导），开发者也可以进行参考：
 
