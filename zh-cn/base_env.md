@@ -39,7 +39,7 @@ $ cnpm i eros-cli -g
 ## darwin/windows/linux 开发 Android`(必须)`
 ### 版本要求
 `AndroidStudio` 版本目前最好
-- `3.0.0` - `3.1.0`
+- `3.0.x` best (高版本不太稳定，会有很多问题)
 
 ### 安装
 
