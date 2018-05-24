@@ -48,3 +48,4 @@
 	- [微信支付](/zh-cn/plugin_wx_pay)
 	- [个推推送](/zh-cn/plugin_getui_push)
 	- [高德地图](/zh-cn/plugin_amap)
+	- [更多插件](/zh-cn/other_plugin)
