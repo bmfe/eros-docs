@@ -1,5 +1,5 @@
 
-#Thank You, Open Source!
+# Thank You, Open Source!
 **Eros 并非大团队维护，没有捐赠，纯靠热情，几个人的能力是有限的，所以请有能力的同学拿出你的热情，我们期待你的插件**
 
 ## 手势解锁
