@@ -37,6 +37,37 @@
         appId: "",
         appKey: "",
         appSecret: ""
+    },
+    tabBar: {
+        color: '#777777',
+        selectedColor: '#00b4cb',
+        backgroundColor: '#fafafa',
+        borderColor: '#dfe1eb',
+        list: [{
+                pagePath: '/pages/demo/router/tabbarItem1.js',
+                text: '首页',
+                icon: 'bmlocal://assets/TabBar_Item1@2x.png',
+                selectedIcon: 'bmlocal://assets/TabBar_Item1_Selected@2x.png',
+                navShow: 'true',
+                navTitle: "首页"
+            },
+            {
+                pagePath: '/pages/demo/router/tabbarItem2.js',
+                text: '联系人',
+                icon: 'bmlocal://assets/TabBar_Item2@2x.png',
+                selectedIcon: 'bmlocal://assets/TabBar_Item2_Selected@2x.png',
+                navShow: 'true',
+                navTitle: '联系人'
+            },
+            {
+                pagePath: '/pages/demo/router/tabbarItem3.js',
+                text: '个人中心',
+                icon: 'bmlocal://assets/TabBar_Item3@2x.png',
+                selectedIcon: 'bmlocal://assets/TabBar_Item3_Selected@2x.png',
+                navShow: 'true',
+                navTitle: '我'
+            }
+        ]
     }
 }
 ```
@@ -60,6 +91,7 @@
 * jsServer: 本地 js 的服务路径。(默认脚手架自动填写)
 * image: 图片上传绝对路径。
 * bundleUpdate: 检测jsBundle更新接口。`(增量发布相关)`
+> 增量发布相关的配置可以结合着增量发布文章结合着一起看。
 
 #### **`zipFolder`** 内置包存放地址。
 * server: 自动生成差分包的目录，可将脚手架部署在服务器上，做增量发布。
@@ -70,8 +102,19 @@
 * enabled: 是否启用个推服务。
 * appId、appKey、appSecret 在个推平台申请。
 
-
-> 增量发布相关的配置可以结合着增量发布文章结合着一起看。
+#### **`tabBar`** 原生tabBar配置信息
+如果你的 App 首页设计为多tab的样式可以将 page 中的 homePage 设置为 'tabBar'，这样App首页会使用原生的tabBar，大大提升用户体验；
+* color：文字颜色；
+* selectedColor：文字选中后的颜色；
+* backgroundColor：tabBar背景颜色；
+* borderColor：tabBar上边栏颜色（tabBar最顶端1px的线条）；
+* list：tabBarItem 配置信息 （2 <= item数量 <= 5）；
+	*  pagePage：页面路径从 /page 开始填写；
+	*  text：标题；
+	*  icon：默认图片（注：只支持 png 图片，size 建议为50px左右，图片请命名为 xxx@2x.png）；
+	*  selectedIcon：选择后图片（规则与icon一致）；
+	*  navShow: 是否显示原生导航栏；
+	*  navTitle：导航栏标题；
 
 ## eros.dev.js -> 脚手架
 

@@ -40,6 +40,14 @@ Eros 基础库是必须依赖的，初始化中的模板已经添加了基础库
 
 ## Change Log
 
+**iOS 1.2.4** 2018.05.30<br>
+
+* 拓展原生tabBar;
+* router open 方法添加 backgroundColor 参数；
+* axios请求返回 response header；
+* bmToolModul 添加监听网络状态方法；
+* 修复点击推送消息唤起App崩溃的问题（请更新推送插件）；
+
 **iOS 1.2.3** 2018.05.18<br>
 
 * 修复模拟器首次运行一定几率crash的问题;

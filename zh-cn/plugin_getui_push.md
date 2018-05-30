@@ -1,4 +1,4 @@
-# bmPush（1.0.0）
+# bmPush
 
 > 功能简介：基于GeTuiSDK实现的消息推送服务；
 
@@ -6,13 +6,13 @@
 
 **iOS集成方式**
 
-* 打开iOS目录`工程目录/platforms/ios/WeexEros`，编辑Podfile文件，添加`ErosPluginGeTui`组件的引用，添加代码如下
+* 打开iOS目录`工程目录/platforms/ios/WeexEros`，编辑Podfile文件，添加`ErosPluginGeTui`组件的引用，添加代码如下(注意修改版本号)
 
 	```ruby
 	def common
     	...忽略其他库的引用
     	# 在这里添加引用 ErosPluginWXShare
-    	pod 'ErosPluginGeTui', :git => 'https://github.com/bmfe/eros-plugin-ios-getui.git', :tag => '1.0.0'
+    	pod 'ErosPluginGeTui', :git => 'https://github.com/bmfe/eros-plugin-ios-getui.git', :tag => '版本号'
 	end
 	target 'WeexEros' do
     	common
@@ -206,3 +206,9 @@ AppConfig appConfig = appSelector.getAppConfig(context.getTemplate());
 > 关键代码是 TransmissionTemplate 的 transmissionTemplate.setAPNInfo(payload);
 message.setData(template);
 把 template 当做 message 的data
+
+## Change Log
+
+**iOS 1.0.1** 2018.05.30<br>
+
+* 修复点击推送消息唤起App崩溃的问题；

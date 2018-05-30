@@ -123,50 +123,46 @@ export default {
 
 **注意：App中后端返回的数据格式通常为`json`，所以请确保你们后端 response header 中content-type：值为 application/json，不然可能无法正常解析数据**
 
-**配置请求config/apis.js**
-
-在`apis`中的`AJAX_MAP`统一配置别名，`responseHandler`中配置接口返回统一配置。
-
-> **注意：**
->
-> 1.responseHandler 需要自己根据后台返回数据格式重新写逻辑
->
-> 2.AJAX\_MAP 配置的别名不需要填写协议和域名部分即在 eros.native.js 中填写的 request\(url\): `http://test.weex-eros.com`
->
-> 这部分会自动拼接，在示例代码的最下面；
+**配置请求参数编辑 config/index.js**
 
 ```js
-const AJAX_MAP = {
-    'common.getInfo': '/test/link'
-}
+ajax: {
+        baseUrl: 'http://app.weex-eros.com:52077',
+        /**
+         * 接口别名
+         */
+        apis,
+        // 接口超时时间
+        timeout: 30000,
 
-export const responseHandler = (options, resData, resolve, reject) => {
-    if (resData && resData.resCode == 0) {
-        if (isFunction(options.success)) {
-            options.success(resData)
+        /**
+         * 请求发送统一拦截器 （可选）
+         * options 你请求传入的所有参数和配置
+         * next
+         */
+        requestHandler (options, next) {
+            console.log('request-opts', options)
+            next()
+        },
+        /**
+         * 请求返回统一拦截器 （可选）
+         * options 你请求传入的所有参数和配置
+         * resData 服务器端返回的所有数据
+         * resolve 请求成功请resolve你得结果，这样请求的.then中的成功回调就能拿到你resolve的数据
+         * reject 请求成功请resolve你得结果，这样请求的.then中的失败回调就能拿到你reject的数据
+         */
+        responseHandler (options, resData, resolve, reject) {
+            const { status, errorMsg, data } = resData
+            if (status !== 200) {
+                console.log(`invoke error status: ${status}`)
+                console.log(`invoke error message: ${errorMsg}`)
+                reject(resData)
+            } else {
+                // 自定义请求逻辑
+                resolve(data)
+            }
         }
-        resolve(resData)
-    } else {
-        modal.hideLoading()
-        const resCode = resData.resCode
-        if (resCode == 101) {
-            // 不同code的不同处理
-            return
-        }
-        if (!options.noShowDefaultError) {
-            // resCode 非 0 的统一处理，且不传入 noShowDefaultError
-            // 这里可以做 resData.resCode 的统一处理
-            modal.alert({
-                message: resData.msg,
-                okTitle: '确定'
-            })
-        }
-        if (isFunction(options.error)) {
-            options.error(resData)
-        }
-        reject(resData)
     }
-}
 ...
 
 ```
@@ -272,12 +268,10 @@ Api：
 * **navShow（Boolean）**：是否显示导航条。
 * **navTitle（String）**：导航条文案。
 * **statusBarStyle（String）**：状态栏\(电量，信号\)样式。
-
   * `Default`黑色。
-
   * `LightContent` 白色。
-
 * **backCallback（Function）**：页面返回时的回调。
+* **backgroundColor（String）**：原生页面背景颜色（可以通过设置页面背景色，感官上页面不会白屏）。
 
 注意：
 **backCallback方法触发时，会禁用返回功能。**
@@ -1047,17 +1041,18 @@ Api：
 
 # $tools (工具相关)
 
-### List
+### Api
 
 * **resignKeyboard** 收起键盘。
-* **isInstallWXApp** 是否安装微信。
-* **getCid** 获取cid 个推的app标识。
 * **copyString** 复制内容到剪切板。
 * **scan** 扫一扫。
+* **networkStatus** 获取网络状态。
+* **watchNetworkStatus** 监听网络状态。
+* **clearWatchNetworkStatus** 取消监听网络状态。
 
 ### resignKeyboard
 
-收起键盘。
+> 收起键盘。
 
 示例：
 
@@ -1070,7 +1065,7 @@ this.$tools.resignKeyboard().then(resData => {
 
 ### copyString
 
-复制内容到剪切板。
+> 复制内容到剪切板。
 
 示例：
 
@@ -1090,6 +1085,40 @@ this.$tools.copyString("weex-eros").then(resData => {
 this.$tools.scan().then((resData) => {
     console.log(resData)
 })
+```
+
+### networkStatus
+
+> 获取网络状态
+
+```js
+// 同步方法
+var resData = this.$tools.networkStatus()
+
+网络状态：resData.data
+	Unknown 未知
+	NotReachable 不可达（无网络）
+	Wifi 无线网
+	3G/4G 手机移动网络
+```
+
+### watchNetworkStatus
+
+> 监听网络状态
+
+```js
+this.$tools.watchNetworkStatus(resData => {
+	console.log(resData.data)
+	// Wifi
+})
+```
+
+### clearWatchNetworkStatus
+
+> 取消监听网络状态
+
+```js
+this.$tools.clearWatchNetworkStatus()
 ```
 
 扫一扫的结果会通过 resData.data 返回。

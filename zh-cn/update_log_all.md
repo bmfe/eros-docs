@@ -1,3 +1,98 @@
+## 2018.05.30
+### 重点更新
+* 拓展原生 tabBar，现在首页可以使用原生 tabBar 了，用户体验提升一大截；
+* $router open 方法添加 backgroundColor 参数，用于设置原生页面的背景颜色，从感官上不会有白屏了；
+* axios 请求添加返回 responseHeader；
+* bmToolModule 添加监听网络状态方法；
+* iOS 修复点击推送消息唤起App崩溃的问题；
+
+### iOS 升级
+1.升级 BMBaseLibrary 库为 1.2.4 版本
+
+```ruby
+pod 'BMBaseLibrary', :git => 'https://github.com/bmfe/Benmu-iOS-Library.git', :tag => '1.2.4'
+```
+
+2.推送的问题请更新 ErosPluginGeTui 库为 1.0.1 版本
+
+```ruby
+pod 'ErosPluginGeTui', :git => 'https://github.com/bmfe/eros-plugin-ios-getui.git', :tag => '版本号'
+```
+
+3.执行 `pod update` 拉取新版本依赖；
+
+### Android 升级
+
+待补充：
+
+### tabBar 使用说明
+
+1.编辑 `eros.native.js` 文件，添加 tabBar 相关配置信息；[详细文档](https://bmfe.github.io/eros-docs/#/zh-cn/base_config)
+
+```js
+tabBar: {
+        color: '#777777',
+        selectedColor: '#00b4cb',
+        backgroundColor: '#fafafa',
+        borderColor: '#dfe1eb',
+        list: [{
+                pagePath: '/pages/demo/router/tabbarItem1.js',
+                text: '首页',
+                icon: 'bmlocal://assets/TabBar_Item1@2x.png',
+                selectedIcon: 'bmlocal://assets/TabBar_Item1_Selected@2x.png',
+                navShow: 'true',
+                navTitle: "首页"
+            },
+            {
+                pagePath: '/pages/demo/router/tabbarItem2.js',
+                text: '联系人',
+                icon: 'bmlocal://assets/TabBar_Item2@2x.png',
+                selectedIcon: 'bmlocal://assets/TabBar_Item2_Selected@2x.png',
+                navShow: 'true',
+                navTitle: '联系人'
+            },
+            {
+                pagePath: '/pages/demo/router/tabbarItem3.js',
+                text: '个人中心',
+                icon: 'bmlocal://assets/TabBar_Item3@2x.png',
+                selectedIcon: 'bmlocal://assets/TabBar_Item3_Selected@2x.png',
+                navShow: 'true',
+                navTitle: '我'
+            }
+        ]
+    }
+```
+
+2.应用 tabBar: 
+
+* 修改 homePage 为 `tabBar`；
+* 或者 调用 $router.setHomePage('tabBar') 方法；
+
+3.编辑完 eros.native.js 文件后重启服务，重启App查看效果；
+
+### 获取 responseHeaders
+
+请求成功后可以通过获取 `resData.header` 来查看 responseHeaders 信息；
+
+```js
+/**
+         * 请求返回统一拦截器 （可选）
+         */
+        responseHandler (options, resData, resolve, reject) {
+            const { status, errorMsg, data } = resData
+            if (status !== 200) {
+                console.log(`invoke error status: ${status}`)
+                console.log(`invoke error message: ${errorMsg}`)
+                reject(resData)
+            } else {
+                // 自定义请求逻辑
+                resolve(data)
+                // 查看responseHeaders
+                resData.header
+            }
+        }
+```
+
 ## 2018.05.02
 ### 重点更新
 * native端框架大调整，插件拆分；

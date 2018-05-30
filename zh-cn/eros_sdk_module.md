@@ -506,15 +506,16 @@ var router = weex.requireModule('bmRouter')
 // 示例：
 require('@weex-module/bmRouter')
 router.open({
-    url: '/pages/index/index.js',                 // 页面对应的 js 地址(注意路径从 /pages/ 开始)
-    type: '',                                     // 客户端定义动态类型，默认值为 PUSH 1. PUSH (将页面压栈到当前容器栈) 2.PRESENT （新建容器栈在进行压栈,从下面弹出新页面）3.TRANSLATION (动画类似QQ的侧滑抽屉效果) 
-    params: {},                                   // 传到下一个页面的参数，params 通过 router.getParams(callback) 获取 
-    canBack: true,                                // 是否需要返回按钮
-    gesBack: true,							      // 是否开启手势返回（默认开启，仅支持 iOS）
-    navTitle: '',                                 // 页面标题
-    navShow: true,                                // 是否显示原生导航栏
-    statusBarStyle: 'Default||LightContent',      // 系统状态栏文字颜色 1.Default：黑色， 2.LightContent: 白色 
-    isRunBackCallback: true                       // 为true时，用户点击返回（或Android物理返回按钮）时回调下面的callback方法，native端不做页面跳转
+    url: '/pages/index/index.js',  // 页面对应的 js 地址(注意路径从 /pages/ 开始)
+    type: '',  // 客户端定义动态类型，默认值为 PUSH 1. PUSH (将页面压栈到当前容器栈) 2.PRESENT （新建容器栈在进行压栈,从下面弹出新页面）3.TRANSLATION (动画类似QQ的侧滑抽屉效果) 
+    params: {},  // 传到下一个页面的参数，params 通过 router.getParams(callback) 获取 
+    canBack: true,  // 是否需要返回按钮
+    gesBack: true,  // 是否开启手势返回（默认开启，仅支持 iOS）
+    navTitle: '',  // 页面标题
+    navShow: true,  // 是否显示原生导航栏
+    statusBarStyle: 'Default||LightContent',  // 系统状态栏文字颜色 1.Default：黑色， 2.LightContent: 白色 
+    isRunBackCallback: true,  // 为true时，用户点击返回（或Android物理返回按钮）时回调下面的callback方法，native端不做页面跳转
+    backgroundColor: '#f2f2f2'  // 原生页面背景颜色（可以通过设置原生页面背景颜色从感官上减少白屏）
 }, function(){                                
         // callback   
 });
@@ -690,14 +691,42 @@ tool.copyString('复制的内容', function(resData){
 * 添加全局水印\(在 Window 上添加\)：`addWatermark:(String)`
 
 ```js
-tools.addWatermark('我是水印')
+tool.addWatermark('我是水印')
 ```
 
 * 扫一扫：`scan(callback)`
 
 ```js
-tools.scan(function(resDate){
+tool.scan(function(resDate){
 })
+```
+
+* 获取网络状态：`networkStatus()`
+
+```js
+// 同步方法
+var resData = tool.networkStatus()
+
+网络状态：resData.data
+	Unknown 未知
+	NotReachable 不可达（无网络）
+	Wifi 无线网
+	3G/4G 手机移动网络
+```
+
+* 监听网络状态：`watchNetworkStatus(callback)`
+
+```js
+tool.watchNetworkStatus(resData => {
+	console.log(resData.data)
+	// Wifi
+})
+```
+
+* 取消监听网络状态：`clearWatchNetworkStatus()`
+
+```js
+tool.clearWatchNetworkStatus()
 ```
 
 # bmWebSocket
