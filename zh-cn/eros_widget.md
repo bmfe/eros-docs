@@ -349,16 +349,6 @@ export default {
 }
 ```
 
-Api：
-
-* **title（String）**：页面标题。
-* **type（String）**：type类型：NAVIGATION\(表现方式为：地图上添加起点终点标示大头针，终点标示上面有个导航的按钮\)。
-* **navigationInfo（Object）**：目标页面是否可以返回起始页面。
-* **title（String）**：目的地名称。
-* **address（String）**：目的地地址。
-* **longitude（String）**：目的地经度。
-* **latitude（String）**：目的地纬度。
-
 ### $router.toWebView 
 
 打开app内置webview页面
@@ -1084,7 +1074,7 @@ this.$tools.copyString("weex-eros").then(resData => {
 ```js
 this.$tools.scan().then((resData) => {
     console.log(resData)
-})
+}, error => {})
 ```
 
 ### networkStatus
@@ -1092,24 +1082,28 @@ this.$tools.scan().then((resData) => {
 > 获取网络状态
 
 ```js
-// 同步方法
-var resData = this.$tools.networkStatus()
 
-网络状态：resData.data
-	Unknown 未知
-	NotReachable 不可达（无网络）
-	Wifi 无线网
-	3G/4G 手机移动网络
+const status = this.$tools.networkStatus()
 ```
+网络状态 `status`：
+- `UNKNOWN` 未知
+- `NOT_REACHABLE` 不可达（无网络）
+- `WIFI` 无线网
+- `3G/4G` 手机移动网络
 
 ### watchNetworkStatus
 
 > 监听网络状态
 
 ```js
-this.$tools.watchNetworkStatus(resData => {
-	console.log(resData.data)
-	// Wifi
+this.$tools.watchNetworkStatus().then((status) => {
+    // 网络状态 status：
+    // UNKNOWN 未知
+    // NOT_REACHABLE 不可达（无网络）
+    // WIFI 无线网
+    // 3G/4G 手机移动网络
+}, err => {
+    // 监听失败 错误回调 status , errorMessage
 })
 ```
 
@@ -1121,7 +1115,6 @@ this.$tools.watchNetworkStatus(resData => {
 this.$tools.clearWatchNetworkStatus()
 ```
 
-扫一扫的结果会通过 resData.data 返回。
 
 # 拓展
 
