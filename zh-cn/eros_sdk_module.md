@@ -703,23 +703,25 @@ tool.scan(function(resDate){
 
 * 获取网络状态：`networkStatus()`
 
+网络状态 `status`：
+- `UNKNOWN` 未知
+- `NOT_REACHABLE` 不可达（无网络）
+- `WIFI` 无线网
+- `3G/4G` 手机移动网络
+
 ```js
 // 同步方法
-var resData = tool.networkStatus()
-
-网络状态：resData.data
-	Unknown 未知
-	NotReachable 不可达（无网络）
-	Wifi 无线网
-	3G/4G 手机移动网络
+const status = tool.networkStatus()
 ```
 
 * 监听网络状态：`watchNetworkStatus(callback)`
 
 ```js
-tool.watchNetworkStatus(resData => {
-	console.log(resData.data)
-	// Wifi
+tool.watchNetworkStatus((data) => {
+	// `UNKNOWN` 未知
+    // `NOT_REACHABLE` 不可达（无网络）
+    // `WIFI` 无线网
+    // `3G/4G` 手机移动网络
 })
 ```
 
