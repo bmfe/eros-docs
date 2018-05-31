@@ -4,9 +4,8 @@
 
 ## 手势解锁
 
-作者：[Shawn_tang](https://github.com/shawn-tangsc)<br>
-插件地址：https://github.com/shawn-tangsc/WeexPlugin-HMGesUnlock <br>
-支持平台：iOS，Android（开发中）
+作者：[Shawn_tang](https://github.com/shawn-tangsc)　[PoisonousMilkPowder](https://github.com/PoisonousMilkPowder) <br>
+插件地址：[iOS](https://github.com/shawn-tangsc/WeexPlugin-HMGesUnlock)　[Android](https://github.com/PoisonousMilkPowder/WeexPlugin-HMGesUnlock)
 
 **效果展示：**
 
