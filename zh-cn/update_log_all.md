@@ -5,6 +5,7 @@
 * axios 请求添加返回 responseHeader；
 * bmToolModule 添加监听网络状态方法；
 * iOS 修复点击推送消息唤起App崩溃的问题；
+* Android 修复border-radius，v-model不生效问题；
 
 ### iOS 升级
 1.升级 BMBaseLibrary 库为 1.2.4 版本
@@ -23,7 +24,6 @@ pod 'ErosPluginGeTui', :git => 'https://github.com/bmfe/eros-plugin-ios-getui.gi
 
 ### Android 升级
 
-待补充：
 
 ### tabBar 使用说明
 
