@@ -48,6 +48,12 @@ pod 'ErosPluginGeTui', :git => 'https://github.com/bmfe/eros-plugin-ios-getui.gi
 ```
 5. SynNow同步项目。
 
+### widget (1.0.2-beta.2) 对应更新
+`$ cnpm i eros-widget -S`
+
+- [feature] `$router.open` 支持传入背景颜色，有效减少白屏。
+- [feature] `$tools.networkStatus, $tools.watchNetworkStatus, $tools.clearWatchNetworkStatus`。
+
 ### tabBar 使用说明
 
 1.编辑 `eros.native.js` 文件，添加 tabBar 相关配置信息；[详细文档](https://bmfe.github.io/eros-docs/#/zh-cn/base_config)
@@ -99,21 +105,22 @@ tabBar: {
 
 ```js
 /**
-         * 请求返回统一拦截器 （可选）
-         */
-        responseHandler (options, resData, resolve, reject) {
-            const { status, errorMsg, data } = resData
-            if (status !== 200) {
-                console.log(`invoke error status: ${status}`)
-                console.log(`invoke error message: ${errorMsg}`)
-                reject(resData)
-            } else {
-                // 自定义请求逻辑
-                resolve(data)
-                // 查看responseHeaders
-                resData.header
-            }
-        }
+ * 请求返回统一拦截器 （可选）
+ */
+responseHandler (options, resData, resolve, reject) {
+    const { status, errorMsg, data } = resData
+    // 这里可以解构 header 出来
+    if (status !== 200) {
+        console.log(`invoke error status: ${status}`)
+        console.log(`invoke error message: ${errorMsg}`)
+        reject(resData)
+    } else {
+        // 自定义请求逻辑
+        resolve(data)
+        // 查看responseHeaders
+        resData.header
+    }
+}
 ```
 
 ## 2018.05.02
