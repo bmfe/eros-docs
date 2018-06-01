@@ -81,6 +81,13 @@ GETTUI_APPSECRET= your app secret
 		appSecret: ''
 	})
 	```
+* 获取cid `getCid()`
+
+	```js
+	  bmPush.getCid(result => {
+		    console.log(result.data.cid)
+		})
+	```
 
 * 这个时候，当您用真机启动应用的时候，您的cid和deviceToken就会上传注册到个推官网。也就是说恭喜您，您现在可以接收到推送了
 
