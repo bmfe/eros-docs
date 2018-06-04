@@ -25,12 +25,13 @@ pod 'ErosPluginGeTui', :git => 'https://github.com/bmfe/eros-plugin-ios-getui.gi
 ### Android 升级
 历史版本升级进行如下操作:
 
-1. 打开`/platforms/android/WeexFrameworkWrapper/app/build.gradle`,将`dependencies`节点中`nexus`和`framwork`版本更新至1.0.3,如果依赖了eros插件,可将插件版本更改为1.1.0版本.最后,删除最上方`apply plugin: 'eros-revan'`。
+1. 打开`/platforms/android/WeexFrameworkWrapper/app/build.gradle`,将`dependencies`节点中`nexus`和`framwork`版本更新至1.0.3,如果依赖了eros插件,可将其他插件版本更改为1.1.0版本（Amap、个推、share、pay）。最后,删除最上方`apply plugin: 'eros-revan'`。
 
 2. 打开`/platforms/android/WeexFrameworkWrapper/build.gradle`,在`dependencies`节点删除`classpath 'com.benmu.eros:eros-raven:1.0.0'`。
 
 3. 将目录`/platforms/android/WeexFrameworkWrapper/app/src/main/java/com/benmu/wx/activity`替换为[链接](https://github.com/bmfe/eros-template/tree/demo/platforms/android/WeexFrameworkWrapper/app/src/main/java/com/benmu/wx/activity)目录。
-4. 找到`/platforms/android/WeexFrameworkWrapper/app/src/main/AndroidManifest.xml`中`MainActivity`的节点将其替换为
+4. 将 `/WeexFrameworkWrapper/app/src/main/res/layout` 目录下仅保留 `activity_splash.xml` 其他xml 文件删除
+5. 找到`/platforms/android/WeexFrameworkWrapper/app/src/main/AndroidManifest.xml`中`MainActivity`的节点将其替换为
 ```
 <activity android:name="com.benmu.framework.activity.MainActivity"
             android:windowSoftInputMode="adjustResize">
