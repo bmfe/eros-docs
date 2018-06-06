@@ -10,3 +10,12 @@
 **效果展示：**
 
 ![](./image/gesunlock.gif)
+
+## 日期选择器
+
+作者：[qbmFE](https://github.com/qbmFE)　<br>
+插件地址：[iOS](https://github.com/qbmFE/eros-plugin-IOS-dateTimePicker)　Android：开发中
+
+**效果展示：**
+
+![](./image/qbmDatePicker.gif)
