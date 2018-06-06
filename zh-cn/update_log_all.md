@@ -1,12 +1,16 @@
 ## 2018.06.06
 ### 重点更新
+* [bugfix-Android]解决Tabbar 刷新崩溃问题；
+* [bugfix-Android]修复 input 标签 v-model 有时不生效的问题；
+* [feature] bmAxios 请求支持 application/x-www-form-urlencoded 表单格式；
 
 ### iOS 升级
+1.升级 BMBaseLibrary 库为 1.2.5 版本
 
-### Android 升级
-1、Axios支持表单格式提交。
-2、解决Tabbar 刷新崩溃问题。
-3、修复v-model不生效问题。
+```ruby
+pod 'BMBaseLibrary', :git => 'https://github.com/bmfe/Benmu-iOS-Library.git', :tag => '1.2.5'
+```
+2.执行 `pod update` 拉取新版本依赖；
 
 ### Android 升级
 
