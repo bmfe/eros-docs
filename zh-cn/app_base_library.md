@@ -39,13 +39,18 @@ Eros 基础库是必须依赖的，初始化中的模板已经添加了基础库
 * 添加完后，右上角 有一个 sync now。 点击 等待同步完成没有报错证明组件添加成功
 
 ## Change Log
+**iOS 1.2.5** 2018.06.06<br>
 
-**Android 1.0.4** 2018.05.30<br>
+* bmAxios 请求支持 application/x-www-form-urlencoded 表单格式;
+
+**Android 1.0.4** 2018.06.06<br>
+
 * Axios支持表单提交格式;
 * 解决Tabbar 刷新崩溃问题;
 * 修复v-model问题;
 
 **Android 1.0.3** 2018.05.30<br>
+
 * 拓展原生tabBar;
 * sdk恢复源码依赖;
 * 解决APP启动黑屏问题;
