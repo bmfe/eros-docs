@@ -1,5 +1,15 @@
 ## 2018.05.30
 ### 重点更新
+
+### iOS 升级
+
+### Android 升级
+1、Axios支持表单格式提交。
+2、解决Tabbar 刷新崩溃问题。
+3、修复v-model不生效问题。
+
+## 2018.05.30
+### 重点更新
 * 拓展原生 tabBar，现在首页可以使用原生 tabBar 了，用户体验提升一大截；
 * $router open 方法添加 backgroundColor 参数，用于设置原生页面的背景颜色，从感官上不会有白屏了；
 * axios 请求添加返回 responseHeader；
