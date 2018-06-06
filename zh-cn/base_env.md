@@ -3,7 +3,7 @@
 
 ## 基础环境`(必须)`
 darwin: 
-* Node.js (>=6.x), npm version 4+ 
+* Node.js (>=9.x), npm version 4+ 
 
 windows: 
 * Git bash (并确定已经设置为`.sh脚本的默认执行程序`)
@@ -32,8 +32,8 @@ $ cnpm i eros-cli -g
     * 升级 Ruby 环境：`$ sudo gem update --system`
     * 移除现有 Ruby 镜像：`$ gem sources --remove https://rubygems.org/`
     * 添加ruby-china镜像：`$ gem source -a https://gems.ruby-china.org/`
-    * 安装 CocoaPods：`$ sudo gem install cocoapods`
-    * 如果以上命令报错则执行：`$ sudo gem install -n /usr/local/bin cocoapods`
+    * 安装 CocoaPods：`$ sudo gem install cocoapods -v 1.4.0`
+    * 如果以上命令报错则执行：`$ sudo gem install -n /usr/local/bin cocoapods -v 1.4.0`
     * 最后执行：`$ pod setup 过程比较漫长，请耐心等待执行完成`
 
 ## darwin/windows/linux 开发 Android`(必须)`
