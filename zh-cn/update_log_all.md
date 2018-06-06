@@ -1,4 +1,4 @@
-## 2018.05.30
+## 2018.06.06
 ### 重点更新
 
 ### iOS 升级
@@ -7,6 +7,12 @@
 1、Axios支持表单格式提交。
 2、解决Tabbar 刷新崩溃问题。
 3、修复v-model不生效问题。
+
+### Android 升级
+
+1. 打开`/platforms/android/WeexFrameworkWrapper/app/build.gradle`,将`dependencies`节点中`framwork`版本更新至1.0.4。
+2. SynNow同步项目。
+
 
 ## 2018.05.30
 ### 重点更新
