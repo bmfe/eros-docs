@@ -3,16 +3,16 @@
 ## 插件开发
 > 有原生开发能力的同学，可以按照以下教程来贡献你的插件
 
-**iOS 教程**
+## iOS 插件教程
 
-### 一、开发你的功能
+#### 一、开发你的功能
 > 这里其实没什么好说的，主要是你根据自己的想法做你自己的开发，不过可以稍微注意以下几点。
 
 1. 最好将你的功能统一在一个目录下，这样之后方便podspec的代码引入和方便git管理。
 
 ![](https://ws1.sinaimg.cn/large/006tKfTcgy1frtgmmp3ntj307k0bcaa9.jpg)
 
-### 二、自定义扩展
+#### 二、自定义扩展
 
 这里需要你参考一下[weex 官方文档扩展ios功能](http://weex.apache.org/cn/guide/extend-ios.html)
 
@@ -71,7 +71,7 @@
 	
 	这样，你就在pod引入后自动注册，而不需要特地在你的代码中的某个地方去执行 `registerModule:withClass:` 了。
 	
-### 三、上传git库
+#### 三、上传git库
 到这里，你的功能应该已经在你的demo中没有任何问题了吧？那我们可以开始插件化的第一步了。
 
 1. 在你自己的github上面创建一个仓库。
@@ -79,7 +79,7 @@
 3. 好了，到这里，你已经把你的代码放到你的git上面了，已经可以找人给你刷星星了。。。。虽然人家还用不了。。。。。。
 
 
-### 四、封装 pod 库
+#### 四、封装 pod 库
 
 1. 首先，先将你刚刚创建的仓库clone到你的本地
 2. 创建podspec文件，在这个git目录下执行
@@ -137,7 +137,7 @@ WeexHMGesUnlock.podspec
 6. 在你的 master 上面打个tag吧。。。。这个动作很重要！！！这个动作很重要！！！这个动作很重要！！！<br>
 **注意： tag 对应的就是库的版本号，每次修改代码，都需要更新库的版本号及重新打 tag；**
 
-### 五、本地引入
+#### 五、本地引入
 
 1. 在你需要引入的项目中把你的项目`clone`到你`podfile`所在的目录。
 2. 然后在你的`Podfile`中加入
@@ -153,7 +153,7 @@ WeexHMGesUnlock.podspec
 	```
 
 
-### 六、插件引入
+#### 六、插件引入
 
 
 1. 在你的`Podfile`中加入
@@ -170,11 +170,11 @@ WeexHMGesUnlock.podspec
 	pod update 
 	```
 	
-### 七、书写文档
+#### 七、书写文档
 
 插件开发完毕后，文档至关重要，在文档中请详细说明功能及使用方法；
 
-**Android 教程**
+## Android 插件教程
 
 [android-eros-plugin-simple](https://github.com/bmfe/android-eros-plugin-simple)
 具体 插件开发可参考此demo

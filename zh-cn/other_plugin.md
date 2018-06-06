@@ -4,10 +4,18 @@
 
 ## 手势解锁
 
-作者：[Shawn_tang](https://github.com/shawn-tangsc)<br>
-插件地址：https://github.com/shawn-tangsc/WeexPlugin-HMGesUnlock <br>
-支持平台：iOS，Android（开发中）
+作者：[Shawn_tang](https://github.com/shawn-tangsc)　[PoisonousMilkPowder](https://github.com/PoisonousMilkPowder) <br>
+插件地址：[iOS](https://github.com/shawn-tangsc/WeexPlugin-HMGesUnlock)　[Android](https://github.com/PoisonousMilkPowder/WeexPlugin-HMGesUnlock)
 
 **效果展示：**
 
 ![](./image/gesunlock.gif)
+
+## 日期选择器
+
+作者：[qbmFE](https://github.com/qbmFE)　<br>
+插件地址：[iOS](https://github.com/qbmFE/eros-plugin-IOS-dateTimePicker)　Android：开发中
+
+**效果展示：**
+
+![](./image/qbmDatePicker.gif)
