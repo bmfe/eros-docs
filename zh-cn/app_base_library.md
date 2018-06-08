@@ -48,6 +48,11 @@ Eros 基础库是必须依赖的，初始化中的模板已经添加了基础库
 * Axios支持表单提交格式;
 * 解决Tabbar 刷新崩溃问题;
 * 修复v-model问题;
+* 插件最新版本
+```
+ implementation 'com.github.bmfe.eros-nexus:nexus:1.0.3'
+ implementation 'com.github.bmfe:WeexErosFramework:1.0.4'
+```
 
 **Android 1.0.3** 2018.05.30<br>
 
