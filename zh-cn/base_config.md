@@ -104,6 +104,9 @@
 
 #### **`tabBar`** 原生tabBar配置信息
 如果你的 App 首页设计为多tab的样式可以将 page 中的 homePage 设置为 'tabBar'，这样App首页会使用原生的tabBar，大大提升用户体验；
+
+> 温馨提示：Eros 内置 demo 选择 `路由功能` `->` `设置App启动首页` 可以切换到tabbar的页面，查看效果;
+
 * color：文字颜色；
 * selectedColor：文字选中后的颜色；
 * backgroundColor：tabBar背景颜色；
