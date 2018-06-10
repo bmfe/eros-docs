@@ -5,42 +5,71 @@
 我们已经封装好提交到了 npm 上，根据文档您已经执行完 `cnpm/npm install` 了，已经下载到了本地，并且已经在 appboard JS Bundle (默认 config/index) 中注入了配置。
 
 
-# 页面生命周期
+# 页面全局事件
 
-在不影响vue生命周期的前提下，eros 暴露出了额外的生命周期钩子函数供您使用。
+在不影响 vue 生命周期的前提下，eros 基于 `globalEvent` 暴露出了额外的事件供您使用。
 
 **结合 widget 使用方法：**
 
 ```js
 export default {
     created() {},  // vue 生命周期
-    bmRouter: {
-    
-        viewWillAppear(params, options) {},
+    eros: {
+        // app 前后台相关 start 
+        appActive() {
+            console.log('appActive');
+        },
+        appDeactive() {
+            console.log('appDeactive');
+        },
+        // app 前后台相关 end 
 
-        viewDidAppear(params, options) {},
+        // 页面周期相关 start 
+        beforeAppear (params, options) {
+            console.log('beforeAppear');
+        },
+        beforeBackAppear (params, options) {
+            console.log('beforeBackAppear');
+        },
+        appeared (params, options) {
+            console.log('appeared');
+        },
 
-        viewWillBackAppear(params, options) {},
+        backAppeared (params, options) {
+            console.log('backAppeared');
+        },
+        beforeDisappear (options) {
+            console.log('beforeDisappear');
+        },
+        disappeared (options) {
+            console.log('disappeared');
+        },
+        // 页面周期相关 end 
 
-        viewDidBackAppear(params, options) {},
-
-        viewWillDisappear(options) {},
-
-        viewDidDisappear(options) {}
-    }
+        // 局部个推通知 
+        pushMessage (options) {
+            console.log('pushMessage');
+        }
+    }    
 }
 ```
 
 **注意事项：**
 
-1. 这些钩子函数都是**异步**的
+1. 这些钩子函数都是**异步**的。
  
-2. 若用到`<embed>`标签，`<embed>`中的内容是**不会触发**此生命周期的
-
+2. 若用到`<embed>`标签，`<embed>`中的内容是**不会触发**全局事件的。
 
 **Api：**
+- **appActive( )**
+    
+    触发时机：通过【后台】切换至【前台】时触发。
 
-- viewWillAppear( params, options )
+- **appDeactive( )**
+
+    触发时机：通过【前台】切换至【后台】时触发。
+
+- **beforeAppear( params, options )**
 
     触发时机：通过`$router.open`进入本页面，在本页面【即将出现】时触发
 
@@ -48,7 +77,7 @@ export default {
     
     options：目前仅包括属性`type`，值为`open`、`refresh`，前端同学暂时用不到
 
-- viewDidAppear( params, options )
+- **appeared( params, options )**
 
     触发时机：通过`$router.open`进入本页面，在本页面【已经出现】时触发
 
@@ -56,7 +85,7 @@ export default {
     
     options：目前仅包括属性`type`，值为`open`、`refresh`，前端同学暂时用不到
 
-- viewWillBackAppear( params, options )
+- **beforeBackAppear( params, options )**
 
     触发时机：通过`$router.back`等方法从下一个页面返回本页面，在本页面【即将出现】时触发
 
@@ -64,7 +93,7 @@ export default {
     
     options：目前仅包括属性`type`，值为`back`，前端同学暂时用不到
 
-- viewDidBackAppear( params, options )
+- **backAppeared( params, options )**
 
     触发时机：通过`$router.back`等方法从下一个页面返回本页面，在本页面【已经出现】时触发
 
@@ -72,65 +101,68 @@ export default {
     
     options：目前仅包括属性`type`，值为`back`，前端同学暂时用不到
 
-- viewWillDisappear(options)
+- **beforeDisappear(options)**
 
     触发时机：在本页面【即将消失】时触发
     
     options：目前仅包括属性`type`，值为`open`、`refresh`、`back`，前端同学暂时用不到
 
-- viewDidDisappear(options)
+- **disappeared(options)**
 
     触发时机：在本页面【已经消失】时触发
     
     options：目前仅包括属性`type`，值为`open`、`refresh`、`back`，前端同学暂时用不到
 
+- **pushMessage(options)**
+
+    触发时机：收到个推发送信息且在使用页面时触发
+    
+    options：推送信息
 
 # $axios（请求）
 
-**配置请求config/apis.js**
+**注意：App中后端返回的数据格式通常为`json`，所以请确保你们后端 response header 中content-type：值为 application/json，不然可能无法正常解析数据**
 
-在`apis`中的`AJAX_MAP`统一配置别名，`responseHandler`中配置接口返回统一配置。
-
-> **注意：**
->
-> 1.responseHandler 需要自己根据后台返回数据格式重新写逻辑
->
-> 2.AJAX\_MAP 配置的别名不需要填写协议和域名部分即在 eros.native.js 中填写的 request\(url\): `http://test.weex-eros.com`
->
-> 这部分会自动拼接，在示例代码的最下面；
+**配置请求参数编辑 config/index.js**
 
 ```js
-const AJAX_MAP = {
-    'common.getInfo': '/test/link'
-}
+ajax: {
+        baseUrl: 'http://app.weex-eros.com:52077',
+        /**
+         * 接口别名
+         */
+        apis,
+        // 接口超时时间
+        timeout: 30000,
 
-export const responseHandler = (options, resData, resolve, reject) => {
-    if (resData && resData.resCode == 0) {
-        if (isFunction(options.success)) {
-            options.success(resData)
+        /**
+         * 请求发送统一拦截器 （可选）
+         * options 你请求传入的所有参数和配置
+         * next
+         */
+        requestHandler (options, next) {
+            console.log('request-opts', options)
+            next()
+        },
+        /**
+         * 请求返回统一拦截器 （可选）
+         * options 你请求传入的所有参数和配置
+         * resData 服务器端返回的所有数据
+         * resolve 请求成功请resolve你得结果，这样请求的.then中的成功回调就能拿到你resolve的数据
+         * reject 请求成功请resolve你得结果，这样请求的.then中的失败回调就能拿到你reject的数据
+         */
+        responseHandler (options, resData, resolve, reject) {
+            const { status, errorMsg, data } = resData
+            if (status !== 200) {
+                console.log(`invoke error status: ${status}`)
+                console.log(`invoke error message: ${errorMsg}`)
+                reject(resData)
+            } else {
+                // 自定义请求逻辑
+                resolve(data)
+            }
         }
-        resolve(resData)
-    } else {
-        modal.hideLoading()
-        const resCode = resData.resCode
-        if (resCode == 101) {
-            // 不同code的不同处理
-            return
-        }
-        if (!options.noShowDefaultError) {
-            // resCode 非 0 的统一处理，且不传入 noShowDefaultError
-            // 这里可以做 resData.resCode 的统一处理
-            modal.alert({
-                message: resData.msg,
-                okTitle: '确定'
-            })
-        }
-        if (isFunction(options.error)) {
-            options.error(resData)
-        }
-        reject(resData)
     }
-}
 ...
 
 ```
@@ -142,8 +174,8 @@ export const responseHandler = (options, resData, resolve, reject) => {
 ```js
 // 示例
 this.$fetch({
-    method: 'GET',    
-    name: 'common.getInfo', //当前是在apis中配置的别名，你也可以直接绝对路径请求 http://xx.xx.com/xxx/xxx
+    method: 'GET',    // 大写
+    name: 'common.getInfo', //当前是在apis中配置的别名，你也可以直接绝对路径请求 如：url:http://xx.xx.com/xxx/xxx
     data: {
         count: 1
     }
@@ -158,7 +190,7 @@ this.$fetch({
 
 Api：
 
-* **method（String）**：请求方式，分为`GET、POST、HEAD、PUT、DELETE、PATCH`。
+* **method（String）**：请求方式，分为`GET、POST、HEAD、PUT、DELETE、PATCH`。`(必须大写)`
 * **name（String）**：请求地址，如果已经在config/apis.js下配置了接口的请求别名，则可以直接调用别名。
 * **url（String）**: 如果你不想配置别名，可以直接输入相对路径或者绝对路径来请求。
 * **data（Object）**：请求携带的参数。
@@ -173,7 +205,7 @@ Api：
 
 我们在 routes.js 中配置页面对应 js 的别名，和导航条显示文案。
 
-> **主页的导航条默认是隐藏的，如果需要，便在bmRouter的生命周期 viewWillAppear 中调用 this.$nav.setNavigationInfo 来自行设置。**
+> **主页的导航条默认是隐藏的，如果需要，便在全局事件 eros.beforeAppear 中调用 this.$nav.setNavigationInfo 来自行设置。**
 
 ```js
 // src/js/config/routes.js
@@ -208,7 +240,7 @@ Api：
 * **$router.refresh**：重载当前weex实例。
 * **$router.setBackParams**：为返回的页面传递参数。
 * **$router.toWebView**：跳转一个webView页面。
-* **$router.toMap**：跳转高德地图。
+* **$router.setHomePage**:重新设置启动的首页，并立即跳转页面。
 ---
 
 ### $router.open
@@ -232,15 +264,14 @@ Api：
   * `PRESENT`底部弹出。
 * **params（Object）**：需要传递的参数。
 * **canBack（Boolean）**：目标页面是否可以返回。
+* **gesBack（Boolean）**：目标页面是否开启手势返回。默认开启仅支持iOS；
 * **navShow（Boolean）**：是否显示导航条。
 * **navTitle（String）**：导航条文案。
 * **statusBarStyle（String）**：状态栏\(电量，信号\)样式。
-
   * `Default`黑色。
-
   * `LightContent` 白色。
-
 * **backCallback（Function）**：页面返回时的回调。
+* **backgroundColor（String）**：原生页面背景颜色（可以通过设置页面背景色，感官上页面不会白屏）。
 
 注意：
 **backCallback方法触发时，会禁用返回功能。**
@@ -310,42 +341,35 @@ this.$router.setBackParams({
 
 // 目标页面
 export default {
-    bmRouter: {
-        viewWillBackAppear(params) {
+    eros: {
+        beforeBackAppear(params) {
             console.log(params)
         }
     }
 }
 ```
 
-### $router.toMap 
+### $router.toWebView 
 
-跳转地图页面。
+打开app内置webview页面
 
 示例：
 
 ```js
-this.$router.toMap({
-    type:'NAVIGATION', //type类型：NAVIGATION(表现方式为：地图上添加起点终点标示大头针，终点标示上面有个导航的按钮)
-    title: '页面标题', //页面标题
-    navigationInfo: {
-        title: '', //目的地名称
-        address: '', //目的地地址
-        longitude:'', //目的地经度
-        latitude:'' //目的地纬度
-    }
+this.$router.toWebView({
+    url: '',                                    // 页面 url
+    title: '',                                  // 页面 title
+    navShow: true                               // 是否显示native端导航栏，默认是true
 })
 ```
+**扩展功能：**
+> native 端在 webview 运行环境注入了一个 bmnative 对象，用于 js 与 Native 端进行交互，js 可以直接调用 bmnative 对象的方法
 
-Api：
-
-* **title（String）**：页面标题。
-* **type（String）**：type类型：NAVIGATION\(表现方式为：地图上添加起点终点标示大头针，终点标示上面有个导航的按钮\)。
-* **navigationInfo（Object）**：目标页面是否可以返回起始页面。
-* **title（String）**：目的地名称。
-* **address（String）**：目的地地址。
-* **longitude（String）**：目的地经度。
-* **latitude（String）**：目的地纬度。
+1. closePage() 方法：关闭webview页面返回上一个页面；
+```js
+// 示例
+bmnative.closePage()
+```
 
 ### $router.openBrowser 
 
@@ -667,7 +691,9 @@ this.$font.getFontSize().then(resData => {
 
 #### get
 
-> 获取当前位置坐标。
+> 获取当前位置坐标（GCJ-02 火星坐标系，高德，腾讯，Google中国所使用）。
+
+**注意**：Android 平台的定位是基于高德地图SDK实现的，所以需要集成高德地图并调用初始化方法后[集成方法](https://bmfe.github.io/eros-docs/#/zh-cn/plugin_amap)，才可以使用此api获取位置信息，iOS平台可以直接调用，不需要集成；
 
 示例：
 
@@ -685,7 +711,9 @@ this.$geo.get().then(data => {
 
 > 选择本地图片并上传图片。
 
-**项目根目录下 eros.native.js 中 url.image 图片上传的地址为默认上传地址。**
+**项目根目录下 eros.native.js 中 url.image 图片上传的地址为默认上传地址，根据需求来填写。**
+
+**提示：App上传图片的时候请求的 content-type 值是 image/jpeg 或 image/png，Content-Disposition：中 name 字段值是 file，请后端同学解析的时候注意一下；**
 
 示例：
 
@@ -744,7 +772,7 @@ this.$image.upload({
 ---
 #### camera
 
-> 拍照并获取图片地址。
+> 拍照并获取图片地址，**获取的本地地址可直接在 image 标签的 src 属性上使用**。
 
 
 示例：
@@ -767,7 +795,7 @@ this.$image.camera({
 ---
 #### pick
 
-> 选取本地图片并处理。
+> 选取本地图片并处理，**获取的本地地址可直接在 image 标签的 src 属性上使用**。
 
 
 示例：
@@ -834,7 +862,12 @@ this.$image.browser({
 
 # $navigator（原生导航条相关操作）
 
-设置原生导航条的部分属性。
+> 设置原生导航栏按钮，支持文字，或图片
+
+### 图片尺寸及命名规定
+> size: 请以 iPhone6（750x1334) 的尺寸设计，并切图； <br>
+命名：请将图片命名成 xxx@2x.png(注意 x 是小写的)，因为iOS系统会根据图片命名设置图片的size，对安卓不影响； <br>
+注：图片不要使用中文命名
 
 #### setNavigationInfo
 
@@ -944,7 +977,7 @@ this.$notice.confirm({
     title: '这是一个弹窗',
     message: '消息',
     okTitle: '确认',
-    cancelTitl: '取消',
+    cancelTitle: '取消',
     okCallback() {
         // 点击确认按钮的回调
     },
@@ -995,96 +1028,21 @@ Api：
 
 * **message（String）**：吐丝信息。**\(必填\)**
 
-# $pay（支付相关）
-
-目前仅支持微信支付。
-
-#### wechat
-
-> 调起微信支付。
-
-示例：
-
-```js
-this.$pay.wechat({
-    // 微信支付所需必要参数，参考官方文档
-    sign:'',
-    timestamp:'',
-    noncestr:'',
-    partnerid:'',
-    prepayid:'',
-    packageValue:''
-}).then(resData => {
-    // 成功的回调
-}, error => {
-    // 失败的回调
-})
-```
-
-注意：
-
-微信支付需要在`eros.native.js`中配置相关信息：
-```js
-"wechat": {
-    "enabled": "true", //enabled设为true微信相关操作（如分享、支付）才生效
-    "appId": "",
-    "appSecret": ""
-}
-```
-
-# $share（分享相关）
-
-示例：
-
-```js
-this.$share({
-    title:'',                                     // 分享出去的 title
-    content:'',                                   // 内容
-    url: ''                                       // 用户点击后跳转 url
-    image: '',                                    // 图片url    
-    platforms: ['Pasteboard','WechatSession']     // 选填，不传此属性默认全部，目前支持朋友圈、朋友、复制链接
-}).then(resData => {
-    // 成功的回调
-}, error => {
-    // 失败的回调
-})
-```
-
-Api：
-
-* **title**（**String**）：分享出去的 title。
-* **content**（**String**）：分享的内容简述。
-* **url**（**String**）：用户点击后跳转 url。
-* **img**（**String**）：图片 url。
-* **plaforms**（**Array**）：平台
-  * **Pasteboard**：剪切板。
-  * **WechatSession**：微信好友。
-  * **WechatTimeLine**：分享至朋友圈。
-
-注意：
-
-微信分享需要在`eros.native.js`中配置相关信息：
-```js
-"wechat": {
-    "enabled": "true", //enabled设为true微信相关操作（如分享、支付）才生效
-    "appId": "",
-    "appSecret": ""
-}
-```
 
 # $tools (工具相关)
 
-### List
+### Api
 
 * **resignKeyboard** 收起键盘。
-* **isInstallWXApp** 是否安装微信。
-* **getCid** 获取cid 个推的app标识。
 * **copyString** 复制内容到剪切板。
 * **scan** 扫一扫。
+* **networkStatus** 获取网络状态。
+* **watchNetworkStatus** 监听网络状态。
+* **clearWatchNetworkStatus** 取消监听网络状态。
 
 ### resignKeyboard
 
-收起键盘。
+> 收起键盘。
 
 示例：
 
@@ -1094,39 +1052,10 @@ this.$tools.resignKeyboard().then(resData => {
 }, error => {})
 ```
 
-### isInstallWXApp
-
-是否安装微信。
-
-示例：
-
-```js
-this.$tools.isInstallWXApp().then(resData => {
-    // 成功的回调
-}, error => {})
-```
-注意：
-
-**必须在`eros.native.js`中配置才能生效**
-
-### getCid
-
-获取cid 个推的app标识。
-
-示例：
-
-```js
-this.$tools.getCid().then(resData => {
-    // 成功的回调
-}, error => {})
-```
-注意：
-
-**必须在`eros.native.js`中配置才能生效**
 
 ### copyString
 
-复制内容到剪切板。
+> 复制内容到剪切板。
 
 示例：
 
@@ -1145,10 +1074,47 @@ this.$tools.copyString("weex-eros").then(resData => {
 ```js
 this.$tools.scan().then((resData) => {
     console.log(resData)
+}, error => {})
+```
+
+### networkStatus
+
+> 获取网络状态
+
+```js
+
+const status = this.$tools.networkStatus()
+```
+网络状态 `status`：
+- `UNKNOWN` 未知
+- `NOT_REACHABLE` 不可达（无网络）
+- `WIFI` 无线网
+- `3G/4G` 手机移动网络
+
+### watchNetworkStatus
+
+> 监听网络状态
+
+```js
+this.$tools.watchNetworkStatus().then((status) => {
+    // 网络状态 status：
+    // UNKNOWN 未知
+    // NOT_REACHABLE 不可达（无网络）
+    // WIFI 无线网
+    // 3G/4G 手机移动网络
+}, err => {
+    // 监听失败 错误回调 status , errorMessage
 })
 ```
 
-扫一扫的结果会通过 resData.data 返回。
+### clearWatchNetworkStatus
+
+> 取消监听网络状态
+
+```js
+this.$tools.clearWatchNetworkStatus()
+```
+
 
 # 拓展
 
@@ -1190,20 +1156,3 @@ this.$toast({
     duration: 200
 })
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

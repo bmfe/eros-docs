@@ -1,9 +1,3 @@
-- 
-	- [主页](/zh-cn/)
-
-- [ 教程 ]
-	- [入门](/zh-cn/tutorial_newcomer)
-
 - [ 基础 ]
 	- [集成环境](/zh-cn/base_env)
 	- [生成项目](/zh-cn/base_init)
@@ -12,15 +6,22 @@
 	- [业务开发](/zh-cn/base_dev)
 	- [依赖更新](/zh-cn/base_dependencies)
 	
+- [ 教程 ]
+	- [入门](/zh-cn/tutorial_newcomer)
 
 - [ 拓展 ]
-	- [eros-增强](/zh-cn/base_extend)
-	- [eros-widget](/zh-cn/eros_widget)
-	- [eros-module](/zh-cn/eros_sdk_module)
-	- [eros-component](/zh-cn/eros_sdk_component)
+	- [eros | 增强](/zh-cn/base_extend)
+	- [eros | widget](/zh-cn/eros_widget)
+	- [eros | module](/zh-cn/eros_sdk_module)
+	- [eros | component](/zh-cn/eros_sdk_component)
 
 - [进阶]
-	- [发布更新](/zh-cn/advanced_diff)
+	- [appboard](/zh-cn/advanced_appboard)
+	- [mediator](/zh-cn/advanced_mediator)
+	- [bindingx](/zh-cn/advanced_bindingx)
+	- [插件开发 (待完善)](/zh-cn/advanced_plugin)
+	- [热更新原理](/zh-cn/advanced_diff)
+	- [eros-publish](/zh-cn/advanced_publish)
 
 - [ Android 开发相关 ]
 	- [配置](/zh-cn/android_config)
@@ -29,6 +30,7 @@
 - [ iOS 开发相关 ]
 	- [App名称、版本号设置](/zh-cn/ios_config)
 	- [图片相关配置](/zh-cn/ios_image)
+	- [工程简介及扩展](/zh-cn/ios_project)
 
 - [ Q & A ]
 	- [问题集合](/zh-cn/QA)
@@ -39,5 +41,11 @@
 	<!-- - [eros-android-sdk](/zh-cn/update_log_android) -->
 	<!-- - [eros-cli](/zh-cn/update_log_cli) -->
 	<!-- - [eros-publish](/zh-cn/update_log_publish) -->
-- [三方]
-	- [个推相关](/zh-cn/getuiInfo)
+- [ Eros-Plugin ]
+	- [插件化](/zh-cn/eros_plugin)
+	- [基础库](/zh-cn/app_base_library)
+	- [微信分享+微信登录](/zh-cn/plugin_wx_share)
+	- [微信支付](/zh-cn/plugin_wx_pay)
+	- [个推推送](/zh-cn/plugin_getui_push)
+	- [高德地图](/zh-cn/plugin_amap)
+	- [更多插件](/zh-cn/other_plugin)

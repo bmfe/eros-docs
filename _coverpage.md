@@ -2,7 +2,7 @@
 
 > 一套 JS 代码，两端原生应用。
 
-[GitHub](https://github.com/bmfe/eros-template)
+[GitHub](https://github.com/bmfe/eros)
 [Get Started](#介绍)
 
 

@@ -2,13 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
+  <title>EROS</title>
+  <link rel="icon" href="/zh-cn/image/eros.ico">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta name="keywords" content="eros,weex-eros,weex,vue-native,weex-native,vue,github,docs">
+  <meta name="description" content="One vue file, two system app.">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
-  <link rel="stylesheet" href="//unpkg.com/docsify-copy-code/styles.css">
-  <script src="//unpkg.com/docsify-copy-code/index.js"></script>
+  <link rel="stylesheet" href="//unpkg.com/docsify-copy-code@1.0.0/styles.css">
+  <script src="//unpkg.com/docsify-copy-code@1.0.0/index.js"></script>
+  <script src="//unpkg.com/docsify-edit-on-github@1.0.1/index.js"></script>
 </head>
 <body>
   <nav>
@@ -43,18 +48,24 @@
       },
       loadNavbar: true,
       loadSidebar: true,
-      name: 'EROS 文档',
-      repo: '',
+      name: 'EROS',
+      repo: 'https://github.com/bmfe/eros',
       coverpage: true,
       auto2top: true,
+      autoHeader: true,
       themeColor: '#1da1f2',
       subMaxLevel: 2,
       plugins: [
-        window.DocsifyCopyCodePlugin.init()
+        window.DocsifyCopyCodePlugin.init(),
+        EditOnGithubPlugin.create(
+          'https://github.com/bmfe/eros-docs/tree/master/'
+        ),
       ]
     }
   </script>
   <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
   <script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
+<script src="//unpkg.com/docsify-pagination@2.3.0/dist/docsify-pagination.min.js"></script>
+
 </body>
 </html>

@@ -1,3 +1,443 @@
+## 2018.06.06
+### 重点更新
+* [bugfix-Android]解决Tabbar 刷新崩溃问题；
+* [bugfix-Android]修复 input 标签 v-model 有时不生效的问题；
+* [feature] bmAxios 请求支持 application/x-www-form-urlencoded 表单格式；
+
+### iOS 升级
+1.升级 BMBaseLibrary 库为 1.2.5 版本
+
+```ruby
+pod 'BMBaseLibrary', :git => 'https://github.com/bmfe/Benmu-iOS-Library.git', :tag => '1.2.5'
+```
+2.执行 `pod update` 拉取新版本依赖；
+
+### Android 升级
+
+1. 打开`/platforms/android/WeexFrameworkWrapper/app/build.gradle`,将`dependencies`节点中`framwork`版本更新至1.0.4。
+2. SynNow同步项目。
+
+
+## 2018.05.30
+### 重点更新
+* 拓展原生 tabBar，现在首页可以使用原生 tabBar 了，用户体验提升一大截；
+* $router open 方法添加 backgroundColor 参数，用于设置原生页面的背景颜色，从感官上不会有白屏了；
+* axios 请求添加返回 responseHeader；
+* bmToolModule 添加监听网络状态方法；
+* iOS 修复点击推送消息唤起App崩溃的问题；
+* Android 修复border-radius，v-model不生效问题；
+
+### iOS 升级
+1.升级 BMBaseLibrary 库为 1.2.4 版本
+
+```ruby
+pod 'BMBaseLibrary', :git => 'https://github.com/bmfe/Benmu-iOS-Library.git', :tag => '1.2.4'
+```
+
+2.推送的问题请更新 ErosPluginGeTui 库为 1.0.1 版本
+
+```ruby
+pod 'ErosPluginGeTui', :git => 'https://github.com/bmfe/eros-plugin-ios-getui.git', :tag => '版本号'
+```
+
+3.执行 `pod update` 拉取新版本依赖；
+
+### Android 升级
+历史版本升级进行如下操作:
+
+1. 打开`/platforms/android/WeexFrameworkWrapper/app/build.gradle`,将`dependencies`节点中`nexus`和`framwork`版本更新至1.0.3,如果依赖了eros插件,可将其他插件版本更改为1.1.0版本（Amap、个推、share、pay）。最后,删除最上方`apply plugin: 'eros-revan'`。
+
+2. 打开`/platforms/android/WeexFrameworkWrapper/build.gradle`,在`dependencies`节点删除`classpath 'com.benmu.eros:eros-raven:1.0.0'`。
+
+3. 将目录`/platforms/android/WeexFrameworkWrapper/app/src/main/java/com/benmu/wx/activity`替换为[链接](https://github.com/bmfe/eros-template/tree/demo/platforms/android/WeexFrameworkWrapper/app/src/main/java/com/benmu/wx/activity)目录。
+4. 将 `/WeexFrameworkWrapper/app/src/main/res/layout` 目录下仅保留 `activity_splash.xml` 其他xml 文件删除
+5. 找到`/platforms/android/WeexFrameworkWrapper/app/src/main/AndroidManifest.xml`中`MainActivity`的节点将其替换为
+```
+<activity android:name="com.benmu.framework.activity.MainActivity"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="${APP_ID}.categoty.page"/>
+
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+            </intent-filter>
+        </activity>
+```
+5. SynNow同步项目。
+
+### widget (1.0.2-beta.2) 对应更新
+`$ cnpm i eros-widget -S`
+
+- [feature] `$router.open` 支持传入背景颜色，有效减少白屏。
+- [feature] `$tools.networkStatus, $tools.watchNetworkStatus, $tools.clearWatchNetworkStatus`。
+
+### tabBar 使用说明
+
+1.编辑 `eros.native.js` 文件，添加 tabBar 相关配置信息；[详细文档](https://bmfe.github.io/eros-docs/#/zh-cn/base_config)
+
+```js
+tabBar: {
+        color: '#777777',
+        selectedColor: '#00b4cb',
+        backgroundColor: '#fafafa',
+        borderColor: '#dfe1eb',
+        list: [{
+                pagePath: '/pages/demo/router/tabbarItem1.js',
+                text: '首页',
+                icon: 'bmlocal://assets/TabBar_Item1@2x.png',
+                selectedIcon: 'bmlocal://assets/TabBar_Item1_Selected@2x.png',
+                navShow: 'true',
+                navTitle: "首页"
+            },
+            {
+                pagePath: '/pages/demo/router/tabbarItem2.js',
+                text: '联系人',
+                icon: 'bmlocal://assets/TabBar_Item2@2x.png',
+                selectedIcon: 'bmlocal://assets/TabBar_Item2_Selected@2x.png',
+                navShow: 'true',
+                navTitle: '联系人'
+            },
+            {
+                pagePath: '/pages/demo/router/tabbarItem3.js',
+                text: '个人中心',
+                icon: 'bmlocal://assets/TabBar_Item3@2x.png',
+                selectedIcon: 'bmlocal://assets/TabBar_Item3_Selected@2x.png',
+                navShow: 'true',
+                navTitle: '我'
+            }
+        ]
+    }
+```
+
+2.应用 tabBar: 
+
+* 修改 homePage 为 `tabBar`；
+* 或者 调用 $router.setHomePage('tabBar') 方法；
+
+3.编辑完 eros.native.js 文件后重启服务，重启App查看效果；
+
+### 获取 responseHeaders
+
+请求成功后可以通过获取 `resData.header` 来查看 responseHeaders 信息；
+
+```js
+/**
+ * 请求返回统一拦截器 （可选）
+ */
+responseHandler (options, resData, resolve, reject) {
+    const { status, errorMsg, data } = resData
+    // 这里可以解构 header 出来
+    if (status !== 200) {
+        console.log(`invoke error status: ${status}`)
+        console.log(`invoke error message: ${errorMsg}`)
+        reject(resData)
+    } else {
+        // 自定义请求逻辑
+        resolve(data)
+        // 查看responseHeaders
+        resData.header
+    }
+}
+```
+
+## 2018.05.02
+### 重点更新
+* native端框架大调整，插件拆分；
+* 新增 `Eros-Plugin` 将微信分享、高德地图等三方库拆分为插件，可以选择性集成，提高灵活性 [查看详情](https://bmfe.github.io/eros-docs/#/zh-cn/eros_plugin)；
+* eros.native.js 中移除 umeng、wechat、amap的配置信息，使用方式请查看[插件集成教程](https://bmfe.github.io/eros-docs/#/zh-cn/plugin_wx_share)；
+* eros cli 脚手架更新；
+  * 优化 eros init命令：可选择初始化带demo示例的 rich 模板，或者 pure 的纯净版本；
+  * 删除 install 命令；
+  * 优化 eros update 命令只能跟新template工程文件，更新App原生依赖请看最新文档；
+
+### 新版本
+
+请按教程 [生成项目](https://bmfe.github.io/eros-docs/#/zh-cn/base_init)
+
+### 老版本更新指南
+> 更新前请做好备份，由于本次更新 native 端改动较大，建议重新生成项目然后迁移；
+
+**更新脚手架**
+
+```
+cnpm i eros-cli -g
+```
+
+### iOS 升级
+
+**1.更新工程文件:Podfile、AppDelegate.h、AppDelegate.m**
+
+**注**：如果你对原生文件有修改，请自行 diff；
+
+```
+$ eros update template /platforms/ios/WeexEros/Podfile
+$ eros update template /platforms/ios/WeexEros/WeexEros/AppDelegate.h
+$ eros update template /platforms/ios/WeexEros/WeexEros/AppDelegate.m
+```
+
+**2.修改配置文件**
+
+> 在Xcode中：找到Other Linker Flags 并展开，在`Debug`和`Release`中，移除图片中选择的引用，注意：需要将上面的 `-framework`也一同移除
+
+![](./image/del_link1.png)
+![](./image/del_link2.png)
+
+**3.更新iOS依赖**
+
+cd到iOS工程目录platforms/ios/WeexEros 执行pod update命令来拉取iOS工程的依赖
+```
+$ pod update
+```
+
+**4.重新编译运行项目**
+
+### Android 升级
+
+**1.删除源码依赖模块**
+
+> cd到Android工程目录platforms/android/WeexFrameworkWrapper目录下，删除 settings.properties 里多余的module,保留如下
+```java
+include ':app'
+```
+**2.删除源码依赖**
+打开Android目录`工程目录/platforms/android/WeexFrameworkWrapper/app`,删除app目录下build.gradle 里 `dependencies` 下wxframework引用：
+
+```
+compile project(':wxframework')
+```
+
+**3.下载几个源码文件** </br>
+https://github.com/bmfe/eros-template
+项目的 demo分支。 对应覆盖 几个文件  如下：
+```
+AndroidManifest.xml
+SplashActivity.java
+AppRegister.java
+WXEntryActivity.java
+WXPayEntryActivity.java
+```
+
+**4.添加依赖插件**
+打开Android目录`工程目录/platforms/android/WeexFrameworkWrapper/app`,编辑app目录下build.gradle 文件 `dependencies` 下添加引用，代码如下：
+
+	```ruby
+	dependencies {
+		....
+	//eros base
+    compile 'com.github.bmfe.eros-android-worker:eros-framework:eros_v0.0.1'
+    //eros plugin
+    compile 'com.benmu.eros:plugin-amap:1.0.0'
+    compile 'com.benmu.eros:plugin-getui:1.0.0'
+    compile 'com.benmu.eros:plugin-wxpay:1.0.0'
+    compile 'com.benmu.eros:plugin-wxshare:1.0.0'
+	}
+	```
+* 添加完后，右上角 有一个 sync now。 点击 等待同步完成没有报错证明组件添加成功
+
+
+## 2018.03.22
+### 重点更新
+* 全新 demo
+* 真机/模拟器(单个/多个) 热刷新
+* 开发中代理软件成为可选项，不需要代理软件就可以通过真机/模拟器进行实时修改预览。
+* eros.native.js 以后不需要每次 pack 生效，修改完后，重启 eros dev，重新 build app 即可.
+
+> 特别注意：weex-loader 升级之后 sass 中 变量 $ 不生效，确认为官方 weex-loader 问题，已提issues，如果想继续使用，在全局脚手架中自行降级即可
+
+热刷新使用
+```js
+// eros.dev.js 中添加如下配置 开启 websocket
+'socketServer': {
+    'port': 8899,
+    'switch': true
+}
+```
+然后看自己 eros.native.js url.jsServer 是否还存在，目前已经采取动态ip 写入，你需要删除此项配置，重新 eros dev，build app 即可。
+### 新版本 
+请直接 init 新项目
+
+### 老版本更新指南
+如果 3.14 版本未更新的话，看下面的更新指南。
+如果您未变动到开发底层 platforms/android/ 下的文件，请按以下指令更新：
+* `cnpm i eros-cli -g` 更新脚手架
+* `eros update template package.json`
+* `eros update ios`
+* `eros update android`
+* `rm -rf node_modules` 删除前端依赖
+* `cnpm install` 重新下载前端依赖
+
+如果您距离当前版本过久没更新，**强烈建议，重新 `eros init` 进行迁移。**
+
+### eros-cli 2.0.7-beta.3
+* [feature] 更新 `weex-loader` 到最新版，支持 recyle-list
+* [feature] 添加 socket 服务，支持热刷新可动态代理 ip 写入
+* [optimize] 添加 happypack 减少打包体积 
+
+### eros-template 1.0.1-beta.2 `可选更新`
+* [feature] 全新的 demo
+* [update] 升级了 weex-ui 版本
+
+### eros-widget 1.0.1-beta.8
+* [feature] alert/confirm 去掉 message 为空限制
+
+### eros-android-sdk
+* [feature] 增加热刷新功能。
+* [modify] 修改Input 默认字体为黑色
+* [modify] 修改Image标签的 默认加载动画菊花 由 placeholder 属性控制，默认不展示。
+* [update] bindingx 升级到了 1.0.2
+* [bugfix] 页面旋转崩溃问题 (PR By 韩琉鑫)
+* [bugfix] 修改Emit参数类型转化异常
+* [bugfix] 修复扫码遇到Json串可能崩溃问题。
+* [bugfix] 所有弹窗均改为原生 
+
+### eros-ios-sdk
+* [feature] 增加热刷新功能。
+* [update] bindingx 升级到了 1.0.1
+
+
+## 2018.03.14
+### 重点更新
+* eros android 底层组件化
+* 支持 [bindingx](https://bmfe.github.io/eros-docs/#/zh-cn/advanced_bindingx)
+
+### 新版本 
+请直接 init 新项目
+
+### 老版本更新指南
+
+如果您未变动到开发底层 platforms/android/ 下的文件，请按以下指令更新：
+* `cnpm i eros-cli -g` 更新脚手架
+* `eros update template scripts`
+* `eros update template package.json`
+* `eros update template /platforms/android`
+* `eros update ios`
+* `rm -rf node_modules` 删除前端依赖
+* `cnpm install` 重新下载前端依赖
+
+如果您的 eros 客户端底层变动较大，如下更新比较合适：
+* `eros init` 最新模板
+* 直接把你项目中的 `src` 目录拷贝进来
+* `diff` 底层的变动，进行迁移
+
+如果您变动了不多，请尝试以下更新：
+* `cnpm i eros-cli -g` 更新脚手架
+* `eros update template scripts`
+* `eros update template package.json`
+* `eros update template /platforms/android/WeexFrameworkWrapper/settings.gradle`
+* `eros update template /platforms/android/WeexFrameworkWrapper/app/build.gradle`
+* `eros update template /platforms/android/WeexFrameworkWrapper/app/src/main/java/com/benmu/wx/activity/SplashActivity.java`
+* `eros update ios`
+* `eros install android` (注意此次安卓升级较大，不得使用 update 命令，如果改动了底层代码覆盖了你得逻辑，还是直接 init 项目来 diff 差别)
+* `rm -rf node_modules` 删除前端依赖
+* `cnpm install` 重新下载前端依赖
+
+如果您距离当前版本过久没更新，**强烈建议，重新 `eros init` 进行迁移。**
+
+### eros-cli 2.0.6-beta.1 
+* [feature] 更新 `weex-loader` 到最新版，支持 recyle-list
+* [feature] 添加 socket 服务，准备开发保存自动刷新
+* [bugfix] `eros build -d` 报错问题
+
+### eros-template 1.0.1-beta.1 `可选更新`
+* [feature] 添加 bindindx demo
+* [update] weex-ui demo
+
+### eros-widget 1.0.1-beta.6
+* [feature] 支持 $bindingx，重写 $bindingx 的引用方法，重写了 bind 方法，支持所有内部暴露出来的方法
+* [bugfix] 父子组件同时注册生命周期，执行两次的 bug
+
+### eros-android-sdk
+* [feature] 插件化重构，拆分amap；
+* [feature] 集成 BindingX； 
+* [update] BMChart 修改默认背景颜色为透明；
+* [bugfix] 订阅传递纯数字字符是可能有问题；
+
+### eros-ios-sdk
+* [feature] 集成 BindingX；
+* [feature] BMRouter open方法添加 gesBack字段，控制是否开启手势返回；
+* [update] BMChart 修改默认背景颜色为透明；
+
+## 2018.03.07
+### 重点更新
+* `weex sdk ios/android` 均升级 `0.18.0`
+* 告别 `if (process.env.NODE_ENV === 'development') require('Config’)`
+* `全局事件`，`生命周期`的使用均优化了名称(可选，需谨慎)
+
+### 老版本更新指南
+> 因近期两会原因，还有前不久 github 刚刚遭受了最大的 DDOS 攻击，导致相关操作有些缓慢，甚至会断开，还需要多尝试几次，如若不行，参考 `scripts` 文件夹中的更新脚本，手动进入项目更新即可。
+
+项目根目录下
+* `cnpm i eros-cli -g` 更新脚手架
+* `eros update template platforms/android/WeexFrameworkWrapper/app/build.gradle` 删除不需要的ndk 架构 (weex sdk 0.18.0 需要)。
+* `eros update template platforms/android/WeexFrameworkWrapper/build.gradle` 切换了部分阿里源，加快下载速度。
+* `eros update ios` 或 `eros update android`
+* `cnpm i` 可选，注意升级完之后需要也需要改代码中原有使用生命周期的代码，[查看文档](https://bmfe.github.io/eros-docs/#/zh-cn/eros_widget?id=%e9%a1%b5%e9%9d%a2%e5%85%a8%e5%b1%80%e4%ba%8b%e4%bb%b6)，如果想保留之前写法，不执行此行代码更新 `eros-widget` 即可。
+
+### eros-cli 2.0.6-beta.1 
+* [feature] 添加 	`eros run ios`，当本地环境安装成功可直接运行模拟器。
+* [optimize] 优化 自动在 `eros dev` 的时候拼接 appboard js bundle ，从而避免了使用 `if (process.env.NODE_ENV === 'development') require('Config’)`，也解决了 weex debug 中 eros dev 时全局事件会执行两次问题
+* [optimize] eslint 支持编译 await/async. (by 阳光只要七十米)
+
+### eros-template 1.0.1-beta.1 `可选更新`
+* [optimize] demo 兼容 0.18.0，并做了部分优化。
+* [optimize] eslint 支持编译 await/async. (by 阳光只要七十米)
+
+### eros-widget 1.0.1-beta.1 `可选更新`
+* [rebuild] 在 mixins.js 中重做了全局事件的注入，并变更为更语义化的单词，使用方法可参考 demo 中的生命周期
+```js
+export default {
+    eros: {
+        appActive() {
+            console.log('appActive');
+        },
+        appDeactive() {
+            console.log('appDeactive');
+        },
+        beforeAppear (params, options) {
+            console.log('beforeAppear');
+        },
+        beforeBackAppear (params, options) {
+            console.log('beforeBackAppear');
+        },
+
+        appeared (params, options) {
+            console.log('appeared');
+        },
+
+        backAppeared (params, options) {
+            console.log('backAppeared');
+        },
+
+        beforeDisappear (options) {
+            console.log('beforeDisappear');
+        },
+
+        disappeared (options) {
+            console.log('disappeared');
+        },
+
+		pushMessage (options) {
+            console.log('pushMessage');
+        }
+    }
+}
+```
+
+### eros-android-sdk
+* [bugfix] 修复增量更新可能失败问题.
+* [update] 集成升级SDK 0.18版本.
+* [update] 集成升级 weex-debugger 0.13.4版本.
+* [optimize] 修改拦截器关闭不拼接app borad.
+* [feature] 增加全局属性 deviceHeight、deviceWidth
+
+### eros-ios-sdk
+* [update] 集成升级SDK 0.18版本.
+* [optimize] 修改拦截器关闭不拼接app board.
+
+---
 ## 2018.02.08
 开发模板 eros-template v1.0.0：
 * [del]: 删除了 widget 目录及其源码
@@ -30,6 +470,7 @@ sdk 相关：
 4. 把 src/js/config/index 的引入 widget 的路径替换为 `import Widget from 'eros-widget'`
 5. eros update ios or android
 
+---
 ## 2018.02.01
 ### 简述：
 * 目前可任意使用 echart 的大部分所有实例运行了！！！
@@ -65,6 +506,7 @@ sdk 相关：
 * add: eros update template your_path
 * add: eros update widget
 
+---
 ## 2018.01.24
 
 ### eros-template:
@@ -94,6 +536,7 @@ sdk 相关：
 * 新项目 或者 如果需要查看demo 建议重新 eros init 项目
 * 老版本如果更新sdk 只需要 eros install 即可
 
+---
 ## 2018.01.10
 ### 脚手架及其模板
 * 添加编译时 eslint ，并添加 eslint 对应配置文件，在 `eros.dev.js` 中添加 eslint 参数来配置是否需要在编译时进行 eslint 检测，eslint 默认为false。
@@ -116,6 +559,7 @@ sdk 相关：
 1. 修改 module 拨打电话的传参方式
 2. 修改返回格式status问题，统一返回 `Number`
 
+---
 ## 2018.01.05
 ### 安卓/IOS
 * 添加一键调试，不需要扫一扫即可调用调试，模拟器现在也可以调试了；需要在 `eros.native.js` 中添加 `debugServer`，添加方式请看[eros.native.js 配置教程](https://github.com/bmfe/eros-template/wiki/%E9%85%8D%E7%BD%AE%E7%9B%B8%E5%85%B3) (感谢：周晗)

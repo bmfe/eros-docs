@@ -6,7 +6,7 @@
 
 客户端需要读取的配置文件。
 
-> 注意:  **`eros.native.js` 每次变动，都需要执行命令 `eros pack` 打内置包到对应平台，并重新运行你的 app 。**
+> 注意:  **`eros.native.js` 每次变动，都需要重新执行命令 `eros dev` 并重新运行你的 app 。**
 
 ```javascript
 {
@@ -24,10 +24,8 @@
         navItemColor:"#ffffff"
     },
     url: {
-        jsServer:"https://app.weex-eros.com:8889",
-        image: "https://lev-inf.benmu-health.com/xxx/xxx",
-        bundleUpdate: "http://localhosts:3001/app/check",
-        debugServer:"ws://192.168.15.110:8088/debugProxy/native"
+        image: "https://app.weex-eros.com/xxx/xxx",
+        bundleUpdate: "http://localhosts:3001/app/check"
     },
     zipFolder: {
         server: "home/app",
@@ -40,19 +38,36 @@
         appKey: "",
         appSecret: ""
     },
-    umeng: {
-        enabled: "false",
-        iOSAppKey: "",
-        androidAppKey: ""
-    },
-    wechat: {
-        enabled: "false",
-        appId: "",
-        appSecret: ""
-    },
-    amap: {
-        enabled: "false",
-        appKey: ""
+    tabBar: {
+        color: '#777777',
+        selectedColor: '#00b4cb',
+        backgroundColor: '#fafafa',
+        borderColor: '#dfe1eb',
+        list: [{
+                pagePath: '/pages/demo/router/tabbarItem1.js',
+                text: '首页',
+                icon: 'bmlocal://assets/TabBar_Item1@2x.png',
+                selectedIcon: 'bmlocal://assets/TabBar_Item1_Selected@2x.png',
+                navShow: 'true',
+                navTitle: "首页"
+            },
+            {
+                pagePath: '/pages/demo/router/tabbarItem2.js',
+                text: '联系人',
+                icon: 'bmlocal://assets/TabBar_Item2@2x.png',
+                selectedIcon: 'bmlocal://assets/TabBar_Item2_Selected@2x.png',
+                navShow: 'true',
+                navTitle: '联系人'
+            },
+            {
+                pagePath: '/pages/demo/router/tabbarItem3.js',
+                text: '个人中心',
+                icon: 'bmlocal://assets/TabBar_Item3@2x.png',
+                selectedIcon: 'bmlocal://assets/TabBar_Item3_Selected@2x.png',
+                navShow: 'true',
+                navTitle: '我'
+            }
+        ]
     }
 }
 ```
@@ -73,9 +88,10 @@
 * navItemColor:  原生导航栏字体颜色。
 
 #### **`url`**: 路经相关: 
-* jsServer: 本地 js 的服务路径。
+* jsServer: 本地 js 的服务路径。(默认脚手架自动填写)
 * image: 图片上传绝对路径。
 * bundleUpdate: 检测jsBundle更新接口。`(增量发布相关)`
+> 增量发布相关的配置可以结合着增量发布文章结合着一起看。
 
 #### **`zipFolder`** 内置包存放地址。
 * server: 自动生成差分包的目录，可将脚手架部署在服务器上，做增量发布。
@@ -86,25 +102,28 @@
 * enabled: 是否启用个推服务。
 * appId、appKey、appSecret 在个推平台申请。
 
-#### **`umeng`** 友盟统计相关
-* enabled: 是否启用友盟统计，友盟分享服务；
-* iOSAppKey、androidAppKey  友盟后台申请的appkey，分别对应iOS、Android。
+#### **`tabBar`** 原生tabBar配置信息
+如果你的 App 首页设计为多tab的样式可以将 page 中的 homePage 设置为 'tabBar'，这样App首页会使用原生的tabBar，大大提升用户体验；
 
-#### **`wechat`** 微信支付相关
-* enabled: 是否启用微信支付，微信分享。
-* appId、appSecret 微信开放平台申请。
+> 温馨提示：Eros 内置 demo 选择 `路由功能` `->` `设置App启动首页` 可以切换到tabbar的页面，查看效果;
 
-#### **`amap`** 高德（工具集成了 高德地图SDK）
-* enabled: 是否启用高德地图。
-* appkey 填写从高德开发平台申请的appkey。
-
-> 增量发布相关的配置可以结合着增量发布文章结合着一起看。
+* color：文字颜色；
+* selectedColor：文字选中后的颜色；
+* backgroundColor：tabBar背景颜色；
+* borderColor：tabBar上边栏颜色（tabBar最顶端1px的线条）；
+* list：tabBarItem 配置信息 （2 <= item数量 <= 5）；
+	*  pagePage：页面路径从 /page 开始填写；
+	*  text：标题；
+	*  icon：默认图片（注：只支持 png 图片，size 建议为50px左右，图片请命名为 xxx@2x.png）；
+	*  selectedIcon：选择后图片（规则与icon一致）；
+	*  navShow: 是否显示原生导航栏；
+	*  navTitle：导航栏标题；
 
 ## eros.dev.js -> 脚手架
 
 脚手架会去读取此项配置来让开发者进行开发，调试，语法检测，mock，生成增量包和全量包等能力
 
-> 注意: **，`eros.dev.js` 每次变动，都需要重新启 eros dev 开发服务。**`(因为此项配置，是在脚手架启动的时候会回去读取)`。
+> 注意: **，`eros.dev.js` 每次变动，都需要重新启 eros dev 开发服务。**`(因为此项配置，是在脚手架启动的时才会去读取)`。
 
 ```javascript
 {
@@ -141,6 +160,10 @@
     mockServer: { 
         "port": 52077, 
         "mockDir": "./dist/mock" 
+    },
+    socketServer: {
+        "switch": true,
+        "port": 8890
     }
 }
 ```
@@ -165,6 +188,9 @@ import component from 'Components' //对应 js/components
 
 ##### **`mockServer`**
 本地`mock`数据服务，因为`proxy`中已经把`/test`路径代理带`52077`端口，而我们在`52077`端口起了`mock`服务，所以能在本地`mock`数据。
+
+#### **`socketServer`**
+热更新服务`开关`和`端口`，**若没有此项配置，热更新功能是无法使用的。**
 
 
 

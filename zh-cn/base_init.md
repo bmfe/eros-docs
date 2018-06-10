@@ -2,6 +2,7 @@
 
 ## 生成开发模板 
 通过脚手架自动生成 eros 目录，并进入生成的项目目录下：
+
 ```bash
 $ eros init
 ```
@@ -9,43 +10,34 @@ $ eros init
  
 * 项目名称，默认 `eros-demo`。
 * 初始版本号，默认 `1.0.0`。
+* 模板类型，默认 `带有官方示例的丰富项目结构`，另外一个是`纯净开发版`。
 * 安卓包名，默认 `com.benmu.wx`。
 
-**安卓手机上不能出现 2 个包名相同的应用，如果有，需要卸载，为了同时安装多个 `eros app `设置请勿重复。**
+**注意：**安卓手机上不能出现 2 个包名相同的应用，如果有，需要卸载，为了同时安装多个 `eros app `设置请勿重复。
 
-脚手架会自动从 NPM 上拉取最新的 [eros-template 开发模板](https://github.com/bmfe/eros-template)，按照提示一直到 `eros install` 完成。
+脚手架会自动从 github 上拉取最新的 [eros-template 开发模板](https://github.com/bmfe/eros-template)
 
-> 请再次保证您的 windows 环境已经安装 `git bash`， 并甚至为 `.sh` 文件的默认执行程序， 来执行自动化脚本，否则必会失败。
+然后进入开发目录，执行 `cnpm i` 加载`node_modules`
+```
+$ cd eros-demo
+$ cnpm i
+$ eros dev
+```
 
-
-## iOS 导入工程
+## iOS 运行项目
 确保您已经安装完成 [iOS 所需环境](/zh-cn/base_env)。
 
-
-进入到刚刚生成的项目模板中，下载 `eros ios sdk` 的依赖。
-
+`cd`到iOS工程目录`platforms/ios/WeexEros` 执行`pod update`命令来拉取iOS工程的依赖
 ```
-$ cd eros-demo       	// 默认名字是 eros-demo
-$ eros install ios   	// 下载 eros ios sdk
+$ pod update
 ```
 
-> 注：一般这一步问题出错，都是跟 iOS 包管理器 pod 安装有关。
+首次执行时间会稍长，命令执行完毕后找到当前目录下 `WeexEros.xcworkspace` 文件，双击即可唤起XCode打开 iOS 工程；<br>
+然后在XCode选择相应的模拟器（比如iPhone 8），点击`▶`按钮来运行项目。
 
-依赖下载成功之后，不出意外便会自动打开 `xcode`，然后在选择相应的模拟器，点击`绿色箭头`运行即可。
-  
-您也可以手动打开项目：找到项目目录下 `platforms/ios/WeexEros/WeexEros.xcworkspace` 文件，双击打开即可；
 
 ## Android 导入工程
 确保您已经安装完成 [Android 所需环境](/zh-cn/base_env)。
-
-> 注：一定要检查自己的 `Git Bash 是否安装成功并设置为默认程序`，很多开发者都遇到了这个问题。
-
-进入到刚刚生成的项目模板中，下载 `eros android sdk` 的依赖。
-
-```
-$ cd eros-demo       	 // 默认名字是 eros-demo
-$ eros install android   // 下载 eros android sdk
-```
 
 手动导入：
 
@@ -91,4 +83,4 @@ $ eros install android   // 下载 eros android sdk
 首次打开我们已经为您内置了由一些 `demo`，您可以看到相关的页面，下面在开发之前还需要进行一些相关的配置和调试的学习。
 
 
-> 如果在此节中出现任何问题均不能正常运行 demo，请在 [issue](https://github.com/bmfe/eros-template/issues?q=is%3Aissue+is%3Aclosed) 或者 [Q&A](https://bmfe.github.io/eros-docs/#/zh-cn/QA)中来寻到解决方法，如果还未找到，麻烦给我们[提issue](https://github.com/bmfe/eros-template/issues/new)。
+> 如果在此节中出现任何问题均不能正常运行 demo，请在 [issue](https://github.com/bmfe/eros/issues?q=is%3Aissue+is%3Aclosed) 或者 [Q&A](https://bmfe.github.io/eros-docs/#/zh-cn/QA)中来寻到解决方法，如果还未找到，麻烦给我们[提issue](https://github.com/bmfe/eros/issues/new)。

@@ -2,9 +2,13 @@
 # 介绍
 **eros 是基于 [weex](https://weex-project.io/cn/) 封装面向前端的 vue 写法的解决方案，由于 app 开发的特殊性，eros 则更偏重关心于整个 app 项目。**
 
-| iOS 端内置 DEMO | ios 版下载 | android版下载 |
-|---------|---------|---------|
-|![eros-demo](http://upload.ouliu.net/i/20180122162536pcw67.gif)|![ios下载](http://chuantu.biz/t6/214/1516790387x-1404793130.png)|![android 下载](http://upload.ouliu.net/i/201801241911376ee1z.png)|
+<!--| Eros iOS gif | Eros Android gif |
+|---------|---------|
+|[eros-demo](https://bmfe.github.io/eros-docs/zh-cn/image/show.gif)|[eros-demo](https://bmfe.github.io/eros-docs/zh-cn/image/androidDemo.gif)|-->
+
+| iOS download QR code | Android download QR code |
+|---------|---------|
+|![ios下载](https://bmfe.github.io/eros-docs/zh-cn/image/iosqr.png)|![android 下载](http://upload.ouliu.net/i/201801241911376ee1z.png)|
 
 * [iOS 下载链接](http://fir.im/eros)
 * [Android 下载链接](https://fir.im/weexerosandroid)
@@ -104,17 +108,16 @@ eros 提供了:
 * [eros-node-server 服务器增量发布逻辑](https://github.com/shawn-tangsc/eros-node-server)
 
 # 讨论组
-eros 正式开源到现在已经有了一个近 300 多人的开发群 (只能通过邀请)，群里有大量开发者已经有 eros 产品在开发中和已上线，为了维护一个良好的环境，还请先熟知以下群规：
+eros 正式开源到现在已经有了一个拥有大量开发者的群，群里有大量开发者已经有 eros 产品在开发中和已上线，为了维护一个良好的环境，还请先熟知以下群规：
 
 * **此并不是流量群，也并非广告群，是为了大家一起成长，保证信息的有效性，如果发黄赌毒，不和谐言语，与学习无关的广告，推广内容，无关小程序，不会商量，直接会被踢，且不会再有入群机会。**
 * eros开发中遇到任何问题可以随时发到群里 weex开发相关可以一起讨论。
 * 如果不能及时回答也请耐心等待，群里开发丰富经验的同学会帮您一起看问题。
 * 除了 eros 自身紧急 BUG 外的问题，均需要提 issue，我们会按 issue 处理，目的是为了更好的给其他开发者参考，紧急问题请直接抛到群里，我们会直接远程帮助您调试。
 
+QQ群:  
 
-| 微信群 |
-|---------|
-|![](https://gitee.com/uploads/images/2017/1026/154652_651ba169_1595985.jpeg)|
+<img src="https://bmfe.github.io/eros-docs/zh-cn/image/eros-qq-qrcode.png" width="auto" height="200px">
 
 # License
 [MIT](https://opensource.org/licenses/MIT)

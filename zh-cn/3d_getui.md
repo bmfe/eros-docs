@@ -1,4 +1,74 @@
+
+
+## eros消息推送（个推）配置流程
+
+### 基本配置
+
+*  首先，你需要按照[个推文档](http://docs.getui.com/getui/start/ios/)去个推申请一个账号。最后获取引用配置中的appId,appKey和appSecret。
+
+*  然后你需要修改你应用内的native.js配置，
+
+	```
+	'getui': {
+        'enabled': 'true',
+        'appId': <yourGetuiAppid>,
+        'appKey': <yourGetuiAppKey>
+        'appSecret': <yourGetuiAppSecret>
+    },
+	```
+
+* 将配置写入你的原生端,在脚手架目录下执行
+
+	```
+	eros pack --all
+	``` 
+* 这个时候，当你用真机启动应用的时候，你的cid和deviceToken就会传注册到个推官网。也就是说恭喜你，你现在可以接收到推送了
+
+###个推官网后台推送测试
+
+* 进入你个推账号的开发者中心，然后选择你创建的应用点击创建推送。
+
+* 进入后选择透传消息（具体的差别可以看个推官方文档，最大的差别就是ios只收得到透传消息）。
+
+* 这里比较关键，因为原生端在收取站内推送的时候做了特殊处理，所以你需要传的消息格式是一个
+
+	```	
+	{"payload":<json字符串>}
+	```
+	
+	所以，你可以直接把下面贴到个推官网的消息内容里
+	
+	```	
+	{"payload":"{\"aps\":{\"alert\":\"test\"}}"}
+	```
+	也可以将你要的标准json通过下列方式贴进去
+	
+	addGetuiJson![](https://raw.githubusercontent.com/myliuyx/source/master/addGetuiJson.jpeg)
+* 下图是各参数的解释
+
+	getui![](https://raw.githubusercontent.com/myliuyx/source/master/getui.jpg)
+
+### 应用内如何接受
+
+* 在demo的config目录中，有一个push.js 文件。
+
+```
+globalEvent.addEventListener('pushMessage', function (options) {
+    modal.alert({
+        message: 'hello'+JSON.stringify(options),
+        duration: 0.3
+    }, function (value) {
+        console.log('alert callback', value)
+    })
+    console.log('》》》》》》》》'+JSON.stringify(options));
+})
+
+```	
+你可以选择把消息用弹框弹出来，也可以直接看一下控制台。有特殊处理，就在这里直接处理就好了。
+	
+### 后台调试
 * 个推数据返回格式
+
 ```
 {
 	"payload":{  

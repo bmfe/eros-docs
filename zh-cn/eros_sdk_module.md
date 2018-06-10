@@ -17,9 +17,9 @@ Module中的callback方法，我们统一了数据的返回格式:
 // }
 ```
 
-# bmAuth
+# bmAuth（iOS）
 
-> 微信登录，指纹验证(iPhone带指纹识别设备)
+> 指纹验证(iPhone带指纹识别设备)
 
 **引用方式**
 
@@ -28,26 +28,6 @@ var auth = weex.requireModule('bmAuth')
 ```
 
 **API**
-
-* 调用微信登录认证 `wechat(info,callback)`
-> 使用微信登录之前，需要在 native.js 中配置 umeng（友盟）及wecaht（微信）的信息
-
-```js
-// 示例
-auth.wechat({
-    // 预留参数 目前传空
-}, function(resDate){
-    // resDate
-    // {
-    //    status:0,
-    //    errorMsg:"微信授权成功"
-    //    data:{
-    //        name:'小花同学',
-    //        uid:'微信返回唯一标示'
-    //    }
-    // }
-})
-```
 
 * 是否支持指纹认证 `canUseTouchId()` 
 
@@ -464,7 +444,7 @@ modal.hideLoading()
 
 ### 图片尺寸及命名规定
 > size: 请以 iPhone6（750x1334) 的尺寸设计，并切图； <br>
-命名：请将图片命名成 XXX@2X.png，因为iOS系统会根据图片命名设置图片的size，对安卓不影响； <br>
+命名：请将图片命名成 xxx@2x.png(注意 x 是小写的)，因为iOS系统会根据图片命名设置图片的size，对安卓不影响； <br>
 注：图片不要使用中文命名
 
 **引用方式**
@@ -507,35 +487,6 @@ navigator.setNavigationInfo({
 })
 ```
 
-# bmPay
-
-> 目前只集成了微信支付，记得在 eros.native.js 中配置好 appId 及 appSecret
-
-**引用方式**
-
-```js
-var pay = weex.requireModule('bmPay')
-```
-
-**API**
-
-* 调用支付：`payByWechat(info,callback)`
-
-```js
-// 示例
-pay.payByWechat({
-    // 微信支付所需必要参数，参考官方文档
-    sign:'',
-    timestamp:'',
-    noncestr:'',
-    partnerid:'',
-    prepayid:'',
-    packageValue:''
-}, function(resData){
-    // 支付结果
-})
-```
-
 
 # bmRouter
 
@@ -555,14 +506,16 @@ var router = weex.requireModule('bmRouter')
 // 示例：
 require('@weex-module/bmRouter')
 router.open({
-    url: '/pages/index/index.js',                 // 页面对应的 js 地址(注意路径从 /pages/ 开始)
-    type: '',                                     // 客户端定义动态类型，默认值为 PUSH 1. PUSH (将页面压栈到当前容器栈) 2.PRESENT （新建容器栈在进行压栈,从下面弹出新页面）3.TRANSLATION (动画类似QQ的侧滑抽屉效果) 
-    params: {},                                   // 传到下一个页面的参数，params 通过 router.getParams(callback) 获取 
-    canBack: true,                                // 是否需要返回按钮
-    navTitle: '',                                 // 页面标题
-    navShow: true,                                // 是否显示原生导航栏
-    statusBarStyle: 'Default||LightContent',      // 系统状态栏文字颜色 1.Default：黑色， 2.LightContent: 白色 
-    isRunBackCallback: true                       // 为true时，用户点击返回（或Android物理返回按钮）时回调下面的callback方法，native端不做页面跳转
+    url: '/pages/index/index.js',  // 页面对应的 js 地址(注意路径从 /pages/ 开始)
+    type: '',  // 客户端定义动态类型，默认值为 PUSH 1. PUSH (将页面压栈到当前容器栈) 2.PRESENT （新建容器栈在进行压栈,从下面弹出新页面）3.TRANSLATION (动画类似QQ的侧滑抽屉效果) 
+    params: {},  // 传到下一个页面的参数，params 通过 router.getParams(callback) 获取 
+    canBack: true,  // 是否需要返回按钮
+    gesBack: true,  // 是否开启手势返回（默认开启，仅支持 iOS）
+    navTitle: '',  // 页面标题
+    navShow: true,  // 是否显示原生导航栏
+    statusBarStyle: 'Default||LightContent',  // 系统状态栏文字颜色 1.Default：黑色， 2.LightContent: 白色 
+    isRunBackCallback: true,  // 为true时，用户点击返回（或Android物理返回按钮）时回调下面的callback方法，native端不做页面跳转
+    backgroundColor: '#f2f2f2'  // 原生页面背景颜色（可以通过设置原生页面背景颜色从感官上减少白屏）
 }, function(){                                
         // callback   
 });
@@ -588,22 +541,6 @@ router.back({
 }, function(){
     console.log('返回页面成功');
 });
-```
-
-* 跳转地图页面（目前页面为原生实现的）`toMap(info)`
-
- ```js
-// 示例
-router.toMap(
-    type:'NAVIGATION',                          //type类型：NAVIGATION(表现方式为：地图上添加起点终点标示大头针，终点标示上面有个导航的按钮)
-    title: '页面标题',                           //页面标题    
-    navigationInfo: {
-        title: '北京朝阳医院',                   //目的地名称
-        address: '北京市朝阳区工体南路8号',       //目的地地址
-        longitude:'',                           //目的地经度
-        latitude:''                             //目的地纬度                        
-     }
-)
 ```
 
 * 打开 WebView(App内打开) 页面 `toWebView(info)`
@@ -656,42 +593,6 @@ router.finishPage()
 router.setHomePage('/pages/eros-demos/login/index.js')
 //登录成功后切换到home页面
 router.setHomePage('/pages/eros-demos/home/index.js')
-```
-
-
-# bmShare
-
-> 分享，目前支持 微信朋友圈，微信好友，赋值至剪切板
-
-**引用方式**
-
-```js
-var share = weex.requireModule('bmShare')
-```
-
-**API**
-
-* 分享：`share(info,successCallback,failedCallback)`
-
-```js
-share.share({
-    title:'',                         // 分享出去的 title, 如 本木医疗
-    content:'',                     // 内容，是一家医疗公司
-    url: ''                         // 用户点击后跳转 url
-    image: '',                        // 图片url
-    platforms: ['Pasteboard','WechatSession']     // 传空的话默认全部，目前  朋友圈，朋友，复制链接
-},function(resData){
-    // 成功回调
-},function(resData){
-    // 失败回调
-})
-
-// 目前支持的分享平台
-platforms:[
-    Pasteboard,             // 剪切板
-    WechatSession,          // 微信好友
-    WechatTimeLine          // 分享至朋友圈
-]
 ```
 
 # bmStorage
@@ -779,33 +680,6 @@ tool.resignKeyboard(function(resData){          // 回调
 });
 ```
 
-* 判断是否安装微信：`isInstallWXApp(callback)`
-
-```js
-tool.isInstallWXApp(function(resData){          // 回调
-    // 结果的回调  
-    //  resData
-    // {
-    //      resCode: 0 || 9,  // 0成功 9失败
-    //      msg: nil,
-    //      data: nil
-    //  }
-});
-```
-
-* 获取 个推SDK的 cid：`getCid(callback)`
-
-```js
-tool.getCid(function(resData){
-    // 结果的回调  
-    //  resData = {
-    //      resCode: 0 || 9,  // 是否成功
-    //      msg: nil,
-    //      data: {cid:'4701510e9b7753c98077d87661aaxxs'} 如果获取不到 整个data 字段是nil
-    //  }
-});
-```
-
 * 赋值内容到剪切板：`copyString(string,callback)`
 
 ```js
@@ -817,21 +691,56 @@ tool.copyString('复制的内容', function(resData){
 * 添加全局水印\(在 Window 上添加\)：`addWatermark:(String)`
 
 ```js
-tools.addWatermark('我是水印')
+tool.addWatermark('我是水印')
 ```
 
 * 扫一扫：`scan(callback)`
 
 ```js
-tools.scan(function(resDate){
+tool.scan(function(resDate){
 })
 ```
 
+* 获取网络状态：`networkStatus()`
+
+网络状态 `status`：
+- `UNKNOWN` 未知
+- `NOT_REACHABLE` 不可达（无网络）
+- `WIFI` 无线网
+- `3G/4G` 手机移动网络
+
+```js
+// 同步方法
+const status = tool.networkStatus()
+```
+
+* 监听网络状态：`watchNetworkStatus(callback)`
+
+```js
+tool.watchNetworkStatus((data) => {
+	// `UNKNOWN` 未知
+    // `NOT_REACHABLE` 不可达（无网络）
+    // `WIFI` 无线网
+    // `3G/4G` 手机移动网络
+})
+```
+
+* 取消监听网络状态：`clearWatchNetworkStatus()`
+
+```js
+tool.clearWatchNetworkStatus()
+```
+
 # bmWebSocket
-bmbmWebSocket用于创建一个webSocket会话，api和使用方式与[weex官方WebSocket](http://weex.apache.org/cn/references/modules/websocket.html)。
-### 引用方式 
-`var bmWebSocket = weex.requireModule('bmWebSocket')`
+bmbmWebSocket用于创建一个webSocket会话
+
 ### API
+**引用方式**
+
+```js
+var bmWebSocket = weex.requireModule('bmWebSocket')
+```
+
 #### webSocket(url, protocol)
 创建 WebSockets，并连接服务器
 
@@ -849,7 +758,136 @@ bmbmWebSocket用于创建一个webSocket会话，api和使用方式与[weex官�
 #### onerror(options)
 错误事件的监听器
 
+bmWebSocket 具体范例如下：
 
+```js
+<template>
+  <scroller>
+    <div>
+      <div style="background-color: #286090">
+        <text class="title" style="height: 80px ;padding: 20px;color: white">websocket</text>
+      </div>
+      <input type="text" placeholder="please input message to send" class="input" autofocus="false" value="" @change="onchange" @input="oninput" ref="input"/>
+      <div style="flex-direction: row; justify-content: center;">
+        <text class="button" @click="connect">connect</text>
+        <text class="button" @click="send">send</text>
+        <text class="button" @click="close">close</text>
+      </div>
+
+      <div style="background-color: lightgray">
+        <text class="title" style="height: 80px ;padding: 20px;color: black">method = send</text>
+      </div>
+      <text style="color: black;height: 80px">{{sendinfo}}</text>
+
+
+      <div style="background-color: lightgray">
+        <text class="title" style="height: 80px ;padding: 20px;color: black">method = onopen</text>
+      </div>
+      <text style="color: black;height: 80px">{{onopeninfo}}</text>
+
+      <div style="background-color: lightgray">
+        <text class="title" style="height: 80px ;padding: 20px;color: black">method = onmessage</text>
+      </div>
+      <text style="color: black;height: 400px">{{onmessage}}</text>
+
+      <div style="background-color: lightgray">
+        <text class="title" style="height: 80px ;padding: 20px;color: black">method = onclose</text>
+      </div>
+      <text style="color: black;height: 80px">{{oncloseinfo}}</text>
+
+      <div style="background-color: lightgray">
+        <text class="title" style="height: 80px ;padding: 20px;color: black">method = onerror</text>
+      </div>
+      <text style="color: black;height: 80px">{{onerrorinfo}}</text>
+
+      <div style="background-color: lightgray">
+        <text class="title" style="height: 80px ;padding: 20px;color: black">method = close</text>
+      </div>
+      <text style="color: black;height: 80px">{{closeinfo}}</text>
+
+    </div>
+
+  </scroller>
+</template>
+
+<style scoped>
+  .input {
+    font-size: 40px;
+    height: 80px;
+    width: 600px;
+  }
+  .button {
+    font-size: 36px;
+    width: 150px;
+    color: #41B883;
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    border-width: 2px;
+    border-style: solid;
+    margin-right: 20px;
+    border-color: rgb(162, 217, 192);
+    background-color: rgba(162, 217, 192, 0.2);
+  }
+</style>
+<script>
+  var bmWebSocket = weex.requireModule('bmWebSocket')
+  export default {
+    data () {
+      return {
+        connectinfo: '',
+        sendinfo: '',
+        onopeninfo: '',
+        onmessage: '',
+        oncloseinfo: '',
+        onerrorinfo: '',
+        closeinfo: '',
+        txtInput:'',
+        navBarHeight: 88,
+        title: 'Navigator',
+        dir: 'examples',
+        baseURL: ''
+      }
+    },
+    methods: {
+      connect:function() {
+        bmWebSocket.webSocket('ws://echo.websocket.org','');
+        var self = this;
+        self.onopeninfo = 'connecting...'
+        bmWebSocket.onopen(function(e)
+        {
+          self.onopeninfo = 'websocket open';
+        });
+        bmWebSocket.onmessage(function(e)
+        {
+          self.onmessage = e.data;
+        });
+        bmWebSocket.onerror(function(e)
+        {
+          self.onerrorinfo = e.data;
+        });
+        bmWebSocket.onclose(function(e)
+        {
+          self.onopeninfo = '';
+          self.onerrorinfo = e.code;
+        });
+      },
+      send:function(e) {
+        var input = this.$refs.input;
+        input.blur();
+        bmWebSocket.send(this.txtInput);
+        this.sendinfo = this.txtInput;
+      },
+      oninput: function(event) {
+        this.txtInput = event.value;
+      },
+      close:function(e) {
+        bmWebSocket.close();
+      },
+    },
+  }
+</script>
+```
 
 
 

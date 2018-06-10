@@ -1,3 +1,19 @@
+## Q: 热刷新不起作用
+
+A:
+ 
+热刷新不生效多半是因为你的电脑存在多个ip地址（虚拟网卡），导致 App 连接了错误的地址，可以通过在 `eros.native.js -> url` 中添加 `socketServer` 字段来指定热刷新服务地址来解决这个问题；
+
+```js
+// eros.native.js 文件
+'url': {
+        ...
+        // 在这里添加 socketServer 请将 ip 地址改为你电脑真实的地址，主要如果是 dhcp 分配的地址会发生变化
+        'socketServer': 'ws://192.168.15.252:8890'
+		}
+```
+
+
 ## Q: 手机设置代理后不能上网
 
 A:
@@ -47,16 +63,6 @@ import buiButton from 'Eros/bui/components/buiButton'
 ```
 
 这样能明显减少包体积大小。
-
-## Q: 手机设置代理后不能上网
-
-A:
-
-1.首先请在查看一次`开发调试`的文档，确认一下是否打开了代理工具（charles、fiddler或其他），如果没有打开请打开相关代理工具；
-
-- Charles 使用教程：http://www.jianshu.com/p/fdd7c681929c
-- Fiddler 使用教程：http://www.jianshu.com/p/99b6b4cd273c
-
 
 ## Q: iOS资源下载慢，或者等待时间巨长（eros install ios 命令）
 
@@ -152,19 +158,9 @@ A:
 
 ## Q: Android 如何修改包名（同一个手机可以跑2个eros 项目）。
 
-A: (本答案由 网友 阿古和刘鹏 贡献~)  
-1.修改applicationId（gradle.properties）。  
-2.修改签名设置app/build.gradle里面的signingConfigs。  
-AS下创建新的签名文件教程：http://blog.csdn.net/donkor_/article/details/53487133 
+A: 修改gradle.properties 文件 APPLICATION_ID （gradle.properties 文件在项目的跟目录）。
+   修改完了请记得 点击 sync now  同步下
 
-创建好后，将对应的参数填写到signingConfigs中。  
-3.修改app/src/main/AndroidManifest.xml和wxframework\src\main\java\com\benmu\framework\constant\Constant.java  
-把两个文件中的com.benmu.weex.example.categoty.page，  
-com.benmu.weex.example.categoty.web，  
-com.benmu.weex.example.categoty.debug改成一样的，  
-比如：com.xuesi.demo.example.categoty.page，  
-com.xuesi.demo.example.categoty.web，  
-com.xuesi.demo.example.categoty.debug  
 
 ## Q: Failed to resolve: com.android.support:appcompat
 ```
@@ -174,3 +170,31 @@ Show in File
 Show in Project Structure dialog 
 ```
 A： 这时候您可以直接点击 Add Google Maven repository and sync project 等待编译完成即可
+
+## Q: 如何实现安卓的finish
+
+A:
+ 
+1.注册两个属性curHomeBackTriggerTimes: 1,
+      maxHomeBackTriggerTimes: 2,//代表按几次退出APP。
+2.实现方法
+```
+//安卓自定义退出APP
+    androidFinishApp() {
+      const globalEvent = weex.requireModule("globalEvent");
+      globalEvent.addEventListener("homeBack", options => {
+        this.curHomeBackTriggerTimes === this.maxHomeBackTriggerTimes &&
+          this.$router.finish();
+
+        this.$notice.toast({
+          message: `点击返回${
+            this.maxHomeBackTriggerTimes
+          }次之后，会关闭应用，当前点击第${this.curHomeBackTriggerTimes}次`
+        });
+        this.curHomeBackTriggerTimes++;
+      });
+    }
+
+```
+
+3.在created中调用此方法

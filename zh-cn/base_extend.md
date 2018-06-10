@@ -45,9 +45,20 @@
 **示例：**
 
 ```js
-<template>
-    <image style="width:550px; height:550px; top:100px" src="bmlocal://assets/logo.png"></image>
-</template>
+<image style="width:550px; height:550px; top:100px" src="bmlocal://assets/logo.png"></image>
+```
+
+#### 加载 html 资源
+
+目前 Weex 的 `<web>` 标签不支持加载本地html资源，通过扩展 `<web>` 组件使其支持此特性；
+
+**使用方法：**  
+首先需要将 html 放到 assets 目录下，填写 src 时请以 bmlocal://assets/ 开头后面跟上 html 的具体路径 。
+
+**示例：**
+
+```js
+<web style="width:750px; height:550px;" src="bmlocal://assets/index.html"></web>
 ```
 
 #### 加载 iconfont 资源
