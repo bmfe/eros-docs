@@ -198,3 +198,13 @@ A:
 ```
 
 3.在created中调用此方法
+
+## Q: 导入项目后提示`android.enableAapt2 xxxxx`错误
+
+A:
+出现此类问题主要是AS在导入项目是用了新版本gradle编译插件造成的。eros官方目前推荐且默认使用的gradle版本为4.1，gradle plugin版本为3.0.0。如果你不小心升级了版本，可按照如下操作设置版本。
+
+1.
+![步骤1](https://bmfe.github.io/eros-docs/zh-cn/image/modify_gradle_verison.jpg)
+
+2.点击右上角SynNow按钮同步项目。
