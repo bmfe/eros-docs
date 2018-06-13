@@ -41,6 +41,8 @@ Android 1.0.0
 	```
 * 添加完后，右上角 有一个 sync now。 点击 等待同步完成没有报错证明组件添加成功
 
+* 具体Android 相关[微信Key和签名申请参考文档](/zh-cn/android_wx_apply)
+
 ## 使用
 
 **引用Module**
