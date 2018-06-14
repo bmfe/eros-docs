@@ -24,12 +24,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="你的包名">
 
-.....
-<!--wxApi-->
-<activity
-    .......
-    <data android:scheme="填写你的wx appID"/>
-</activity>
 
 4.更改Android目录工程目录/platforms/android/WeexFrameworkWrapper/app/src/main/java/下com.benmu.wx为你的包名 右上角 有一个 sync now 点击根据提示修改报错的地方com.benmu.wx为你的包名
 
