@@ -14,7 +14,7 @@
 ## 日期选择器
 
 作者：[qbmFE](https://github.com/qbmFE)　<br>
-插件地址：[iOS](https://github.com/qbmFE/eros-plugin-IOS-dateTimePicker)　Android：开发中
+插件地址：[iOS](https://github.com/qbmFE/eros-plugin-IOS-dateTimePicker)　[Android](https://github.com/qbmFE/eros-plugin-android-dateTimePicker)
 
 **效果展示：**
 
