@@ -53,15 +53,6 @@ var bmWXShare = weex.requireModule('bmWXShare')
 
 **API**
 
-* 判断是否安装微信app `isInstallWXApp()` 
-
-	> 在使用微信分享或授权登录之前应该判断是否安装了微信app，如果没有安装应该隐藏相关功能按钮
-
-	```js
-	// 同步方法
-	var result = bmWXShare.isInstallWXApp()
-	```
-
 * 初始化友盟SDK `initUM('appkey')` 
 
 	> 在使用之前，请先调用此方法初始化友盟SDK
@@ -80,6 +71,15 @@ var bmWXShare = weex.requireModule('bmWXShare')
 	  appSecret: 'appSecret', // appKey对应的appSecret，
 	  redirectURL: '回调页面' // 授权回调页面
 	})
+	```
+	
+* 判断是否安装微信app `isInstallWXApp()`  使用该方法必须先调用初始化方法
+
+	> 在使用微信分享或授权登录之前应该判断是否安装了微信app，如果没有安装应该隐藏相关功能按钮
+
+	```js
+	// 同步方法
+	var result = bmWXShare.isInstallWXApp()
 	```
 
 * 分享：`share(info,successCallback,failedCallback)`

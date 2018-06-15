@@ -45,20 +45,20 @@
 
 **API**
 
-* 判断是否安装微信app `isInstallWXApp()` 
+* 初始化微信SDK `initWX('appkey')` 
+
+	```js
+	bmWXPay.initWX('appkey')
+	```
+* 判断是否安装微信app `isInstallWXApp()` ，使用该方法必须先调用初始化方法
 
 	> 在使用微信支付功能之前应该判断是否安装了微信app，如果没有安装应该隐藏相关功能按钮
 
 	```js
 	// 同步方法
 	var result = bmWXPay.isInstallWXApp()
-	```
+	```	
 
-* 初始化微信SDK `initWX('appkey')` 
-
-	```js
-	bmWXPay.initWX('appkey')
-	```
 * 支付 `pay(info,callback)` 
 
 	> 调用微信支付之前所需参数应用有服务器端先调用微信相关接口生成预支付订单，然后将app所需要参数返回，请参考[微信官方文档](https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_1)。
