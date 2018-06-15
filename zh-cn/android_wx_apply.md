@@ -20,9 +20,12 @@
 2.打开Android目录工程目录/platforms/android/WeexFrameworkWrapper/app/src/main/java/com/benmu/wx/wxapi/下的WXEntryActivity.java和WXPayEntryActivity.java解开注释
   
 3.更改Android目录工程目录/platforms/android/WeexFrameworkWrapper/app/src/main/AndroidManifest.xml
+
+```
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="你的包名">
+```
 
 
 4.更改Android目录工程目录/platforms/android/WeexFrameworkWrapper/app/src/main/java/下com.benmu.wx为你的包名 右上角 有一个 sync now 点击根据提示修改报错的地方com.benmu.wx为你的包名
