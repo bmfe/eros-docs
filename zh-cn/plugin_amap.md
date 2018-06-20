@@ -23,15 +23,37 @@
 
 **Android集成方式**
 
-* 打开Android目录`工程目录/platforms/android/WeexFrameworkWrapper/app`,编辑app目录下build.gradle 文件 `dependencies` 下添加引用，代码如下：
+* 进入Android目录`工程目录/platforms/android/WeexFrameworkWrapper/` 目录下 clone 对应的插件。
 
-	```ruby
+``` java
+git clone https://github.com/bmfe/eros-plugin-android-amap.git "ErosPluginAmap"
+```
+
+> 具体版本为Tag,如果您需要使用指定版本的话可以切换到指定的Tag.
+
+* 打开Android目录`工程目录/platforms/android/WeexFrameworkWrapper/`,编辑`settings.gradle`,添加引入。
+在`settings.gradle` 中 添加如下代码。
+
+``` java
+//这里只需要在最后添加 , ':erospluginamap'
+include ':app',':sdk',':nexus', ':wxframework', ':erospluginamap'  
+
+// Amap
+project(':erospluginamap').projectDir = new File(settingsDir,'/ErosPluginAmap/ErosPluginAmap')
+
+```
+
+* 打开Android目录`工程目录/platforms/android/WeexFrameworkWrapper/app`,编辑app目录下`build.gradle` 文件 `dependencies` 下添对应 插件引用。
+
+``` java
 	dependencies {
 		....
-		compile 'com.github.bmfe:eros-plugin-android-amap:1.0.1'
+		compile project(':erospluginamap')
 	}
-	```
-* 添加完后，右上角 有一个 sync now。 点击 等待同步完成没有报错证明组件添加成功
+```
+
+* 具体Android 插件详细集成方式 您还可以参考[Android 插件依赖](/zh-cn/android_plugin_integration)
+
 
 ## 使用
 

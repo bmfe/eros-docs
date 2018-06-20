@@ -49,14 +49,8 @@ GETUI_APPID= your app id
 GETUI_APPKEY= your app key
 GETTUI_APPSECRET= your app secret
 ```
-* 3、打开Android目录`工程目录/platforms/android/WeexFrameworkWrapper/app`,编辑app目录下build.gradle 文件 `dependencies` 下添加引用，代码如下：
+* 3、按照 [Android 插件依赖](/zh-cn/android_plugin_integration) 下载代码添加依赖
 
-	```ruby
-	dependencies {
-		....
-		 compile 'com.github.bmfe:eros-plugin-android-getui:1.0.1'
-	}
-	```
 * 添加完后，右上角 有一个 sync now。 点击 等待同步完成没有报错证明组件添加成功
 
 ## 使用

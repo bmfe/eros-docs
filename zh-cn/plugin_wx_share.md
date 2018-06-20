@@ -31,15 +31,41 @@ Android 1.0.0
 
 **Android集成方式**
 
-* 打开Android目录`工程目录/platforms/android/WeexFrameworkWrapper/app`,编辑app目录下build.gradle 文件 `dependencies` 下添加引用，代码如下：
 
-	```ruby
+* 进入Android目录`工程目录/platforms/android/WeexFrameworkWrapper/` 目录下 clone 对应的插件。
+
+``` java
+git clone https://github.com/bmfe/eros-plugin-android-wxshare.git "erospluginwxshare"
+```
+
+> 具体版本为Tag,如果您需要使用指定版本的话可以切换到指定的Tag.
+
+
+* 打开Android目录`工程目录/platforms/android/WeexFrameworkWrapper/`,编辑`settings.gradle`,添加引入。
+在`settings.gradle` 中 添加如下代码。
+
+``` java
+//这里只需要在最后添加 , ':erospluginwxshare'
+include ':app',':sdk',':nexus', ':wxframework', ':erospluginwxshare'  
+
+// 分享
+project(':erospluginwxshare').projectDir = new File(settingsDir,'/erospluginumeng/library-wxshare')
+
+```
+
+* 打开Android目录`工程目录/platforms/android/WeexFrameworkWrapper/app`,编辑app目录下`build.gradle` 文件 `dependencies` 下添对应 插件引用。
+
+``` java
 	dependencies {
 		....
-		compile 'com.github.bmfe:eros-plugin-android-wxshare:1.0.1'
+		//分享
+    compile project(':erospluginwxshare')
 	}
-	```
-* 添加完后，右上角 有一个 sync now。 点击 等待同步完成没有报错证明组件添加成功
+```
+
+* 具体Android 插件详细集成方式 您还可以参考[Android 插件依赖](/zh-cn/android_plugin_integration)
+
+
 
 * 具体Android 相关[微信Key和签名申请参考文档](/zh-cn/android_wx_apply)
 
