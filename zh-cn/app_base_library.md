@@ -68,6 +68,13 @@ project(':nexus').projectDir = new File(settingsDir,'/nexus/nexus')
 * [bugfix]修复mediator.js中使用router跳转页面无效的问题；
 * [update]优化请求失败返回错误信息的逻辑；
 
+**Android 1.0.5** 2018.06.21<br>
+* [feature] 新增`bmTabbar`Module，支持设置tabbar数字角标及红点 [文档请戳](https://bmfe.github.io/eros-docs/#/zh-cn/eros_sdk_module?id=bmTabbar)；
+* [bugfix-Android]解决无法获取联系人问题；
+* [bugfix-Android]解决Tabbar 无法连接 weex-debugger 问题；
+* [bugfix-Android]解决导航栏 在4.4.4Androud 版本兼容性问题；
+* [bugfix-Android]解决拍照 allowCrop 不生效问题 ；
+
 **iOS 1.2.5** 2018.06.06<br>
 
 * bmAxios 请求支持 application/x-www-form-urlencoded 表单格式;
