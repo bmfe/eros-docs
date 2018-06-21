@@ -26,24 +26,53 @@ Eros 基础库是必须依赖的，初始化中的模板已经添加了基础库
 
 **Android 集成**
 
-* 打开Android目录`工程目录/platforms/android/WeexFrameworkWrapper/app`,编辑app目录下build.gradle 文件 `dependencies` 下添加引用，代码如下：
+* 进入Android目录`工程目录/platforms/android/WeexFrameworkWrapper/` 目录下 clone 对应的插件。
 
-	```ruby
+``` java
+	git clone https://github.com/bmfe/WeexErosFramework.git "wxframework" 
+	git clone https://github.com/bmfe/eros-nexus.git "nexus" 
+```
+
+> 具体版本为Tag,如果您需要使用指定版本的话可以切换到指定的Tag.
+
+
+* 打开Android目录`工程目录/platforms/android/WeexFrameworkWrapper/`,编辑`settings.gradle`,添加引入。
+在`settings.gradle` 中 添加如下代码。
+
+``` java
+include ':app',':sdk',':nexus', ':wxframework'   //(这里只需要添加 app 后面的 既 ：,':sdk',':nexus', ':wxframework' )
+
+// 基础库
+project(':wxframework').projectDir = new File(settingsDir,'/wxframework/eros-framework')
+project(':sdk').projectDir = new File(settingsDir,'/nexus/sdk')
+project(':nexus').projectDir = new File(settingsDir,'/nexus/nexus')
+
+```
+
+* 打开Android目录`工程目录/platforms/android/WeexFrameworkWrapper/app`,编辑app目录下`build.gradle` 文件 `dependencies` 下添对应 插件引用。
+
+``` java
 	dependencies {
 		....
-		compile 'com.github.bmfe.eros-nexus:nexus:1.0.1'
-    	compile 'com.github.bmfe:WeexErosFramework:1.0.1'
+		compile project(':nexus')
+        compile project(':wxframework')
 	}
-	```
->  ":"后面的 1.0.1 是版本号， 如需要更新 修改对应版本即可
-* 添加完后，右上角 有一个 sync now。 点击 等待同步完成没有报错证明组件添加成功
+```
+
+* 具体Android 插件详细集成方式 您还可以参考[Android 插件依赖](/zh-cn/android_plugin_integration)
 
 ## Change Log
+**iOS 1.2.6** 2018.06.21<br>
+
+* [feature] 新增`bmTabbar`Module，支持设置tabbar数字角标及红点 [文档请戳](https://bmfe.github.io/eros-docs/#/zh-cn/eros_sdk_module?id=bmTabbar)；
+* [bugfix]修复mediator.js中使用router跳转页面无效的问题；
+* [update]优化请求失败返回错误信息的逻辑；
+
 **iOS 1.2.5** 2018.06.06<br>
 
 * bmAxios 请求支持 application/x-www-form-urlencoded 表单格式;
 
-**Android 1.0.4** 2018.06.06<br>
+**Android 1.0.4** 2018.05.30<br>
 
 * Axios支持表单提交格式;
 * 解决Tabbar 刷新崩溃问题;
@@ -59,6 +88,10 @@ Eros 基础库是必须依赖的，初始化中的模板已经添加了基础库
 * 拓展原生tabBar;
 * sdk恢复源码依赖;
 * 解决APP启动黑屏问题;
+
+**iOS 1.2.5** 2018.06.06<br>
+
+* [feature] bmAxios 请求支持 application/x-www-form-urlencoded 表单格式；
 
 **iOS 1.2.4** 2018.05.30<br>
 
