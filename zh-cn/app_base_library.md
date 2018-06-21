@@ -63,6 +63,12 @@ project(':nexus').projectDir = new File(settingsDir,'/nexus/nexus')
 
 ## Change Log
 
+**iOS 1.2.6** 2018.06.21<br>
+
+* [feature] 新增`bmTabbar`Module，支持设置tabbar数字角标及红点 [文档请戳](https://bmfe.github.io/eros-docs/#/zh-cn/eros_sdk_module?id=bmTabbar)；
+* [bugfix]修复mediator.js中使用router跳转页面无效的问题；
+* [update]优化请求失败返回错误信息的逻辑；
+
 **Android 1.0.4** 2018.05.30<br>
 * Axios支持表单提交格式;
 * 解决Tabbar 刷新崩溃问题;
@@ -72,6 +78,10 @@ project(':nexus').projectDir = new File(settingsDir,'/nexus/nexus')
 * 拓展原生tabBar;
 * sdk恢复源码依赖;
 * 解决APP启动黑屏问题;
+
+**iOS 1.2.5** 2018.06.06<br>
+
+* [feature] bmAxios 请求支持 application/x-www-form-urlencoded 表单格式；
 
 **iOS 1.2.4** 2018.05.30<br>
 

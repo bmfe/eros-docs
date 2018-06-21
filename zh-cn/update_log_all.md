@@ -1,10 +1,21 @@
-## 2018.06.20
+## 2018.06.21
 ### 重点更新
 * [bugfix-Android]解决无法获取联系人问题；
-* [bugfix-Android]解决Tabbar 是无法连接 weex-debugger 问题；
+* [bugfix-Android]解决Tabbar 无法连接 weex-debugger 问题；
 * [bugfix-Android]解决导航栏 在4.4.4Androud 版本兼容性问题；
 * [bugfix-Android]解决拍照 allowCrop 不生效问题 ；
-* 修改Android使用源码依赖使用;
+* **重中之重** 修改Android使用插件源码依赖使用;
+* [feature] 新增`bmTabbar`Module，支持设置tabbar数字角标及红点 [文档请戳](https://bmfe.github.io/eros-docs/#/zh-cn/eros_sdk_module?id=bmTabbar)；
+* [bugfix-iOS]修复mediator.js中使用router跳转页面无效的问题；
+* [update-iOS]优化请求失败返回错误信息的逻辑；
+
+### iOS 升级
+1.升级 BMBaseLibrary 基础库为 1.2.6 版本
+
+```ruby
+pod 'BMBaseLibrary', :git => 'https://github.com/bmfe/Benmu-iOS-Library.git', :tag => '1.2.6'
+```
+2.执行 `pod update` 拉取新版本依赖；
 
 ### Android 升级
 1. 打开`/platforms/android/WeexFrameworkWrapper/` 目录下 install.sh 文件，将其替换成[install.sh](https://github.com/bmfe/eros-template/blob/demo/platforms/android/WeexFrameworkWrapper/install.sh)

@@ -889,7 +889,44 @@ bmWebSocket 具体范例如下：
 </script>
 ```
 
+# bmTabbar
 
+> 设置tabbar上面item脚本或红点，通过代码跳转到tabbar上的页面
+
+**引用方式**
+
+```js
+var tabbar = weex.requireModule('bmTabbar')
+```
+
+**API**
+
+* 显示item角标或红点: `showBadge(info)`
+
+```js
+tabbar.showBadge({
+	index:0,  // 对应的item索引
+	value:2,  // 显示的角标数，如果只显示红点可以不传 value
+	textColor: #ffffff,  // 数字颜色，默认白色
+	bgColor: red  // 红点背景颜色 默认红色
+})
+```
+
+* 隐藏item角标或红点: `hideBadge(info)`
+
+```js
+tabbar.hideBadge({
+	index:0,  // 对应的item索引
+})
+```
+
+* 从当前页面跳转到tabbar上的指定页面: `openPage(info)`
+
+```js
+tabbar. openPage({
+	index:0,  // 对应的item索引
+})
+```
 
 
 

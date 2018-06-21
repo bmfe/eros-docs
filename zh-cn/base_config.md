@@ -103,7 +103,7 @@
 * appId、appKey、appSecret 在个推平台申请。
 
 #### **`tabBar`** 原生tabBar配置信息
-如果你的 App 首页设计为多tab的样式可以将 page 中的 homePage 设置为 'tabBar'，这样App首页会使用原生的tabBar，大大提升用户体验；
+如果你的 App 首页设计为多tab的样式可以将 page 中的 homePage 设置为 'tabBar'，这样App首页会使用原生的tabBar，大大提升用户体验；同时可以通过 `bmTabbar` Module 设置红点或者数字角标，具体使用方法请参考 [bmTabbar](https://bmfe.github.io/eros-docs/#/zh-cn/eros_sdk_module?id=bmTabbar) 文档；
 * color：文字颜色；
 * selectedColor：文字选中后的颜色；
 * backgroundColor：tabBar背景颜色；
