@@ -39,7 +39,9 @@ $ pod update
 ## Android 导入工程
 确保您已经安装完成 [Android 所需环境](/zh-cn/base_env)。
 
-手动导入：
+* 命令行进入 `/platforms/android/WeexFrameworkWrapper/` 目录下 执行install.sh 文件。等待下载依赖库。
+
+下载完成后手动导入：
 
 1.点击 `AndroidStudio` 上方的` File---&gt;New---&gt;Import Project`。
 
