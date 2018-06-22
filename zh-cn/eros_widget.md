@@ -63,15 +63,15 @@ export default {
 **Api：**
 - **appActive( )**
     
-    触发时机：通过【后台】切换至【前台】时触发。
+    触发时机：App从【后台】切换至【前台】时触发。
 
 - **appDeactive( )**
 
-    触发时机：通过【前台】切换至【后台】时触发。
+    触发时机：App从【前台】切换至【后台】时触发。
 
 - **beforeAppear( params, options )**
 
-    触发时机：通过`$router.open`进入本页面，在本页面【即将出现】时触发
+    触发时机：首次进入本页面，在本页面【即将出现】时触发
 
     params：`$router.open` 时传递的 params
     
@@ -79,7 +79,7 @@ export default {
 
 - **appeared( params, options )**
 
-    触发时机：通过`$router.open`进入本页面，在本页面【已经出现】时触发
+    触发时机：首次进入本页面，在本页面【已经出现】时触发
 
     params：`$router.open` 时传递的 params
     
@@ -87,7 +87,7 @@ export default {
 
 - **beforeBackAppear( params, options )**
 
-    触发时机：通过`$router.back`等方法从下一个页面返回本页面，在本页面【即将出现】时触发
+    触发时机：从其他页面返回本页面，在本页面【即将出现】时触发，比如切换原生Tabbar页面，使用`$router.back`返回当前页面时
 
     params：`$router.setBackParams` 时设置的 params
     
@@ -95,7 +95,7 @@ export default {
 
 - **backAppeared( params, options )**
 
-    触发时机：通过`$router.back`等方法从下一个页面返回本页面，在本页面【已经出现】时触发
+    触发时机：从其他页面返回本页面，在本页面【已经出现】时触发，比如切换原生Tabbar页面，使用`$router.back`返回当前页面时
 
     params：`$router.setBackParams` 时设置的 params
     
