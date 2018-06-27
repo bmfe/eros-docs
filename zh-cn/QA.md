@@ -208,3 +208,23 @@ A:
 ![步骤1](https://bmfe.github.io/eros-docs/zh-cn/image/modify_gradle_verison.jpg)
 
 2.点击右上角SynNow按钮同步项目。
+
+## Q: 使用 weex-amui
+
+A:
+1. 安装 `weex-amui`
+```shell
+npm install --save weex-amui
+```
+2. 修改 `.babelrc` 文件， plugins => import 下添加：
+```json
+{
+    "libraryName": "weex-amui",
+    "libraryDirectory": "packages",
+    "style": false
+}
+```
+3. 使用
+```
+import { AmButton } from 'weex-amui'
+```
