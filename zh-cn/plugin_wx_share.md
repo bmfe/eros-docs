@@ -35,7 +35,7 @@ Android 1.0.0
 * 进入Android目录`工程目录/platforms/android/WeexFrameworkWrapper/` 目录下 clone 对应的插件。
 
 ``` java
-git clone https://github.com/bmfe/eros-plugin-android-wxshare.git "erospluginwxshare"
+git clone https://github.com/bmfe/eros-plugin-android-wxshare.git "erospluginumeng"
 ```
 
 > 具体版本为Tag,如果您需要使用指定版本的话可以切换到指定的Tag.
