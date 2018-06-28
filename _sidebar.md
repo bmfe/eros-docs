@@ -25,6 +25,7 @@
 
 - [ Android 开发相关 ]
 	- [配置](/zh-cn/android_config)
+	- [图片相关配置](/zh-cn/android_image)
 	- [发布打包](/zh-cn/android_pack)
 
 - [ iOS 开发相关 ]

@@ -14,6 +14,15 @@ Android 增加了 APP 版本的检测。 您新包的 `eros.native.json` 里 ver
 
 > 增加这个判断是为了防止一些可以做原生开发的同学 在某个版本中 对原生做了修改，然后发布更新包时会导致一些并没有更新Android APP 版本的用户发生错误。
 
+## Q: Unable to resolve dependency for ':app@samplechannelDebug/compileClasspath': Could not resolve project :nexus. 
+
+如图![](https://raw.githubusercontent.com/myliuyx/source/master/not_install_error.png)
+
+
+
+A:  执行 `/platforms/android/WeexFrameworkWrapper` 目录下 `install.sh` 文件，等待完成 点击右上角 Try Again
+
+> 如果执行 `install.sh` 了还是不行,请检查下文件里是否存在文件如果只有1个文件或文件夹可能下载过程出错了，把文件夹删除了重新执行下 `install.sh`
 
 ## Q: 热刷新不起作用
 

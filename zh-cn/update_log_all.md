@@ -20,15 +20,15 @@ pod 'BMBaseLibrary', :git => 'https://github.com/bmfe/Benmu-iOS-Library.git', :t
 2.执行 `pod update` 拉取新版本依赖；
 
 ### Android 升级
-1. 打开`/platforms/android/WeexFrameworkWrapper/` 目录下 install.sh 文件，将其替换成[install.sh](https://github.com/bmfe/eros-template/blob/demo/platforms/android/WeexFrameworkWrapper/install.sh)
+* 打开`/platforms/android/WeexFrameworkWrapper/` 目录下 install.sh 文件，将其替换成[install.sh](https://github.com/bmfe/eros-template/blob/demo/platforms/android/WeexFrameworkWrapper/install.sh)
 
 > 如果您是全插件使用的话 请替换成[install.sh](https://github.com/bmfe/eros-template/blob/source/platforms/android/WeexFrameworkWrapper/install.sh)
 
-2. 打开`/platforms/android/WeexFrameworkWrapper/` 目录下 `setting.gradle` 文件,将其替换成[settings.gradle](https://github.com/bmfe/eros-template/blob/demo/platforms/android/WeexFrameworkWrapper/settings.gradle)
+* 打开`/platforms/android/WeexFrameworkWrapper/` 目录下 `setting.gradle` 文件,将其替换成[settings.gradle](https://github.com/bmfe/eros-template/blob/demo/platforms/android/WeexFrameworkWrapper/settings.gradle)
 
 > 如果您是全插件使用的话 请替换成[settings.gradle](https://github.com/bmfe/eros-template/blob/source/platforms/android/WeexFrameworkWrapper/settings.gradle)
 
-3. 打开`/platforms/android/WeexFrameworkWrapper/app` 目录下 `build.gradle` 文件,修改其内容
+* 打开`/platforms/android/WeexFrameworkWrapper/app` 目录下 `build.gradle` 文件,修改其内容
 
 ``` java
 dependencies {
@@ -48,6 +48,9 @@ dependencies {
 ```
 
 > 具体 `build.gradle` 您可以参考。[pure build.gradle](https://github.com/bmfe/eros-template/blob/demo/platforms/android/WeexFrameworkWrapper/app/build.gradle)<br/> 如果您使用的是 全插件的请参考[source build.gradle](https://github.com/bmfe/eros-template/blob/source/platforms/android/WeexFrameworkWrapper/app/build.gradle)
+
+
+* 执行 `/platforms/android/WeexFrameworkWrapper/` 目录下 `install.sh` 文件
 
 ## 2018.06.06
 ### 重点更新

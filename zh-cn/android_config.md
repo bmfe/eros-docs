@@ -14,8 +14,8 @@
 
 # App 图标替换
 
-项目的 /platforms/android/WeexFrameworkWrapper/app/src/main/res 目录下 有 mipmap 
-如下图![](https://github.com/myliuyx/source/blob/master/8011AB9FE2D34C066BA1D4C29652CCD3.jpg)
+项目的`/platforms/android/WeexFrameworkWrapper/app/src/main/res`目录下 有 mipmap 
+如下图![](https://raw.githubusercontent.com/myliuyx/source/master/8011AB9FE2D34C066BA1D4C29652CCD3.jpg)
 
 请分别 替换掉 mipmap-hdpi 到mipmap-xxxhdpi 里面的 ic_launcher.png 图片为您app 图标文件。保持命名一样即可。
 
