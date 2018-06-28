@@ -1,3 +1,20 @@
+## Q: android 热更新 不替换bundle文件
+> 热更新 并没有报错，文件和版本检查所有的地方都没有问题，就是没有替换新的 buindle 文件，更新并没有生效。
+
+A: 
+Android 增加了 APP 版本的检测。 您新包的 `eros.native.json` 里 version 版本如下：
+```
+'version': {
+        'android': '1.0.0',
+        'iOS': '1.0.0'
+    }
+```
+不能高于 Android APP的版本，android 的版本 在 `/WeexFrameworkWrapper/app/build.gradle` 文件中
+`versionName` 字段，默认是 1.0版本。
+
+> 增加这个判断是为了防止一些可以做原生开发的同学 在某个版本中 对原生做了修改，然后发布更新包时会导致一些并没有更新Android APP 版本的用户发生错误。
+
+
 ## Q: 热刷新不起作用
 
 A:
