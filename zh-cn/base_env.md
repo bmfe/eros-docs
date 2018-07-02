@@ -23,7 +23,7 @@ $ cnpm i eros-cli -g
 
 ### 版本要求
 - ruby: `2.5.0` 以上
-- cocopods: `1.4.0` (最好)
+- cocoapods: `1.4.0` (最好)
 
 其他版本会有环境问题
 ### 安装
