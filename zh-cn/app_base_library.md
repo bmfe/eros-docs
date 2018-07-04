@@ -62,7 +62,7 @@ project(':nexus').projectDir = new File(settingsDir,'/nexus/nexus')
 * 具体Android 插件详细集成方式 您还可以参考[Android 插件依赖](/zh-cn/android_plugin_integration)
 
 ## Change Log
-**Android 1.0.6** 2018.06.21<br>
+**Android 1.0.6** 2018.07.04<br>
 * [bugfix]修复fetch传递参数不是字符串时导致的崩溃问题。
 * [bugfix]修复tabbar 切换不触发生命周期。
 * [feature]`<image>`标签支持 base64图片格式；
