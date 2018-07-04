@@ -2,6 +2,8 @@
 ### 重点更新
 * [bugfix-iOS]修复debug按钮不兼容iPad8.0系统的问题；感谢 [zhongdong](https://github.com/zhongdom)提的pr；
 * [bugfix-iOS]修复原生tabbar设置上边栏颜色不生效的问题； 感谢 [zhongdong](https://github.com/zhongdom)提的pr；
+* [bugfix-Android]修复fetch传递参数不是字符串时导致的崩溃问题。
+* [bugfix-Android]修复tabbar 切换不触发生命周期。
 * [feature]`<image>`标签支持 base64图片格式；
 * [feature]`$router.toWebview` 支持 `bmlocal` 机制加载`jsbundle`中 html 文件；
 * [feature] `<web>` 标签及 `$router.toWebview`新增 web 也 weex 交互机制，详情请看[教程](/zh-cn/base_extend?id=web-%E4%B8%8E-weex-%E4%BA%A4%E4%BA%92)；

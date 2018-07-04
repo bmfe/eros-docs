@@ -62,8 +62,14 @@ project(':nexus').projectDir = new File(settingsDir,'/nexus/nexus')
 * 具体Android 插件详细集成方式 您还可以参考[Android 插件依赖](/zh-cn/android_plugin_integration)
 
 ## Change Log
-**iOS 1.2.6** 2018.06.21<br>
+**Android 1.0.6** 2018.06.21<br>
+* [bugfix]修复fetch传递参数不是字符串时导致的崩溃问题。
+* [bugfix]修复tabbar 切换不触发生命周期。
+* [feature]`<image>`标签支持 base64图片格式；
+* [feature]`$router.toWebview` 支持 `bmlocal` 机制加载`jsbundle`中 html 文件；
+* [feature] `<web>` 标签及 `$router.toWebview`新增 web 也 weex 交互机制，详情请看[教程](/zh-cn/base_extend?id=web-%E4%B8%8E-weex-%E4%BA%A4%E4%BA%92)；
 
+**iOS 1.2.6** 2018.06.21<br>
 * [feature] 新增`bmTabbar`Module，支持设置tabbar数字角标及红点 [文档请戳](https://bmfe.github.io/eros-docs/#/zh-cn/eros_sdk_module?id=bmTabbar)；
 * [bugfix]修复mediator.js中使用router跳转页面无效的问题；
 * [update]优化请求失败返回错误信息的逻辑；
