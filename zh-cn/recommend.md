@@ -1,7 +1,7 @@
 
 ## 插件 UI 组件库
 ### [AMUI](https://hminghe.github.io/weex-amui/#/?id=weex-amui)
-> 实现了大量 ui 组件，设计精美，指的推荐。
+> 实现了大量 ui 组件，设计精美，值得推荐。
 
 ### [BUI-Weex](http://dev.bingocc.com/buiweex/docs/)
 > BUI-Weex 是一套专门为 Weex 前端开发者打造的一套高质量UI框架。为了达到更好的效果，请在 WeexSDK 0.11.0 + 上使用这套UI框架。BUI-Weex致力于为iOS和android平台提供丰富的UI组件，帮助开发者快速构建移动应用。
