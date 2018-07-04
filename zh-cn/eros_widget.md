@@ -357,7 +357,7 @@ export default {
 
 ```js
 this.$router.toWebView({
-    url: '',                                    // 页面 url
+    url: '',                                    // 页面 url 支持打开本地的html文件 比如：bmlocal://assets/test.html
     title: '',                                  // 页面 title
     navShow: true                               // 是否显示native端导航栏，默认是true
 })
@@ -370,6 +370,14 @@ this.$router.toWebView({
 // 示例
 bmnative.closePage()
 ```
+
+2. fireEvent('event','info') 触发 weex 通过 [bmEvent](https://bmfe.github.io/eros-docs/#/zh-cn/eros_widget?id=event%EF%BC%88%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%EF%BC%89) 注册的事件，用于web与weex交互，'info'目前只支持字符串传递；
+```js
+// 示例
+bmnative.fireEvent('event', 'info');
+```
+
+	示例：[test.html](https://github.com/bmfe/eros/blob/master/src/assets/test.html)
 
 ### $router.openBrowser 
 

@@ -147,3 +147,21 @@ Weex 自带的`<refresh>` 组件使用起来不是很好用，效果也差强人
 
 ![](https://img.benmu-health.com/gitbook/showInput.gif)
 
+
+# web 与 weex 交互
+> native 端在 webview 运行环境注入了一个 bmnative 对象，用于 js 与 Native 及 weex 进行交互，js 可以直接调用 bmnative 对象的方法，**支持 `<web>` 标签 及 调用 `$router.toWebview` 打开的webview页面**；
+
+1. closePage() 方法：关闭 web 页面返回上一个页面；
+```js
+// 示例
+bmnative.closePage()
+```
+
+2. fireEvent('event','info') 触发 weex 通过 [bmEvent](https://bmfe.github.io/eros-docs/#/zh-cn/eros_widget?id=event%EF%BC%88%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%EF%BC%89) 注册的事件，用于web与weex交互，'info'目前只支持字符串传递；
+```js
+// 示例
+bmnative.fireEvent('event', 'info');
+```
+
+	示例：[test.html](https://github.com/bmfe/eros/blob/master/src/assets/test.html)
+

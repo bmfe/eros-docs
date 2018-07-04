@@ -42,6 +42,7 @@
 	<!-- - [eros-android-sdk](/zh-cn/update_log_android) -->
 	<!-- - [eros-cli](/zh-cn/update_log_cli) -->
 	<!-- - [eros-publish](/zh-cn/update_log_publish) -->
+	
 - [ Eros-Plugin ]
 	- [插件化](/zh-cn/eros_plugin)
 	- [基础库](/zh-cn/app_base_library)
@@ -50,3 +51,6 @@
 	- [个推推送](/zh-cn/plugin_getui_push)
 	- [高德地图](/zh-cn/plugin_amap)
 	- [更多插件](/zh-cn/other_plugin)
+	
+- [ 社区及推荐博文 ]	
+	- [推荐阅读](/zh-cn/recommend) 

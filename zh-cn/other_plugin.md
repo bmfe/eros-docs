@@ -19,3 +19,7 @@
 **效果展示：**
 
 ![](./image/qbmDatePicker.gif)
+
+## 支付宝支付
+作者：[HirahKong](https://github.com/HirahKong)   [zhongdong](https://github.com/zhongdom)<br>
+插件地址：[Android](https://github.com/HirahKong/eros-plugin-android-alipay) [iOS](https://github.com/zhongdom/eros-plugin-iOS-alipay)

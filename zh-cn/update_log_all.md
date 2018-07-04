@@ -1,3 +1,23 @@
+## 2018.07.04
+### 重点更新
+* [bugfix-iOS]修复debug按钮不兼容iPad8.0系统的问题；感谢 [zhongdong](https://github.com/zhongdom)提的pr；
+* [bugfix-iOS]修复原生tabbar设置上边栏颜色不生效的问题； 感谢 [zhongdong](https://github.com/zhongdom)提的pr；
+* [feature]`<image>`标签支持 base64图片格式；
+* [feature]`$router.toWebview` 支持 `bmlocal` 机制加载`jsbundle`中 html 文件；
+* [feature] `<web>` 标签及 `$router.toWebview`新增 web 也 weex 交互机制，详情请看[教程](/zh-cn/base_extend?id=web-%E4%B8%8E-weex-%E4%BA%A4%E4%BA%92)；
+
+
+### iOS 升级
+1.升级 BMBaseLibrary 基础库为 1.2.7 版本
+
+```ruby
+pod 'BMBaseLibrary', :git => 'https://github.com/bmfe/Benmu-iOS-Library.git', :tag => '1.2.7'
+```
+2.执行 `pod update` 拉取新版本依赖；
+
+### Android 升级
+待补充
+
 ## 2018.06.21
 ### 重点更新
 * [bugfix-Android]解决无法获取联系人问题；
