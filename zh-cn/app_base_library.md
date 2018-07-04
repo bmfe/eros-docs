@@ -62,6 +62,13 @@ project(':nexus').projectDir = new File(settingsDir,'/nexus/nexus')
 * 具体Android 插件详细集成方式 您还可以参考[Android 插件依赖](/zh-cn/android_plugin_integration)
 
 ## Change Log
+**iOS 1.2.7** 2018.07.04<br>
+* [bugfix]修复debug按钮不兼容iPad8.0系统的问题；感谢 zhongdong提的pr；
+* [bugfix]修复原生tabbar设置上边栏颜色不生效的问题； 感谢 zhongdong提的pr；
+* [feature]<image>标签支持 base64图片格式；
+* [feature]$router.toWebview 支持 bmlocal 机制加载jsbundle中 html 文件；
+* [feature] <web> 标签及 $router.toWebview新增 web 与 weex 交互机制，详情请看[教程](/zh-cn/base_extend?id=web-%E4%B8%8E-weex-%E4%BA%A4%E4%BA%92)；
+
 **Android 1.0.6** 2018.07.04<br>
 * [bugfix]修复fetch传递参数不是字符串时导致的崩溃问题。
 * [bugfix]修复tabbar 切换不触发生命周期。

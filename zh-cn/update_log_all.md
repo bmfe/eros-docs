@@ -6,7 +6,7 @@
 * [bugfix-Android]修复tabbar 切换不触发生命周期。
 * [feature]`<image>`标签支持 base64图片格式；
 * [feature]`$router.toWebview` 支持 `bmlocal` 机制加载`jsbundle`中 html 文件；
-* [feature] `<web>` 标签及 `$router.toWebview`新增 web 也 weex 交互机制，详情请看[教程](/zh-cn/base_extend?id=web-%E4%B8%8E-weex-%E4%BA%A4%E4%BA%92)；
+* [feature] `<web>` 标签及 `$router.toWebview`新增 web 与 weex 交互机制，详情请看[教程](/zh-cn/base_extend?id=web-%E4%B8%8E-weex-%E4%BA%A4%E4%BA%92)；
 
 
 ### iOS 升级
@@ -19,7 +19,8 @@ pod 'BMBaseLibrary', :git => 'https://github.com/bmfe/Benmu-iOS-Library.git', :t
 
 ### Android 升级
 
-进入 `/platforms/android/WeexFrameworkWrapper/nexus` 目录 切换tag 到 1.0.5 ，进入`/platforms/android/WeexFrameworkWrapper/wxframework` 目录 切换tag 到1.0.6 。
+进入 `/platforms/android/WeexFrameworkWrapper/nexus` 目录 切换tag 到 1.0.5 <br>
+进入`/platforms/android/WeexFrameworkWrapper/wxframework` 目录 切换tag 到1.0.6 。
 
 > 如果您没有使用tag控制版本，可以直接 git pull 更新下github 上代码即可。
 
