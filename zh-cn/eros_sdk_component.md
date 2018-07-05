@@ -15,6 +15,8 @@
 
 * finish: 图表渲染完毕事件
 
+注：[$format(options)](https://bmfe.github.io/eros-docs/#/zh-cn/eros_widget?id=format-echart-%E7%9B%B8%E5%85%B3)说明文档；
+
 ### 🌰
 
 ```js
