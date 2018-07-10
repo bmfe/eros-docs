@@ -52,8 +52,30 @@ project(':erospluginwxpay').projectDir = new File(settingsDir,'/erospluginwxpay/
 	}
 ```
 
-* 具体Android 插件详细集成方式 您还可以参考[Android 插件依赖](/zh-cn/android_plugin_integration)
+* 打开Android目录工程目录`/platforms/android/WeexFrameworkWrapper/app/src/main/java/com/benmu/wx/wxapi`,编辑目录下的`WXEntryActivity.java`和`WXPayEntryActivity.java`解开注释，编辑`WXPayEntryActivity.java`
 
+``` ruby
+api.registerApp(WXApiModule.getInstans().getAppId())
+//修改为
+api.registerApp("你的wx appID")
+```
+
+* 更改Android目录工程目录`/platforms/android/WeexFrameworkWrapper/app/src/main/AndroidManifest.xml`
+``` ruby
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="你的包名">
+.....
+<!--wxApi-->
+<activity
+    .......
+    <data android:scheme="填写你的wx appID"/>
+</activity>
+```
+
+* 更改Android目录工程目录`/platforms/android/WeexFrameworkWrapper/app/src/main/java`目录下`com.benmu.wx`为你的包名,点击右上角sync now根据提示修改报错的地方com.benmu.wx为你的包名
+
+* 具体Android 插件详细集成方式 您还可以参考[Android 插件依赖](/zh-cn/android_plugin_integration)
 
 * 具体Android 相关[微信Key和签名申请参考文档](/zh-cn/android_wx_apply)
 
