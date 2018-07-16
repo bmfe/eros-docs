@@ -923,11 +923,57 @@ tabbar.hideBadge({
 * 从当前页面跳转到tabbar上的指定页面: `openPage(info)`
 
 ```js
-tabbar. openPage({
+tabbar.openPage({
 	index:0,  // 对应的item索引
 })
 ```
 
+* 获取tabbar当前选择下标: `getIndex()`
+
+```js
+// 同步方法
+var index = tabbar.getIndex()
+```
+
+* 监听tabbar选择变化，返回选择后的下标: `watchIndex(callback)`
+
+```js
+tabbar.watchIndex(resData => {
+	// resData 对应的下标
+})
+```
+
+* 获取当前tabbar配置信息: `getTabbarInfo()`
+
+```js
+// 同步方法 
+var tabbarInfo = tabbar.getTabbarInfo()
+```
+
+* 设置tabbar配置信息: `setTabbarInfo(info)`
+
+> 此方法可以动态修改tababr的配置信息 <br>
+> **注意格式** 要与 eros.native.js 中的 tabbar 配置信息保持一致,可以先调用上面的 getTabbarInfo 获取信息，然后在修改其中的参数；
+
+```js
+tabbar.setTabbarInfo({
+	'color': '#777777',
+   	'selectedColor': '#00b4cb',
+  	'backgroundColor': '#fafafa',
+   	'borderColor': '#dfe1eb',
+   	'list': [{
+   			'pagePath': '/pages/demo/router/tabbarItem1.js',
+     		'text': '首页',
+      		'icon': 'bmlocal://assets/TabBar_Item1@2x.png',
+     		'selectedIcon': 'bmlocal://assets/TabBar_Item1_Selected@2x.png',
+     		'navShow': 'true',
+     		'navTitle': "首页"
+  			},
+            ...
+            ...
+  	]
+})
+```
 
 
 
