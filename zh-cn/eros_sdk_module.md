@@ -975,6 +975,17 @@ tabbar.setTabbarInfo({
 })
 ```
 
+* 清楚tabbar配置信息: `clearTabbarInfo()`
+
+> 此方法清楚的是 setTabbarInfo 设置的数据，然后下次app启动会默认读取 eros.nativi.js 中的配置信息
+
+```js
+// 同步方法 
+tabbar.clearTabbarInfo()
+```
+
+
+
 
 
 
