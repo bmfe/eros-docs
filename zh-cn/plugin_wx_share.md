@@ -8,7 +8,7 @@ Android 1.0.0
 1.首先请到友盟平台注册App获取AppKey; <br>
 2.iOS平台请参考友盟的[教程](https://developer.umeng.com/docs/66632/detail/66825)配置SSO白名单、及 URL Scheme；<br>
 3.Android AppId一定要填写对，并且微信后台需要填写app签名，详情请看微信官方教程；<br>
-4.为了让大家更灵活的根据产品定制样式，插件化版本的分享需要用户自行处理。
+4.为了让大家更灵活的根据产品定制样式，插件化版本的 分享UI 需要用户自行处理。
 
 
 ## 集成方式

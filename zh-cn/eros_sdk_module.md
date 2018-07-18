@@ -375,6 +375,17 @@ bmImage.preview({
 })
 ```
 
+* 识别图片二维码 `scanImage(info,callback)`
+
+```js
+// 示例
+bmImage.scanImage({
+    path:pathImg     //pick返回的本地图片
+}, (result) => {
+    console.log("result === " + result.data);
+})
+```
+
 
 # bmModal
 

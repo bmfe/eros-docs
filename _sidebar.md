@@ -50,6 +50,7 @@
 	- [微信支付](/zh-cn/plugin_wx_pay)
 	- [个推推送](/zh-cn/plugin_getui_push)
 	- [高德地图](/zh-cn/plugin_amap)
+	- [友盟统计](/zh-cn/plugin_umAnalytics)
 	- [更多插件](/zh-cn/other_plugin)
 	
 - [ 社区及推荐博文 ]	
