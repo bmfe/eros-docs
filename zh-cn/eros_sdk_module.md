@@ -595,6 +595,15 @@ router.setHomePage('/pages/eros-demos/login/index.js')
 router.setHomePage('/pages/eros-demos/home/index.js')
 ```
 
+* 清除设置的HomePage `clearHomePage()`
+
+ > 清除之前设置的HomoPage，下次app启动会读取 `native.js` 中的配置信息
+
+ ```js
+// 示例
+router.clearHomePage()
+```
+
 # bmStorage
 
 > 数据存储
@@ -953,7 +962,7 @@ var tabbarInfo = tabbar.getTabbarInfo()
 * 设置tabbar配置信息: `setTabbarInfo(info)`
 
 > 此方法可以动态修改tababr的配置信息 <br>
-> **注意格式** 要与 eros.native.js 中的 tabbar 配置信息保持一致,可以先调用上面的 getTabbarInfo 获取信息，然后在修改其中的参数；
+> **注意格式** 要与 `eros.native.js` 中的 tabbar 配置信息保持一致,可以先调用上面的 `getTabbarInfo()` 获取信息，然后在修改其中的参数；
 
 ```js
 tabbar.setTabbarInfo({
@@ -977,16 +986,49 @@ tabbar.setTabbarInfo({
 
 * 清楚tabbar配置信息: `clearTabbarInfo()`
 
-> 此方法清楚的是 setTabbarInfo 设置的数据，然后下次app启动会默认读取 eros.nativi.js 中的配置信息
+> 此方法清除的是 `setTabbarInfo()` 设置的数据，然后下次app启动会读取 `eros.nativi.js` 中的配置信息
 
-```js
-// 同步方法 
+```js 
 tabbar.clearTabbarInfo()
 ```
 
+# bmBundleUpdate
 
+> 如果开发者不想使用 eros 的默认更新 jsbundle 机制，可以在 eros.native.js 中设置参数 `customBundleUpdate` 值为 `true`，然后使用此 module 来自定义更新逻辑，该 module 提供两个方法，一个是提供下载 jsbundle 资源方法，和应用最新资源方法；
 
+**引用方式**
 
+```js
+var bmBundleUpdate = weex.requireModule('bmBundleUpdate')
+```
+
+**API**
+
+* 下载 jsbundle 更新包资源: `download(info,callback)`
+
+> 使用该方法来下载 zip 更新包，当更新准备就绪的时候会回调callback方法，可以弹窗提示用户立刻更新等操作；
+
+```js 
+bmBundleUpdate.download({
+	path:'url',  // jsbundle zip包下载地址
+	diff: true  // 是否下载差分包
+}, resData => {
+	// 结果的回调  
+    //  resData = {
+    //      resCode: 0 || 9,  // 0成功 9失败
+    //      msg: '成功或失败的描述信息',
+    //      data: nil
+    //  }
+})
+```
+
+* 应用更新: `update()`
+
+> 更新准备完毕，调用该方法立即应用更新资源；
+
+```js 
+bmBundleUpdate.update()
+```
 
 
 
