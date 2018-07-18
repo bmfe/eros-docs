@@ -271,8 +271,8 @@ bmFont.changeFontSize({
 }, function(resData){
     //resdata 
     //  {
-    //       resCode: 0,
-    //       msg: '',
+    //       status: 0,
+    //       errorMsg: '',
     //       data: {
     //            scale: '1||1.15||1.3',   // 返回当前放大倍数
     //            fontSize: 'BIG'            // 'NORM' 标准, BIG 大， EXTRALARGE 特大
@@ -287,8 +287,8 @@ bmFont.changeFontSize({
 bmFont.getFontSize(funtion(resData){
     //resdata 
     //  {
-    //       resCode: 0,
-    //       msg: '',
+    //       status: 0,
+    //       errorMsg: '',
     //       data: {
     //            scale: '1||1.15||1.3',   // 返回当前放大倍数
     //            fontSize: 'BIG'            // 'NORM' 标准, BIG 大， EXTRALARGE 特大
@@ -693,8 +693,8 @@ var tool = weex.requireModule('bmTool')
 tool.resignKeyboard(function(resData){          // 回调
     // 结果的回调  
     //  resData = {
-    //      resCode: 0 || 9,  // 是否成功
-    //      msg: nil,
+    //      status: 0 || 9,  // 是否成功
+    //      errorMsg: nil,
     //      data: nil
     //  }
 });
@@ -1026,8 +1026,8 @@ bmBundleUpdate.download({
 }, resData => {
 	// 结果的回调  
     //  resData = {
-    //      resCode: 0 || 9,  // 0成功 9失败
-    //      msg: '成功或失败的描述信息',
+    //      status: 0 || 9,  // 0成功 9失败
+    //      errorMsg: '成功或失败的描述信息',
     //      data: nil
     //  }
 })

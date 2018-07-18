@@ -12,7 +12,15 @@
 * [feature]`weex.config.eros`中添加`tabbarHeight`原生`TabBar`高度参数；
 * [feature]`bmImage`module 新增 `scanImage()`方法，识别图片二维码。[文档请戳](https://bmfe.github.io/eros-docs/#/zh-cn/eros_sdk_module?id=bmimage)；感谢 [scholar-ink](https://github.com/scholar-ink)提供pr；
 * [feature]`bmRouter`module 添加 `claerHomePage()` 方法清楚之前设置的首页;
-* [feature]新增友盟统计插件；
+* [feature]新增友盟统计插件。[使用文档请戳](https://bmfe.github.io/eros-docs/#/zh-cn/plugin_umAnalytics)
+
+### iOS 升级
+1.升级 BMBaseLibrary 基础库为 1.2.8 版本
+
+```ruby
+pod 'BMBaseLibrary', :git => 'https://github.com/bmfe/Benmu-iOS-Library.git', :tag => '1.2.8'
+```
+2.执行 `pod update` 拉取新版本依赖；
 
 ## 2018.07.04
 ### 重点更新
