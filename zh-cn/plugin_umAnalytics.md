@@ -26,6 +26,30 @@ Android 1.0.0
 
 **Android集成方式**
 
+* 进入Android目录`工程目录/platforms/android/WeexFrameworkWrapper/` 目录下 clone 对应的插件。
+
+``` ruby
+	git clone https://github.com/bmfe/eros-plugin-android-UMAnalytics.git "erospluginum"
+```
+
+* 打开Android目录`工程目录/platforms/android/WeexFrameworkWrapper/`,编辑`settings.gradle`,添加引入。
+在`settings.gradle` 中 添加如下代码。
+
+``` ruby
+//这里只需要在最后添加 , ':erospluginum'
+include ':app',':sdk',':nexus', ':wxframework', ':erospluginum'  
+```
+
+* 打开Android目录`工程目录/platforms/android/WeexFrameworkWrapper/app`,编辑app目录下`build.gradle` 文件 `dependencies` 下添对应 插件引用。
+
+``` ruby
+	dependencies {
+		....
+		//umeng
+    	compile project(':erospluginum')
+	}
+```
+* 点击右上角 `Sync Now`
 
 ## 使用
 
