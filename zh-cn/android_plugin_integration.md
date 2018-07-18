@@ -14,7 +14,7 @@ git clone https://github.com/bmfe/eros-plugin-android-getui.git "erosplugingt"
 // 微信支付
 git clone https://github.com/bmfe/eros-plugin-android-wxpay.git "erospluginwxpay" 
 // 分享
-git clone https://github.com/bmfe/eros-plugin-android-wxshare.git "erospluginwxshare" 
+git clone https://github.com/bmfe/eros-plugin-android-wxshare.git "erospluginumeng" 
 
 ```
 
