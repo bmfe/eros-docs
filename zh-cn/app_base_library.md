@@ -62,6 +62,22 @@ project(':nexus').projectDir = new File(settingsDir,'/nexus/nexus')
 * 具体Android 插件详细集成方式 您还可以参考[Android 插件依赖](/zh-cn/android_plugin_integration)
 
 ## Change Log
+
+**Android 1.0.7** 2018.07.18<br>
+* [bugfix]加载本地`html`参数丢失的问题；
+* [bugfix-Android]`input`标签动态切换`type = password`不生效；
+* [bugfix-Android]从后台进入app、tabbar上所有页面都会触发生命周期，应该只有当前显示的页面触发；
+* [bugfix-Android]`image`标签动态设置高度图片变形；
+* [bugfix-Android]加载本地`html`参数丢失的问题；
+* [feature]`bmTabbar` 新增监听切换页面方法、获取当前下标方法、及动态修改tabbar配置信息。[文档请戳](https://bmfe.github.io/eros-docs/#/zh-cn/eros_sdk_module?id=bmTabbar)；
+* [feature-Android]更新`jsbundle`添加弹窗提示，行为保持跟iOS一致；
+* [feature]新增`bmBundleUpdate`module，开发者可以自定义更新`jsbundle`逻辑。[文档请戳](https://bmfe.github.io/eros-docs/#/zh-cn/eros_sdk_module?id=bmBundleUpdate)；
+* [feature]`weex.config.eros`中添加`tabbarHeight`原生`TabBar`高度参数；
+* [feature]`bmImage`module 新增 `scanImage()`方法，识别图片二维码。[文档请戳](https://bmfe.github.io/eros-docs/#/zh-cn/eros_sdk_module?id=bmimage)；感谢 [scholar-ink](https://github.com/scholar-ink)提供pr；
+* [feature]`bmRouter`module 添加 `claerHomePage()` 方法清除之前设置的首页;
+* [feature]新增友盟统计插件。[使用文档请戳]
+
+
 **iOS 1.2.8** 2018.07.18<br>
 * [bugfix]加载本地`html`参数丢失的问题；
 * [bugfix]`mediator.js`中使用`bmRouter`跳转页面无效;
@@ -69,7 +85,7 @@ project(':nexus').projectDir = new File(settingsDir,'/nexus/nexus')
 * [feature]新增`bmBundleUpdate`module，开发者可以自定义更新`jsbundle`逻辑。[文档请戳](https://bmfe.github.io/eros-docs/#/zh-cn/eros_sdk_module?id=bmBundleUpdate)；
 * [feature]`weex.config.eros`中添加`tabbarHeight`原生`TabBar`高度参数；
 * [feature]`bmImage`module 新增 `scanImage()`方法，识别图片二维码。[文档请戳](https://bmfe.github.io/eros-docs/#/zh-cn/eros_sdk_module?id=bmimage)；感谢 [scholar-ink](https://github.com/scholar-ink)提供pr；
-* [feature]`bmRouter`module 添加 `claerHomePage()` 方法清楚之前设置的首页;
+* [feature]`bmRouter`module 添加 `claerHomePage()` 方法清除之前设置的首页;
 
 **iOS 1.2.7** 2018.07.04<br>
 * [bugfix]修复debug按钮不兼容iPad8.0系统的问题；感谢 zhongdong提的pr；
