@@ -82,7 +82,8 @@
 
 #### **`androidIsListenHomeBack`**: 安卓平台 是否监听第一个页面的物理返回键。
 
-#### **`customBundleUpdate`**: 是否自定义更新jsbundle逻辑，如果不想使用eros默认的更新逻辑请将此参数设置为 `true`，然后使用 [`bmBundleUpdate`](https://bmfe.github.io/eros-docs/#/zh-cn/eros_sdk_module?id=bmBundleUpdate) module 自定义更新逻辑。
+#### **`customBundleUpdate`**: 是否自定义更新jsbundle逻辑 <br>
+* 如果不想使用eros默认的更新逻辑请将此参数设置为 `true`，然后使用[bmBundleUpdate](https://bmfe.github.io/eros-docs/#/zh-cn/eros_sdk_module?id=bmBundleUpdate) module 自定义更新逻辑。
 
 #### **`page`** 页面配置相关: 
 * homePage: 主页的 js 相对地址。
