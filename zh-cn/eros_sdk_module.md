@@ -963,20 +963,26 @@ tabbar.watchIndex(resData => {
 })
 ```
 
-* 获取当前tabbar配置信息: `getTabbarInfo()`
+* 取消监听: `clearWatch()`
+
+```js
+tabbar. clearWatch()
+```
+
+* 获取当前tabbar配置信息: `getInfo()`
 
 ```js
 // 同步方法 
-var tabbarInfo = tabbar.getTabbarInfo()
+var tabbarInfo = tabbar.getInfo()
 ```
 
-* 设置tabbar配置信息: `setTabbarInfo(info)`
+* 设置tabbar配置信息: `setInfo(info)`
 
 > 此方法可以动态修改tababr的配置信息 <br>
-> **注意格式** 要与 `eros.native.js` 中的 tabbar 配置信息保持一致,可以先调用上面的 `getTabbarInfo()` 获取信息，然后在修改其中的参数；
+> **注意格式** 要与 `eros.native.js` 中的 tabbar 配置信息保持一致,可以先调用上面的 `getInfo()` 获取信息，然后在修改其中的参数；
 
 ```js
-tabbar.setTabbarInfo({
+tabbar.setInfo({
 	'color': '#777777',
    	'selectedColor': '#00b4cb',
   	'backgroundColor': '#fafafa',
@@ -995,12 +1001,12 @@ tabbar.setTabbarInfo({
 })
 ```
 
-* 清楚tabbar配置信息: `clearTabbarInfo()`
+* 清楚tabbar配置信息: `clearInfo()`
 
-> 此方法清除的是 `setTabbarInfo()` 设置的数据，然后下次app启动会读取 `eros.nativi.js` 中的配置信息
+> 此方法清除的是 `setInfo()` 设置的数据，然后下次app启动会读取 `eros.nativi.js` 中的配置信息
 
 ```js 
-tabbar.clearTabbarInfo()
+tabbar.clearInfo()
 ```
 
 # bmBundleUpdate
