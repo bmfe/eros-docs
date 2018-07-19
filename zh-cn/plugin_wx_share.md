@@ -151,6 +151,10 @@ var bmWXShare = weex.requireModule('bmWXShare')
 	  // console.log(resData)
 	});
 	```
+	
+## 注意事项
+**iOS 提交审核** 时需要正确设置 IDFA 选项，如下图
+![idfa](./image/idfaSet.png)
 
 ## Change Log
 **iOS 1.0.2** <br> 
