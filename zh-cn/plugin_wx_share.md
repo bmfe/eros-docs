@@ -1,6 +1,6 @@
 # bmWXShare
 
-iOS 1.0.1<br>
+iOS 1.0.2<br>
 Android 1.0.0
 
 > 功能简介：基于友盟ShareSDK实现，微信分享（分享到朋友圈，微信好友）及微信授权登录；
@@ -153,6 +153,8 @@ var bmWXShare = weex.requireModule('bmWXShare')
 	```
 
 ## Change Log
+**iOS 1.0.2** <br> 
+1.修复shareType字段取值问题，导致只能分享网页；
 
 **iOS 1.0.1** <br>
 1.修复友盟SDK报错的问题；
