@@ -111,7 +111,8 @@ project(':erospluginamap').projectDir = new File(settingsDir,'/ErosPluginAmap/Er
       pos:[116.487, 40.00003],
       point: {
         position: [112,36],
-        title: 'this is a marker'
+        title: 'this is a marker',
+        icon:"bmlocal://assets/image/cars.png"
       }
     },
     
