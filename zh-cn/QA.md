@@ -1,3 +1,50 @@
+## Q: android 提交google play收到SSL Error Handler错误
+
+因为 SSL 的验证 google 检查的更严一些，但是国内一般都不会做这个检测。
+
+https://www.cnblogs.com/shoneworn/p/8182615.html
+
+你可以参考这个 对 com.benmu.framework.activity.GlobalWebViewActivity 类 做一些修改吧。
+
+> 在 GlobalWebViewActivity 120行代码开始修改成如下。
+
+``` java
+     @Override
+        public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+//            handler.proceed();
+            final SslErrorHandler mHandler;
+            mHandler = handler;
+            AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+            builder.setMessage("ssl证书验证失败");
+            builder.setPositiveButton("继续", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    mHandler.proceed();
+                }
+            });
+            builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    mHandler.cancel();
+                }
+            });
+            builder.setOnKeyListener(new DialogInterface.OnKeyListener() {
+                @Override
+                public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
+                    if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
+                        mHandler.cancel();
+                        dialog.dismiss();
+                        return true;
+                    }
+                    return false;
+                }
+            });
+            AlertDialog dialog = builder.create();
+            dialog.show();
+        }
+```
+> 代码如果报错可能是因为你没有导包导致的，请对应impor 相印的包。
+
 ## Q: android 热更新 不替换bundle文件
 > 热更新 并没有报错，文件和版本检查所有的地方都没有问题，就是没有替换新的 buindle 文件，更新并没有生效。
 
