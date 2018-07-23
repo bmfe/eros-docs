@@ -43,7 +43,7 @@ https://www.cnblogs.com/shoneworn/p/8182615.html
             dialog.show();
         }
 ```
-> 代码如果报错可能是因为你没有导包导致的，请对应impor 相印的包。
+> 代码如果报错可能是因为你没有导包导致的，请对应impor 对应的包。
 
 ## Q: android 热更新 不替换bundle文件
 > 热更新 并没有报错，文件和版本检查所有的地方都没有问题，就是没有替换新的 buindle 文件，更新并没有生效。
