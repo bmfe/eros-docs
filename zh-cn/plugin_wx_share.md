@@ -20,7 +20,7 @@ Android 1.0.0
 	def common
     	...忽略其他库的引用
     	# 在这里添加引用 ErosPluginWXShare
-    	pod 'ErosPluginWXShare', :git => 'https://github.com/bmfe/eros-plugin-ios-wxshare.git', :tag => '1.0.0'
+    	pod 'ErosPluginWXShare', :git => 'https://github.com/bmfe/eros-plugin-ios-wxshare.git', :tag => '版本号请看页面最下面change log'
 	end
 	target 'WeexEros' do
     	common
@@ -157,6 +157,9 @@ var bmWXShare = weex.requireModule('bmWXShare')
 ![idfa](./image/idfaSet.png)
 
 ## Change Log
+**iOS 1.0.3** <br> 
+1.修复获取是否安装微信方法无效的问题；
+
 **iOS 1.0.2** <br> 
 1.修复shareType字段取值问题，导致只能分享网页；
 

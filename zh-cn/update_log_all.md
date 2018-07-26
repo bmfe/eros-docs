@@ -3,13 +3,24 @@
 * [bugfix-Android]`tabbar` 多页面 `watchIndex` 只有一个生效问题
 * [bugfix-Android]`tabbar` 生命周期触发不正常问题。
 * [bugfix-Android]`tabbar` 设置 Navigator 会设置多个`tab`问题
-* [bugfix-Android] 解决issue[#248][#246]
+* [bugfix-Android] 提交google play收到SSL Error Handler错误问题添加文档说明。[文档请戳](https://bmfe.github.io/eros-docs/#/zh-cn/QA?id=q-android-%E6%8F%90%E4%BA%A4google-play%E6%94%B6%E5%88%B0ssl-error-handler%E9%94%99%E8%AF%AF)
 * [bugfix-Android] 解决部分页面内存泄漏问题
 * [bugfix-Android] 优化图片加载过多 的OOM 问题。
-* [feature]新增 `web` 标签支持本地html
+* [bugfix-Android] `web`标签通过url传参参数丢失问题；
+* [bugfix-iOS] `web`标签通过url传参参数丢失问题；
+* [bugfix-iOS] 微信分享插件、微信支付插件判断是否安装微信方法无效的问题（请升级最新版本）；
+* [optimize-iOS] 优化 `bmChart` 加载本地js资源的方法；
 
 
 ### iOS 升级
+1.升级 BMBaseLibrary 基础库为 1.2.9 版本
+
+```ruby
+pod 'BMBaseLibrary', :git => 'https://github.com/bmfe/Benmu-iOS-Library.git', :tag => '1.2.9'
+```
+2.执行 `pod update` 拉取新版本依赖；
+
+3.使用微信支付或微信分享的用户请分别升级插件库到最新版本；
 
 ### Android 升级
 进入 `/platforms/android/WeexFrameworkWrapper/nexus` 目录 切换tag 到 1.0.7 <br>

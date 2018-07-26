@@ -1,4 +1,4 @@
-# bmWXPay（1.0.0）
+# bmWXPay
 
 > 功能简介：调用微信支付
 
@@ -12,7 +12,7 @@
 	def common
     	...忽略其他库的引用
    		# 在这里添加引用 ErosPluginWXShare
-    	pod 'ErosPluginWXPay', :git => 'https://github.com/bmfe/eros-plugin-ios-wxpay.git', :tag => '1.0.0'
+    	pod 'ErosPluginWXPay', :git => 'https://github.com/bmfe/eros-plugin-ios-wxpay.git', :tag => '版本号请看页面最下面change log'
 	end
 	target 'WeexEros' do
     	common
@@ -128,3 +128,10 @@ api.registerApp("你的wx appID")
     	-5,   /**< 微信不支持    */
 	})
 	```
+
+## Chage Log
+
+**iOS 1.0.1**<br>
+1.修复获取判断是否安装微信方法无效的问题；
+
+**Android 1.0.0**
