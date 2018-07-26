@@ -71,19 +71,23 @@ A:  执行 `/platforms/android/WeexFrameworkWrapper` 目录下 `install.sh` 文�
 
 > 如果执行 `install.sh` 了还是不行,请检查下文件里是否存在文件如果只有1个文件或文件夹可能下载过程出错了，把文件夹删除了重新执行下 `install.sh`
 
-## Q: 热刷新不起作用
+## Q: 热刷新不起作用（手动指定服务地址）
 
 A:
  
-热刷新不生效多半是因为你的电脑存在多个ip地址（虚拟网卡），导致 App 连接了错误的地址，可以通过在 `eros.native.js -> url` 中添加 `socketServer` 字段来指定热刷新服务地址来解决这个问题；
+热刷新不生效多半是因为你的电脑存在多个ip地址（虚拟网卡），导致 App 连接了错误的地址，可以通过在 `eros.native.js -> url` 中添加 `socketServer` 字段来指定热刷新服务地址来解决这个问题；<br>
+同时也可以添加`jsServer`字段来指定访问的服务地址（即`eros dev`服务的地址）
 
 ```js
 // eros.native.js 文件
 'url': {
         ...
-        // 在这里添加 socketServer 请将 ip 地址改为你电脑真实的地址，主要如果是 dhcp 分配的地址会发生变化
-        'socketServer': 'ws://192.168.15.252:8890'
+        // 在这里添加 socketServer 请将 ip 地址改为你电脑真实的地址，注意如果是 dhcp 分配的地址会发生变化
+        'socketServer': 'ws://192.168.15.252:8890',
+        // 指定访问服务地址
+        'jsServer': "http://192.168.15.252"
 		}
+		...
 ```
 
 
