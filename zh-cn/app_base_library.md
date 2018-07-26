@@ -62,6 +62,13 @@ project(':nexus').projectDir = new File(settingsDir,'/nexus/nexus')
 * 具体Android 插件详细集成方式 您还可以参考[Android 插件依赖](/zh-cn/android_plugin_integration)
 
 ## Change Log
+**Android 1.0.8** 2018.07.26<br>
+* [bugfix-Android]`tabbar` 多页面 `watchIndex` 只有一个生效问题
+* [bugfix-Android]`tabbar` 生命周期触发不正常问题。
+* [bugfix-Android] 解决issue[#248][#246]
+* [bugfix-Android] 解决部分页面内存泄漏问题
+* [bugfix-Android] 优化图片加载过多 的OOM 问题。
+* [feature]新增 `web` 标签支持本地html
 
 **Android 1.0.7** 2018.07.18<br>
 * [bugfix]加载本地`html`参数丢失的问题；

@@ -1,3 +1,23 @@
+## 2018.07.26
+### 重点更新
+* [bugfix-Android]`tabbar` 多页面 `watchIndex` 只有一个生效问题
+* [bugfix-Android]`tabbar` 生命周期触发不正常问题。
+* [bugfix-Android]`tabbar` 设置 Navigator 会设置多个`tab`问题
+* [bugfix-Android] 解决issue[#248][#246]
+* [bugfix-Android] 解决部分页面内存泄漏问题
+* [bugfix-Android] 优化图片加载过多 的OOM 问题。
+* [feature]新增 `web` 标签支持本地html
+
+
+### iOS 升级
+
+### Android 升级
+进入 `/platforms/android/WeexFrameworkWrapper/nexus` 目录 切换tag 到 1.0.7 <br>
+进入`/platforms/android/WeexFrameworkWrapper/wxframework` 目录 切换tag 到1.0.8 。
+
+> 如果您没有使用tag控制版本，可以直接 git pull 更新下github 上代码即可。
+
+
 ## 2018.07.18
 ### 重点更新
 * [bugfix-Android]`input`标签动态切换`type = password`不生效；
