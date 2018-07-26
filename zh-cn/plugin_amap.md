@@ -111,7 +111,8 @@ project(':erospluginamap').projectDir = new File(settingsDir,'/ErosPluginAmap/Er
       pos:[116.487, 40.00003],
       point: {
         position: [112,36],
-        title: 'this is a marker'
+        title: 'this is a marker',
+        icon:"bmlocal://assets/image/cars.png"
       }
     },
     
@@ -252,7 +253,7 @@ project(':erospluginamap').projectDir = new File(settingsDir,'/ErosPluginAmap/Er
 </template>
 
 <script>
-  const Amap = require('@weex-module/amap');
+  const Amap = weex.requireModule('amap')
   module.exports = {
     data: {
       pos:[116.487, 40.00003]
@@ -261,7 +262,7 @@ project(':erospluginamap').projectDir = new File(settingsDir,'/ErosPluginAmap/Er
     methods: {
       setUserLocation() {
         const self = this;
-        Amap.getUserLocation(this.$el('map2017').ref, function (data) {
+        Amap.getUserLocation(function (data) {
           if(data.result == 'success') {
             self.pos = data.data.position;
           }
