@@ -316,7 +316,7 @@ import { AmButton } from 'weex-amui'
 3、 完善应用信息。
 ![](https://ws1.sinaimg.cn/large/9290cd97gy1ftjvgjv7enj20hm0grgoq.jpg)
 
-4、按照要求提交后会自动生成应用及AK值。v
+4、按照要求提交后会自动生成应用及AK值。
 ![](https://ws1.sinaimg.cn/large/9290cd97gy1ftjvk6mc6mj209r0540t4.jpg)
 ![](https://ws1.sinaimg.cn/large/9290cd97gy1ftjvl3ibx4j20h207lab1.jpg)
 
