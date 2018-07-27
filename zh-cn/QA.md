@@ -305,3 +305,61 @@ npm install --save weex-amui
 ```
 import { AmButton } from 'weex-amui'
 ```
+## Q: bmchart添加热力图
+ A:
+ ### 申请百度地图AK
+1、 访问并登录[百度地图开放平台][1]。
+
+2、 创建应用。
+![](https://ws1.sinaimg.cn/large/9290cd97gy1ftjvdx3wivj20p90a20ud.jpg)
+
+3、 完善应用信息。
+![](https://ws1.sinaimg.cn/large/9290cd97gy1ftjvgjv7enj20hm0grgoq.jpg)
+
+4、按照要求提交后会自动生成应用及AK值。v
+![](https://ws1.sinaimg.cn/large/9290cd97gy1ftjvk6mc6mj209r0540t4.jpg)
+![](https://ws1.sinaimg.cn/large/9290cd97gy1ftjvl3ibx4j20h207lab1.jpg)
+
+### 下载所需[bmap.min.js][2]文件。
+github: [echarts的地图扩展][3]
+
+### 编写样例
+写法与[eros文档][4]所述一致，只需按照[echarts官网样例][5]配置参数即可。
+
+![](https://ws1.sinaimg.cn/large/9290cd97gy1ftjwalxnf6j20cp0bmdgv.jpg)
+
+[1]:http://lbsyun.baidu.com/ "百度地图开放平台"
+[2]:https://github.com/apache/incubator-echarts/blob/master/dist/extension/bmap.min.js "bmap.min.js"
+[3]:https://github.com/apache/incubator-echarts/tree/master/extension/bmap "echarts的地图扩展"
+[4]:https://bmfe.github.io/eros-docs/#/zh-cn/eros_widget "eros文档"
+[5]:http://echarts.baidu.com/examples/editor.html?c=heatmap-bmap "heatmap样例"
+
+### 安卓集成热力图
+1、 找到echarts相关js的所在目录。
+安卓的echarts相关文件位于下图所示目录下(也可转存为cdn静态资源)
+![](https://ws1.sinaimg.cn/large/9290cd97gy1ftjvpcog9uj20ce05g74n.jpg)
+
+2、 将下载的bmap.min.js文件放置到上图目录下。
+
+3、 修改bm-chart.html文件，引入所需js文件。(js文件可使用cdn链接)
+![](https://ws1.sinaimg.cn/large/9290cd97gy1ftjw00yos8j20ft0370tj.jpg)
+如果百度jssdk引入出现跨域问题，可浏览器中获取如图所示代码，另存为一个js文件，引入到bm-chart.html中。
+![](https://ws1.sinaimg.cn/large/9290cd97gy1ftjw3l4i4wj20q903m0tp.jpg)
+
+4、 编译运行
+![](https://ws1.sinaimg.cn/large/9290cd97gy1ftjwlwf1k5j20u01d2gr8.jpg)
+
+### iOS集成热力图
+1、找到echarts相关js所在目录并将bmap.min.js文件添加至Resources目录下(也可转存为cdn静态资源)
+![](https://ws1.sinaimg.cn/large/9290cd97gy1ftjwowlemxj20950iejtg.jpg)
+
+2、修改bm-chart.html文件(js文件可使用cdn链接)
+![](https://ws1.sinaimg.cn/large/9290cd97gy1ftjx49oxruj20jk02tgme.jpg)
+
+3、修改BMChartComponent.m文件(BMBaseLibrary 1.2.9版中已做修改)
+![](https://ws1.sinaimg.cn/large/9290cd97gy1ftjx5tpkhfj20mn022gme.jpg)
+注释如下三句
+![](https://ws1.sinaimg.cn/large/9290cd97gy1ftjx6i23nbj20o701yjru.jpg)
+
+4、编译运行
+![](https://ws1.sinaimg.cn/large/9290cd97gy1ftjxbkmsebj20u01coq5x.jpg)
