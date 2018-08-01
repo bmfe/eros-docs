@@ -8,14 +8,13 @@
 ### 属性：
 
 * options：图表数据，请按照 echart 官方语法书写。
-
-* 兼容所有其他样式
+* src：（可选）通过此参数可以指定 html 的地址。
 
 ### 事件：
 
 * finish: 图表渲染完毕事件
 
-注：[$format(options)](https://bmfe.github.io/eros-docs/#/zh-cn/eros_widget?id=format-echart-%E7%9B%B8%E5%85%B3)说明文档；
+注：`options` 数据需要调用 `$format(options)`进行格式化一下，[$format(options)](https://bmfe.github.io/eros-docs/#/zh-cn/eros_widget?id=format-echart-%E7%9B%B8%E5%85%B3)说明文档；
 
 ### 🌰
 
@@ -79,6 +78,14 @@ export default {
 }
 </script>
 ```
+
+### echart 增强
+
+eros 默认可以显示 echart 绝大多数数据图表，如果当前不能满足你的需求，我们提供了增强机制，来方便你进行扩展 echart 的能力，比如显示热力图等，在这之前让我们先了解一下 eros 是如何实现 echart 的；
+
+#### 实现原理
+
+大家应该都知道 ECharts 是JavaScript实现的库，运行在 web 端，所以 eros 扩展的`weex`原生组件`bmchart`就是通过`webView`实现的，bmchart 组件对应的view（视图）就是`webView`，我们在 app 中内置了一个`bm-chat.html`文件及`echarts.min.js`文件，初始化`webView`后会加载这个 html 文件，你可以在工程中查看一下这个 html 文件，html的文件实现非常简单，引入了一下 echarts.min.js 文件，然后实现了一个 setOption 方法用于接收 weex 传入的用于渲染 echart 图表数据的参数。当js调用
 
 
 # 弹窗组件

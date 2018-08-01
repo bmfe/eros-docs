@@ -498,6 +498,15 @@ navigator.setNavigationInfo({
 })
 ```
 
+* 是否隐藏状态栏：statusBarHidden:(Bool) 
+
+ > 注: 状态栏是全局唯一的，设置隐藏后所有页面都会隐藏，可以结合页面生命周期来做指定页面隐藏；
+
+```js
+// 隐藏状态栏
+navigator.statusBarHidden(true)
+```
+
 
 # bmRouter
 
@@ -1046,6 +1055,15 @@ bmBundleUpdate.download({
 ```js 
 bmBundleUpdate.update()
 ```
+
+* 获取当前JSVersion: `getJsVersion(callback)`
+
+```js 
+bmBundleUpdate.getJsVersion(version => {
+	// 直接返回版本号，如果取不到会返回空的字符串
+})
+```
+
 
 
 
