@@ -1,4 +1,6 @@
-# 图表组件
+Eros 扩展的 Components
+
+## 图表组件
 > 基于 echart 实现的图标组件，支持 echart 的所有图表类型；
 
 ### 效果展示
@@ -81,14 +83,83 @@ export default {
 
 ### echart 增强
 
-eros 默认可以显示 echart 绝大多数数据图表，如果当前不能满足你的需求，我们提供了增强机制，来方便你进行扩展 echart 的能力，比如显示热力图等，在这之前让我们先了解一下 eros 是如何实现 echart 的；
+eros 默认可以显示 echarts 绝大多数数据图表，如果当前功能不能满足你的需求，我们提供了增强机制，来方便大家进行扩展能力，比如显示热力图等，在这之前让我们先了解一下 eros 是如何实现 echart 的；
 
 #### 实现原理
 
-大家应该都知道 ECharts 是JavaScript实现的库，运行在 web 端，所以 eros 扩展的`weex`原生组件`bmchart`就是通过`webView`实现的，bmchart 组件对应的view（视图）就是`webView`，我们在 app 中内置了一个`bm-chat.html`文件及`echarts.min.js`文件，初始化`webView`后会加载这个 html 文件，你可以在工程中查看一下这个 html 文件，html的文件实现非常简单，引入了一下 echarts.min.js 文件，然后实现了一个 setOption 方法用于接收 weex 传入的用于渲染 echart 图表数据的参数。当js调用
+大家都知道 ECharts 是JavaScript实现的库，运行在 web 端，所以 eros 扩展的`bmchart`组件原生端就是通过`webView`实现的，`bmchart`有一个`options`属性提供给js，用于传入 echarts 所需的数据，我们在 app 中内置了一个`bm-chart.html`文件及`echarts.min.js`文件，初始化`webView`后会加载这个 html 文件，你可以在工程中查看一下这个 html 的源码，实现非常简单，引入了一下 echarts.min.js 文件，然后实现了一个 `setOption` 方法，用于与原生交互接收图表数据，同时初始化 echarts 实例，并调用 echarts 实例的 `setOption(options)`方法来显示图表数据；
+
+#### 自定义实现
+
+你可以通过 `bmchart` 的 `src` 属性来指定访问你的 html 文件的地址，支持 `bmlocal` 机制从 jsbundle 中加载资源；
+
+1.在工程的 assets 文件夹中放入 html 文件及所需的 js 资源（支持通过相对路径加载本地js资源）； 
+
+![chart1](./image/chart1.png)
+
+2.编辑 html 文件引入新的 js 资源，比如实现热力图所需的 `bmap.min.js`
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+	...
+	...
+   	<!--引入百度地图的jssdk，这里需要使用你在百度地图开发者平台申请的 ak-->
+    <script src="http://api.map.baidu.com/getscript?v=2.0&ak=你在百度地图开发者平台申请的ak"></script>
+    <!-- 引入 ECharts -->
+    <script type="text/javascript" src="./echarts.min.js"></script>
+    <!-- 引入百度地图扩展 -->
+    <script type="text/javascript" src="./bmap.min.js"></script>
+    <title>ECharts</title>
+</head>
+...
+...
+
+</html>
+```
+
+3.`src` 属性填写本地`html` 路径，传入图标数据
+
+```js
+<bmchart scr='bmlocal://assets/chart/bm-chart.html' ref="chart" :options="$format(bmapInfo)" style="width:750; height:520;"  @finish='finish'></bmchart>
+```
+
+```js
+bmapInfo:{
+    animation: false,
+    bmap: {
+        center: [119.653564453125, 30.41142463684082],
+        zoom: 14,
+        roam: true
+    },
+    visualMap: {
+        show: false,
+        top: 'top',
+        min: 0,
+        max: 5,
+        seriesIndex: 0,
+        calculable: true,
+        inRange: {
+            color: ['blue', 'blue', 'green', 'yellow', 'red']
+        }
+    },
+    series: [{
+        type: 'heatmap',
+        coordinateSystem: 'bmap',
+        data: [[119.653564453125, 30.41142463684082,23]],
+        pointSize: 5,
+        blurSize: 6
+        }]
+    }
+```
+
+效果图
+
+<img src="./image/bmap1.png" width="40%" height="30%">
 
 
-# 弹窗组件
+## 弹窗组件
 
 > `<bmmask>` 和 `<bmpop>` 是一套组合组件，`<bmmask>` 对应背景遮罩，`<bmpop>` 对应弹出的视图，自带动画，不需要 js 处理。
 注意：
@@ -158,7 +229,7 @@ eros 默认可以显示 echart 绝大多数数据图表，如果当前不能满�
  }
 ```
 
-# 原生日期选择
+## 原生日期选择
 
 ### 效果
 
@@ -234,7 +305,7 @@ eros 默认可以显示 echart 绝大多数数据图表，如果当前不能满�
 </style>
 ```
 
-# 富文本组件
+## 富文本组件
 
 1.文本通过 `value`属性设置；
 

@@ -1,3 +1,22 @@
+## 2018.08.02
+### 重点更新
+* [bugfix-iOS]`<web>`标签加载`bmlocal`资源报错的问题；
+* [feature]`bmNavigator` module 添加隐藏状态栏功能；[文档请戳](https://bmfe.github.io/eros-docs/#/zh-cn/eros_sdk_module?id=bmnavigator)
+* [feature]`bmBundleUpdate` module 添加获取 JSVersion 方法；[文档请戳](https://bmfe.github.io/eros-docs/#/zh-cn/eros_sdk_module?id=bmbundleupdate)
+* [optimize]`bmchart`component 支持加载自定义 html 文件；[文档请戳](https://bmfe.github.io/eros-docs/#/zh-cn/eros_sdk_component?id=图表组件)
+
+### iOS 升级
+1.升级 BMBaseLibrary 基础库为 1.3.0 版本
+
+```ruby
+pod 'BMBaseLibrary', :git => 'https://github.com/bmfe/Benmu-iOS-Library.git', :tag => '1.3.0'
+```
+2.执行 `pod update` 拉取新版本依赖；
+
+### Android 升级
+
+待补充
+
 ## 2018.07.26
 ### 重点更新
 * [bugfix-Android]`tabbar` 多页面 `watchIndex` 只有一个生效问题

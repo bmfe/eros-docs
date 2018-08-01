@@ -88,7 +88,9 @@ Weex 自带的`<refresh>` 组件使用起来不是很好用，效果也差强人
 
 #### 扩展特性
 
-说明：在原有\`&lt;scroller&gt;、&lt;list&gt;\`组件基础上添加\`showRefresh\`属性来控制是否需要显示下拉刷新组件；
+说明：在原有`scroller`、`list`组件基础上添加`showRefresh`属性来控制是否需要显示下拉刷新组件；
+
+**注：Android 只支持 list 组件**
 
 `showRefresh {bool}`：当值为\`true\`时 native 端自动为\`&lt;scroller&gt;\`或\`&lt;list&gt;\`添加下拉刷新组件（缺省此属性或者值为\`false\`时不会显示下拉刷新组件）；
 

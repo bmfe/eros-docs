@@ -62,6 +62,12 @@ project(':nexus').projectDir = new File(settingsDir,'/nexus/nexus')
 * 具体Android 插件详细集成方式 您还可以参考[Android 插件依赖](/zh-cn/android_plugin_integration)
 
 ## Change Log
+**iOS 1.3.0** 2018.08.02<br>
+* [bugfix-iOS]`<web>`标签加载`bmlocal`资源报错的问题；
+* [feature]`bmNavigator` module 添加隐藏状态栏功能；[文档请戳](https://bmfe.github.io/eros-docs/#/zh-cn/eros_sdk_module?id=bmnavigator)
+* [feature]`bmBundleUpdate` module 添加获取 JSVersion 方法；[文档请戳](https://bmfe.github.io/eros-docs/#/zh-cn/eros_sdk_module?id=bmbundleupdate)
+* [optimize]`bmchart`component 支持加载自定义 html 文件；[文档请戳](https://bmfe.github.io/eros-docs/#/zh-cn/eros_sdk_component?id=图表组件)
+
 **Android 1.0.8** 2018.07.26<br>
 * [bugfix-Android]`tabbar` 多页面 `watchIndex` 只有一个生效问题
 * [bugfix-Android]`tabbar` 生命周期触发不正常问题。
@@ -69,6 +75,12 @@ project(':nexus').projectDir = new File(settingsDir,'/nexus/nexus')
 * [bugfix-Android] 解决部分页面内存泄漏问题
 * [bugfix-Android] 优化图片加载过多 的OOM 问题。
 * [feature]新增 `web` 标签支持本地html
+
+**iOS 1.2.9** 2018.07.26<br>
+* [bugfix-iOS] `web`标签通过url传参参数丢失问题；
+* [bugfix-iOS] 微信分享插件、微信支付插件判断是否安装微信方法无效的问题（请升级最新版本）；
+* [optimize-iOS] 优化 `bmChart` 加载本地js资源的方法；
+
 
 **Android 1.0.7** 2018.07.18<br>
 * [bugfix]加载本地`html`参数丢失的问题；
