@@ -87,6 +87,7 @@ GETTUI_APPSECRET= your app secret
 
 * Android 配置 appkey 打开Android目录`工程目录/platforms/android/WeexFrameworkWrapper/gradle.properties` 文件里
 GETUI_APPID、GETUI_APPKEY、GETTUI_APPSECRET 配置key 等信息
+* Android 进行测试时，需额外在res文件夹中添加app_icon.png以及push_small.png两张图片来修改通知栏默认的图标样式
 
 ###个推官网后台推送测试
 
