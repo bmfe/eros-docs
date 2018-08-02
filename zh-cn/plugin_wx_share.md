@@ -1,8 +1,5 @@
 # bmWXShare
 
-iOS 1.0.2<br>
-Android 1.0.0
-
 > 功能简介：基于友盟ShareSDK实现，微信分享（分享到朋友圈，微信好友）及微信授权登录；
 > 在使用分享之前，还需要一些配置 <br>
 1.首先请到友盟平台注册App获取AppKey; <br>
@@ -157,6 +154,9 @@ var bmWXShare = weex.requireModule('bmWXShare')
 ![idfa](./image/idfaSet.png)
 
 ## Change Log
+**iOS 1.0.4** <br> 
+1.再次修复获取是否安装微信方法走内置包时无效的问题；
+
 **iOS 1.0.3** <br> 
 1.修复获取是否安装微信方法无效的问题；
 
