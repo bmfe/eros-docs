@@ -68,6 +68,11 @@ project(':nexus').projectDir = new File(settingsDir,'/nexus/nexus')
 * [feature]`bmBundleUpdate` module 添加获取 JSVersion 方法；[文档请戳](https://bmfe.github.io/eros-docs/#/zh-cn/eros_sdk_module?id=bmbundleupdate)
 * [optimize]`bmchart`component 支持加载自定义 html 文件；[文档请戳](https://bmfe.github.io/eros-docs/#/zh-cn/eros_sdk_component?id=图表组件)
 
+**iOS 1.0.9** 2018.08.02<br>
+* [feature]`bmNavigator` module 添加隐藏状态栏功能；[文档请戳](https://bmfe.github.io/eros-docs/#/zh-cn/eros_sdk_module?id=bmnavigator)
+* [feature]`bmBundleUpdate` module 添加获取 JSVersion 方法；[文档请戳](https://bmfe.github.io/eros-docs/#/zh-cn/eros_sdk_module?id=bmbundleupdate)
+* [optimize]`bmchart`component 支持加载自定义 html 文件；[文档请戳](https://bmfe.github.io/eros-docs/#/zh-cn/eros_sdk_component?id=图表组件)
+
 **Android 1.0.8** 2018.07.26<br>
 * [bugfix-Android]`tabbar` 多页面 `watchIndex` 只有一个生效问题
 * [bugfix-Android]`tabbar` 生命周期触发不正常问题。

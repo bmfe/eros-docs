@@ -14,8 +14,10 @@ pod 'BMBaseLibrary', :git => 'https://github.com/bmfe/Benmu-iOS-Library.git', :t
 2.执行 `pod update` 拉取新版本依赖；
 
 ### Android 升级
+进入 `/platforms/android/WeexFrameworkWrapper/nexus` 目录 切换tag 到 1.0.8 <br>
+进入`/platforms/android/WeexFrameworkWrapper/wxframework` 目录 切换tag 到1.0.9 。
 
-待补充
+> 如果您没有使用tag控制版本，可以直接 git pull 更新下github 上代码即可。
 
 ## 2018.07.26
 ### 重点更新
