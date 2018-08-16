@@ -194,6 +194,7 @@ Api：
 * **name（String）**：请求地址，如果已经在config/apis.js下配置了接口的请求别名，则可以直接调用别名。
 * **url（String）**: 如果你不想配置别名，可以直接输入相对路径或者绝对路径来请求。
 * **data（Object）**：请求携带的参数。
+* **params(Object) **: 请求路径的动态参数，如url:api/product/{productId},则params:{productId:...}。
 * **header（Object）**：当前请求的请求头设置。
 * **then（Promise）**：`Promise`接口返回时候会触发。
 
