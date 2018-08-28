@@ -31,7 +31,7 @@ $ cnpm i eros-cli -g
 * CocoaPods(建议使用pod 1.4.0版本)
     * 升级 rubygem 环境：`$ sudo gem update --system`
     * 移除现有 rubygem 镜像：`$ gem sources --remove https://rubygems.org/`
-    * 添加gem.ruby-china镜像：`$ gem source -a https://gems.ruby-china.org/`
+    * 添加gem.ruby-china镜像：`$ gem source -a https://gems.ruby-china.com/`
     * 安装 CocoaPods：`$ sudo gem install cocoapods -v 1.4.0`
     * 如果以上命令报错则执行：`$ sudo gem install -n /usr/local/bin cocoapods -v 1.4.0`
     * 最后执行：`$ pod setup 过程比较漫长，请耐心等待执行完成`
