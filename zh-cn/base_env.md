@@ -23,6 +23,7 @@ $ cnpm i eros-cli -g
 
 ### 版本要求
 - ruby: `2.5.0` 以上
+- rubygems: <= `2.7.6` [降级参考](https://github.com/rubygems/rubygems/blob/master/UPGRADING.rdoc)
 - cocoapods: `1.4.0` (最好)
 
 其他版本会有环境问题
