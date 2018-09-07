@@ -155,17 +155,20 @@ var bmWXShare = weex.requireModule('bmWXShare')
 ![idfa](./image/idfaSet.png)
 
 ## Change Log
+**Android 1.1.1** <br>
+* 更新Umeng库
+
 **iOS 1.0.5** <br> 
-1.分享接口添加`userName`字段，分享小程序时需要传小程序的名字；
+* 分享接口添加`userName`字段，分享小程序时需要传小程序的名字；
 
 **iOS 1.0.4** <br> 
-1.再次修复获取是否安装微信方法走内置包时无效的问题；
+* 再次修复获取是否安装微信方法走内置包时无效的问题；
 
 **iOS 1.0.3** <br> 
-1.修复获取是否安装微信方法无效的问题；
+* 修复获取是否安装微信方法无效的问题；
 
 **iOS 1.0.2** <br> 
-1.修复shareType字段取值问题，导致只能分享网页；
+* 修复shareType字段取值问题，导致只能分享网页；
 
 **iOS 1.0.1** <br>
-1.修复友盟SDK报错的问题；
+* 修复友盟SDK报错的问题；

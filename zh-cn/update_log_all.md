@@ -2,6 +2,12 @@
 ### 重点更新
 * [bugfix]友盟分享接口，添加`userName`字段，分享至小程序需要传入此值；
 * [feature]友盟统计新增自定义事件统计；[文档请戳](https://bmfe.github.io/eros-docs/#/zh-cn/plugin_umAnalytics)
+* [feature]更新Umeng 库。
+* [feature]安卓添加虚拟按键高度全局属性 virtualButtonsHeight
+* [bugfix]input组件，type为number时不能输入小数点
+* [bugfix]安卓安全漏洞
+* [bugfix]修复微信支付模块 isInstallWXApp方法无效问题.
+* [bugfix]修复判断前后台方法错误问题.
 
 ### iOS 升级
 1.升级 ErosPluginUMAnalytics 库为 1.0.1 版本；
@@ -12,6 +18,22 @@ pod 'ErosPluginUMAnalytics', :git => 'https://github.com/bmfe/eros-plugin-ios-UM
 pod 'ErosPluginWXShare', :git => 'https://github.com/bmfe/eros-plugin-ios-wxshare.git', :tag => '1.0.5'
 ```
 2.执行 `pod update` 拉取新版本依赖；
+
+### Android 升级
+进入 `/platforms/android/WeexFrameworkWrapper/nexus` 目录 切换tag 到 1.0.9 <br>
+进入`/platforms/android/WeexFrameworkWrapper/wxframework` 目录 切换tag 到1.1.0 <br>
+进入 `/platforms/android/WeexFrameworkWrapper/erospluginum` 目录 切换tag 到 1.0.1 <br>
+进入 `/platforms/android/WeexFrameworkWrapper/erospluginwxpay` 目录 切换tag 到 1.1.1 <br>
+进入 `/platforms/android/WeexFrameworkWrapper/erospluginumeng` 目录 切换tag 到 1.1.1 <br>
+
+> 如果您没有使用tag控制版本，可以直接 git pull 更新下github 上代码即可。如果您并没有使用到这些插件则不需要切换tag或者git pull
+
+由于更新了 umeng相关库，以及修复一些安全漏洞同时对模板也做了一些修改，请对应修改一下文件。
+1. com.benmu.wx.wxapi  支付目录下的 `WXEntryActivity` 和 `WXPayEntryActivity`
+2. `/platforms/android/WeexFrameworkWrapper/app/src/main/AndroidManifest.xml` 
+
+> 如果您并没有对这些文件做修改可以直接 下载文件覆盖即可。
+
 
 ## 2018.08.02
 ### 重点更新

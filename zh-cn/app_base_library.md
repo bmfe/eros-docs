@@ -62,6 +62,11 @@ project(':nexus').projectDir = new File(settingsDir,'/nexus/nexus')
 * 具体Android 插件详细集成方式 您还可以参考[Android 插件依赖](/zh-cn/android_plugin_integration)
 
 ## Change Log
+**Android 1.1.0** 2018.09.07<br>
+* [bugfix] input组件，type为number时不能输入小数点
+* [bugfix] 修复判断前后台方法错误问题.
+* [feature] 添加虚拟按键高度全局属性 virtualButtonsHeight
+
 **iOS 1.3.0** 2018.08.02<br>
 * [bugfix-iOS]`<web>`标签加载`bmlocal`资源报错的问题；
 * [feature]`bmNavigator` module 添加隐藏状态栏功能；[文档请戳](https://bmfe.github.io/eros-docs/#/zh-cn/eros_sdk_module?id=bmnavigator)
