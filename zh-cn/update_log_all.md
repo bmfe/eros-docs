@@ -1,3 +1,18 @@
+## 2018.09.06
+### 重点更新
+* [bugfix]友盟分享接口，添加`userName`字段，分享至小程序需要传入此值；
+* [feature]友盟统计新增自定义事件统计；[文档请戳](https://bmfe.github.io/eros-docs/#/zh-cn/plugin_umAnalytics)
+
+### iOS 升级
+1.升级 ErosPluginUMAnalytics 库为 1.0.1 版本；
+2.升级 ErosPluginWXShare 库为 1.0.5 版本；
+
+```ruby
+pod 'ErosPluginUMAnalytics', :git => 'https://github.com/bmfe/eros-plugin-ios-UMAnalytics.git', :tag => '1.0.1'
+pod 'ErosPluginWXShare', :git => 'https://github.com/bmfe/eros-plugin-ios-wxshare.git', :tag => '1.0.5'
+```
+2.执行 `pod update` 拉取新版本依赖；
+
 ## 2018.08.02
 ### 重点更新
 * [bugfix-iOS]`<web>`标签加载`bmlocal`资源报错的问题；

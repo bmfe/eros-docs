@@ -11,7 +11,7 @@
 ## 集成方式
 **iOS集成方式**
 
-* 打开iOS目录`工程目录/platforms/ios/WeexEros`，编辑Podfile文件，添加`ErosPluginWXShare`组件的引用，添加代码如下，**注意**版本号改为最新的版本
+* 打开iOS目录`工程目录/platforms/ios/WeexEros`，编辑Podfile文件，添加`ErosPluginWXShare`组件的引用，添加代码如下，**注意**版本号改为最新的版本（请看Change log）
 
 	```ruby
 	def common
@@ -114,6 +114,7 @@ var bmWXShare = weex.requireModule('bmWXShare')
 	  url: '', // 分享对应的URL地址，如h5、音乐链接、视频链接、小程序的链接
 	  image: '', // 分享的图片url
 	  path: '', // 分享小程序用到的页面路径
+	  userName: '' // 小程序名称
 	  shareType: 'Webpage', // 分享的类型
 	  platform: 'WechatSession' // 分享平台 朋友圈/好友（注意：历史版本的字段名是platforms,现在是一个字符串而不是数组）
 	},function(resData){ // 注意： 历史版本返回的是一个promise对象，现在的是callback回调 	
@@ -154,6 +155,9 @@ var bmWXShare = weex.requireModule('bmWXShare')
 ![idfa](./image/idfaSet.png)
 
 ## Change Log
+**iOS 1.0.5** <br> 
+1.分享接口添加`userName`字段，分享小程序时需要传小程序的名字；
+
 **iOS 1.0.4** <br> 
 1.再次修复获取是否安装微信方法走内置包时无效的问题；
 
