@@ -221,7 +221,7 @@ project(':erospluginamap').projectDir = new File(settingsDir,'/ErosPluginAmap/Er
 
 #### Amap 模块
 
-#####  getUserLocation(completeFunc,errorFunc)
+#####  getUserLocation("weex-amap的ref",callback)
 
 + completeFunc 定位成功后的回调函数，返回的数据:
 ```
@@ -262,7 +262,7 @@ project(':erospluginamap').projectDir = new File(settingsDir,'/ErosPluginAmap/Er
     methods: {
       setUserLocation() {
         const self = this;
-        Amap.getUserLocation(function (data) {
+        Amap.getUserLocation("weex-amap的ref",function (data) {
           if(data.result == 'success') {
             self.pos = data.data.position;
           }
