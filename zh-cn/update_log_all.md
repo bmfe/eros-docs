@@ -29,7 +29,7 @@ pod 'ErosPluginWXShare', :git => 'https://github.com/bmfe/eros-plugin-ios-wxshar
 > 如果您没有使用tag控制版本，可以直接 git pull 更新下github 上代码即可。如果您并没有使用到这些插件则不需要切换tag或者git pull
 
 由于更新了 umeng相关库，以及修复一些安全漏洞同时对模板也做了一些修改，请对应修改一下文件。
-1. com.benmu.wx.wxapi  支付目录下的 `WXEntryActivity` 和 `WXPayEntryActivity`
+1. com.benmu.wx.wxapi  包 目录下的 `WXEntryActivity` 和 `WXPayEntryActivity`
 2. `/platforms/android/WeexFrameworkWrapper/app/src/main/AndroidManifest.xml` 
 
 > 如果您并没有对这些文件做修改可以直接 下载文件覆盖即可。
