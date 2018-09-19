@@ -51,6 +51,7 @@ project(':erospluginamap').projectDir = new File(settingsDir,'/ErosPluginAmap/Er
 		compile project(':erospluginamap')
 	}
 ```
+* 最后记得点击右上角sync now
 
 * 具体Android 插件详细集成方式 您还可以参考[Android 插件依赖](/zh-cn/android_plugin_integration)
 

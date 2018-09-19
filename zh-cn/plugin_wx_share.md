@@ -60,9 +60,9 @@ project(':erospluginwxshare').projectDir = new File(settingsDir,'/erospluginumen
 	}
 ```
 
+* 最后记得点击右上角sync now
+
 * 具体Android 插件详细集成方式 您还可以参考[Android 插件依赖](/zh-cn/android_plugin_integration)
-
-
 
 * 具体Android 相关[微信Key和签名申请参考文档](/zh-cn/android_wx_apply)
 
