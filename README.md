@@ -116,8 +116,8 @@ eros 正式开源到现在已经有了一个拥有大量开发者的群，群里
 * 除了 eros 自身紧急 BUG 外的问题，均需要提 issue，我们会按 issue 处理，目的是为了更好的给其他开发者参考，紧急问题请直接抛到群里，我们会直接远程帮助您调试。
 
 QQ群:  
-
-<img src="https://bmfe.github.io/eros-docs/zh-cn/image/eros-qq-qrcode.png" width="auto" height="200px">
+开发者1群 **667379588** (满员) <br>
+开发者2群 **798677297**
 
 # License
 [MIT](https://opensource.org/licenses/MIT)
