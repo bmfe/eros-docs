@@ -62,6 +62,12 @@ project(':nexus').projectDir = new File(settingsDir,'/nexus/nexus')
 * 具体Android 插件详细集成方式 您还可以参考[Android 插件依赖](/zh-cn/android_plugin_integration)
 
 ## Change Log
+**iOS 1.3.1** 2018.09.25<br>
+* [教程] 升级 Xcode 10后会编译报错，请参考这篇文章来解决相关问题；[请戳这里](https://www.jianshu.com/p/6d94278d62b3)
+* [bugfix] 修复使用Xcode10开发并运行在iOS12系统上设置导航栏背景色无效的问题；
+* [bugfix] 解决使用`bmBundleUpdate`module进行热更新，当解压缩失败时没有回调callback的问题；
+* [optimize] 网络请求一些代码优化；
+
 **Android 1.1.0** 2018.09.07<br>
 * [bugfix] input组件，type为number时不能输入小数点
 * [bugfix] 修复判断前后台方法错误问题.
