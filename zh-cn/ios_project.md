@@ -22,7 +22,7 @@ bundle.config		    // js bundle 版本信息；描述当前 js 的版本，作�
 pod 'WeexSDK', :git => 'https://github.com/bmfe/WeexiOSSDK.git', :tag => '0.18'
     
 #Eros iOS 基础库
-pod 'BMBaseLibrary', :git => 'https://github.com/bmfe/Benmu-iOS-Library.git', :tag => '1.2.2'
+pod 'ErosPluginBaseLibrary', :git => 'https://github.com/bmfe/eros-plugin-ios-baseLibrary.git', :tag => '1.3.1'
 ```
 
 运行 `pod update` 就会将这个两个库了加载到工程中了；

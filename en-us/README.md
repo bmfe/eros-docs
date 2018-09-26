@@ -78,11 +78,6 @@ Support the popular component library:
 # The status of open source
 Currently, there are dozens of apps in development and on-line state, including the overseas application ** starLife (100+ pages) ** under development, as well as the domestic search ** (60+ pages ) **, there are ** applications are on the line 0-50 + page ranging **, involving the industry in information, medical, investment, shopping, government, office and so on.
 
-The Benmu's medical technical team itself has also developed three weex based app, can be downloaded in the Apple store and application treasure:
-* Health Capital (Beijing Medical pass app version, 100 + page, many features have not yet opened)
-* Benmu Medical Assistant (30+ pages)
-* enmu Doctor Assistant (20+ pages)
-
 Future releases will continue to showcase excellent projects to the home page, so developers can rest assured that this is not a KPI project (the company does not have KPIs) and has been open source based on the MIT protocol.
 
 
@@ -91,7 +86,7 @@ Future releases will continue to showcase excellent projects to the home page, s
 |---------|-------------|
 | [eros-cli](https://github.com/bmfe/eros-cli) | Simple eros project building tools for building, developing. |
 | [eros-publish](https://github.com/bmfe/eros-publish) | Simple server differential package update logic needs to be used with scaffolding. |
-| [eros-ios-library](https://github.com/bmfe/Benmu-iOS-Library) |  eros ios The Weex project depends on libraries. |
+| [eros-ios-library](https://github.com/bmfe/eros-plugin-ios-baseLibrary) |  eros ios The Weex project depends on libraries. |
 | [eros-ios-sdk](https://github.com/bmfe/WeexiOSSDK) | eros ios Weex sdk。 |
 | [eros-android-framework](https://github.com/bmfe/WeexErosFramework) | eros weex Mobile Solutions Android Side Framework. |
 | [eros-android-widget](https://github.com/bmfe/BMWidget) | eros Android Component Library. |
@@ -112,11 +107,11 @@ eros officially open source now has a development group of nearly 300 people (on
 * In addition to eros its own emergency BUG issues, we need to raise issues, we will deal with the issue, the purpose is to better reference for other developers, emergency issues thrown directly into the group, we will be directly to help you remotely debug.
 
 
-| WeChat group |
-|---------|
-|![](https://gitee.com/uploads/images/2017/1026/154652_651ba169_1595985.jpeg)|
+**QQ group**:</br>
+group1: **667379588** (full) <br>
+group2: **798677297**
 
 # License
 [MIT](https://opensource.org/licenses/MIT)
 
-Copyright (c) 2017-present, 本木医疗
+Copyright (c) 2018-present, Byte Master Front End

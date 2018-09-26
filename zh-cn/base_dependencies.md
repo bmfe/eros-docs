@@ -60,7 +60,7 @@ $ cnpm i eros-widget -S
 	def common
     	...忽略其他库的引用
        #Eros iOS 基础库
-    	pod 'BMBaseLibrary', :git => 'https://github.com/bmfe/Benmu-iOS-Library.git', :tag => '1.2.1'
+    	pod 'ErosPluginBaseLibrary', :git => 'https://github.com/bmfe/eros-plugin-ios-baseLibrary.git', :tag => '版本号'
 	end
 	target 'WeexEros' do
     	common

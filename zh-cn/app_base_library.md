@@ -15,7 +15,7 @@ Eros 基础库是必须依赖的，初始化中的模板已经添加了基础库
 	def common
     	...忽略其他库的引用
        #集成 Eros iOS 基础库
-    	pod 'BMBaseLibrary', :git => 'https://github.com/bmfe/Benmu-iOS-Library.git', :tag => '版本号'
+    	pod 'ErosPluginBaseLibrary', :git => 'https://github.com/bmfe/eros-plugin-ios-baseLibrary.git', :tag => '版本号'
 	end
 	target 'WeexEros' do
     	common

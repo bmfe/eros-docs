@@ -46,7 +46,7 @@ pod 'ErosPluginWXShare', :git => 'https://github.com/bmfe/eros-plugin-ios-wxshar
 1.升级 BMBaseLibrary 基础库为 1.3.0 版本
 
 ```ruby
-pod 'BMBaseLibrary', :git => 'https://github.com/bmfe/Benmu-iOS-Library.git', :tag => '1.3.0'
+pod 'ErosPluginBaseLibrary', :git => 'https://github.com/bmfe/eros-plugin-ios-baseLibrary.git', :tag => => '1.3.0'
 ```
 2.执行 `pod update` 拉取新版本依赖；
 
@@ -74,7 +74,7 @@ pod 'BMBaseLibrary', :git => 'https://github.com/bmfe/Benmu-iOS-Library.git', :t
 1.升级 BMBaseLibrary 基础库为 1.2.9 版本
 
 ```ruby
-pod 'BMBaseLibrary', :git => 'https://github.com/bmfe/Benmu-iOS-Library.git', :tag => '1.2.9'
+pod 'ErosPluginBaseLibrary', :git => 'https://github.com/bmfe/eros-plugin-ios-baseLibrary.git', :tag => => '1.2.9'
 ```
 2.执行 `pod update` 拉取新版本依赖；
 
@@ -107,7 +107,7 @@ pod 'BMBaseLibrary', :git => 'https://github.com/bmfe/Benmu-iOS-Library.git', :t
 1.升级 BMBaseLibrary 基础库为 1.2.8 版本
 
 ```ruby
-pod 'BMBaseLibrary', :git => 'https://github.com/bmfe/Benmu-iOS-Library.git', :tag => '1.2.8'
+pod 'ErosPluginBaseLibrary', :git => 'https://github.com/bmfe/eros-plugin-ios-baseLibrary.git', :tag => => '1.2.8'
 ```
 2.执行 `pod update` 拉取新版本依赖；
 
@@ -132,7 +132,7 @@ pod 'BMBaseLibrary', :git => 'https://github.com/bmfe/Benmu-iOS-Library.git', :t
 1.升级 BMBaseLibrary 基础库为 1.2.7 版本
 
 ```ruby
-pod 'BMBaseLibrary', :git => 'https://github.com/bmfe/Benmu-iOS-Library.git', :tag => '1.2.7'
+pod 'ErosPluginBaseLibrary', :git => 'https://github.com/bmfe/eros-plugin-ios-baseLibrary.git', :tag => => '1.2.7'
 ```
 2.执行 `pod update` 拉取新版本依赖；
 
@@ -161,7 +161,7 @@ pod 'BMBaseLibrary', :git => 'https://github.com/bmfe/Benmu-iOS-Library.git', :t
 1.升级 BMBaseLibrary 基础库为 1.2.6 版本
 
 ```ruby
-pod 'BMBaseLibrary', :git => 'https://github.com/bmfe/Benmu-iOS-Library.git', :tag => '1.2.6'
+pod 'ErosPluginBaseLibrary', :git => 'https://github.com/bmfe/eros-plugin-ios-baseLibrary.git', :tag => => '1.2.6'
 ```
 2.执行 `pod update` 拉取新版本依赖；
 
@@ -208,7 +208,7 @@ dependencies {
 1.升级 BMBaseLibrary 库为 1.2.5 版本
 
 ```ruby
-pod 'BMBaseLibrary', :git => 'https://github.com/bmfe/Benmu-iOS-Library.git', :tag => '1.2.5'
+pod 'ErosPluginBaseLibrary', :git => 'https://github.com/bmfe/eros-plugin-ios-baseLibrary.git', :tag => => '1.2.5'
 ```
 2.执行 `pod update` 拉取新版本依赖；
 
@@ -231,7 +231,7 @@ pod 'BMBaseLibrary', :git => 'https://github.com/bmfe/Benmu-iOS-Library.git', :t
 1.升级 BMBaseLibrary 库为 1.2.4 版本
 
 ```ruby
-pod 'BMBaseLibrary', :git => 'https://github.com/bmfe/Benmu-iOS-Library.git', :tag => '1.2.4'
+pod 'ErosPluginBaseLibrary', :git => 'https://github.com/bmfe/eros-plugin-ios-baseLibrary.git', :tag => => '1.2.4'
 ```
 
 2.推送的问题请更新 ErosPluginGeTui 库为 1.0.1 版本
