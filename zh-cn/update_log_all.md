@@ -8,6 +8,7 @@
 * [iOS-update] 基础库包名已修改（ErosPluginBaseLibrary）；
 * [iOS-教程] 升级 Xcode 10后会编译报错，请参考这篇文章来解决相关问题；[请戳这里](https://www.jianshu.com/p/6d94278d62b3)
 
+* [Android-update] 基础库包名已修改（所有 com.benmu 的包名均修改成 com.eros）；
 ### iOS 升级
 1.升级 ErosPluginBaseLibrary 基础库为 1.3.2 版本
 
@@ -15,6 +16,21 @@
 pod 'ErosPluginBaseLibrary', :git => 'https://github.com/bmfe/eros-plugin-ios-baseLibrary.git', :tag => '1.3.2'
 ```
 2.执行 `pod update` 拉取新版本依赖；
+
+### Android 升级
+1、模板代码修改 `/platforms/android/WeexFrameworkWrapper/app/src/main/AndroidManifest.xml`文件修[参考此文件](https://github.com/bmfe/eros-template/blob/master/platforms/android/WeexFrameworkWrapper/app/src/main/AndroidManifest.xml)。<br/> 其他 `com.eros.wx（老包 是 com.benmu.wx）` 包下 文件也需要对应修改[参考此目录](https://github.com/bmfe/eros-template/tree/master/platforms/android/WeexFrameworkWrapper/app/src/main/java/com/eros/wx)。
+
+2、其他库目录可 直接 切换到 一下`tag`， 如并未使用tag 可直接 `git pull `获取最新代码即可。
+```
+nexus 1.1.0
+wxframework 1.1.1
+erospluginwxshare 1.1.2
+erospluginwxpay 1.1.2
+erosplugingt 1.1.1
+```
+
+3、 如果有对eros 代码做深度定制开发的同学 升级遇到什么问题可以群里直接 @jony
+
 
 ## 2018.09.06
 ### 重点更新

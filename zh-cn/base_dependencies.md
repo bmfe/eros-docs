@@ -72,13 +72,5 @@ $ cnpm i eros-widget -S
 
 #### **Android 更新方法**
 
-* 打开Android目录`工程目录/platforms/android/WeexFrameworkWrapper/app`，编辑build.gradle文件，`dependencies` 下 修改版本号（即 :1.0.0），库每次升级后都会有相关说明文档，如需升级将 版本 修改为对应的版本即可；
-```java	
-dependencies {
-    ...忽略其他库的引用
-    //eros plugin amap 1.0.0版本
-    compile 'com.benmu.eros:plugin-amap:1.0.0'
-}
-
-```
+* 打开Android目录`工程目录/platforms/android/WeexFrameworkWrapper/`，进入对应的库目录切换 `tag`,或者 直接 使用 `git pull` 更新代码即可。
 
