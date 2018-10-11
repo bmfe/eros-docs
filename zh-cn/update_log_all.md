@@ -1,3 +1,21 @@
+## 2018.10.11
+### 重点更新
+* [iOS-bugfix] 修复拓展的上拉加载更多loadMore事件与weex默认的loadmore事件冲突的问题；感谢 陈远•Frank，M、的贡献，[文档请戳](https://bmfe.github.io/eros-docs/#/zh-cn/base_extend?id=上拉加载更多)
+* [iOS-bugfix] 修复iPhoneX的判断方法；感谢 Shawn唐的贡献；
+* [iOS-bugfix] 修复使用Xcode10开发并运行在iOS12系统上设置导航栏背景色无效的问题；
+* [iOS-bugfix] 解决使用`bmBundleUpdate`module进行热更新，当解压缩失败时没有回调callback的问题；
+* [iOS-optimize] 网络请求一些代码优化；
+* [iOS-update] 基础库包名已修改（ErosPluginBaseLibrary）；
+* [iOS-教程] 升级 Xcode 10后会编译报错，请参考这篇文章来解决相关问题；[请戳这里](https://www.jianshu.com/p/6d94278d62b3)
+
+### iOS 升级
+1.升级 ErosPluginBaseLibrary 基础库为 1.3.2 版本
+
+```ruby
+pod 'ErosPluginBaseLibrary', :git => 'https://github.com/bmfe/eros-plugin-ios-baseLibrary.git', :tag => '1.3.2'
+```
+2.执行 `pod update` 拉取新版本依赖；
+
 ## 2018.09.06
 ### 重点更新
 * [bugfix]友盟分享接口，添加`userName`字段，分享至小程序需要传入此值；
