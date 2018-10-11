@@ -7,8 +7,8 @@
 * [iOS-optimize] 网络请求一些代码优化；
 * [iOS-update] 基础库包名已修改（ErosPluginBaseLibrary）；
 * [iOS-教程] 升级 Xcode 10后会编译报错，请参考这篇文章来解决相关问题；[请戳这里](https://www.jianshu.com/p/6d94278d62b3)
-
 * [Android-update] 基础库包名已修改（所有 com.benmu 的包名均修改成 com.eros）；
+
 ### iOS 升级
 1.升级 ErosPluginBaseLibrary 基础库为 1.3.2 版本
 
