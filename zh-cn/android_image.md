@@ -24,6 +24,6 @@
 
 ### 下拉刷新动画图片
 
-* 项目的 `/platforms/android/WeexFrameworkWrapper/app/src/main/res/drawable-xhdpi` 目录下  `loadding0001.png` 到 `loadding0028.png` 图片全部替换。
+* 项目的 `/platforms/android/WeexFrameworkWrapper/nexus/sdk/src/main/res/drawable-xhdpi` 目录下  `loadding0001.png` 到 `loadding0028.png` 图片全部替换。
 
 
