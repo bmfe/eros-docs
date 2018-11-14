@@ -62,6 +62,10 @@ project(':nexus').projectDir = new File(settingsDir,'/nexus/nexus')
 * 具体Android 插件详细集成方式 您还可以参考[Android 插件依赖](/zh-cn/android_plugin_integration)
 
 ## Change Log
+**iOS 1.3.3** 2018.11.14<br>
+* [update] 适配WeexSDK 0.19.0版本；
+* 升级部分依赖库；
+
 **iOS 1.3.2** 2018.10.11<br>
 * [bugfix] 修复拓展的上拉加载更多loadMore事件与weex默认的loadmore事件冲突的问题；感谢 陈远•Frank，M、的贡献，[文档请戳](https://bmfe.github.io/eros-docs/#/zh-cn/base_extend?id=上拉加载更多)
 * [bugfix] 修复iPhoneX的判断方法；感谢 Shawn唐的贡献；

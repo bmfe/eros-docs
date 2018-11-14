@@ -1,3 +1,22 @@
+## 2018.11.14
+### 重点更新
+* [iOS-update] 适配WeexSDK 0.19.0版本，基础库（ErosPluginBaseLibrary）更新 1.3.3 版本；
+* [iOS-教程] 升级 Xcode 10后会编译报错，请参考这篇文章来解决相关问题；[请戳这里](https://www.jianshu.com/p/6d94278d62b3)
+* WeexSDK 0.19.0 更新内容 [请戳这里](https://github.com/apache/incubator-weex/releases) <br>
+
+ >  说明：由于 Android 新版本 WeexSDK 变化较大，升级需要修改的地方过多，请给小哥哥一些时间，迟一些发布更新；
+
+### iOS 升级
+1.修改 WeexSDK 依赖版本 0.19.0 <br>
+2.修改 ErosPluginBaseLibrary 基础库为 1.3.3 版本
+
+```ruby
+# 其他依赖库不用修改
+pod 'WeexSDK', '0.19.0'
+pod 'ErosPluginBaseLibrary', :git => 'https://github.com/bmfe/eros-plugin-ios-baseLibrary.git', :tag => '1.3.3'
+```
+2.执行 `pod update` 拉取新版本依赖；
+
 ## 2018.10.11
 ### 重点更新
 * [iOS-bugfix] 修复拓展的上拉加载更多loadMore事件与weex默认的loadmore事件冲突的问题；感谢 陈远•Frank，M、的贡献，[文档请戳](https://bmfe.github.io/eros-docs/#/zh-cn/base_extend?id=上拉加载更多)
