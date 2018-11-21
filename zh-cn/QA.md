@@ -1,3 +1,9 @@
+## Q: 有办法把方法挂载到this上面吗？挂到vue实例上，全局那种，到每个组件都能直接this.xxx()调用。
+
+如图![](https://s1.ax1x.com/2018/11/21/F9h02t.png)
+
+每个页面使用的时候直接 this.$test
+
 ## Q: ios 老版本升级（包名修改的那个版本）出现的问题解决方案
 基础包名改版版本日志： https://bmfe.github.io/eros-docs/#/zh-cn/update_log_all?id=_20181011
 >  问题1 如图
@@ -17,7 +23,6 @@
 
 如图
 ![](https://s1.ax1x.com/2018/11/21/F9fq3t.png)
-
 
 
 ## Q: android 提交google play收到SSL Error Handler错误
