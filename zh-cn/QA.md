@@ -1,3 +1,25 @@
+## Q: ios 老版本升级（包名修改的那个版本）出现的问题解决方案
+基础包名改版版本日志： https://bmfe.github.io/eros-docs/#/zh-cn/update_log_all?id=_20181011
+>  问题1 如图
+
+解决方案：若出现该位置报错，改为图中划线的代码即可
+
+![](https://s1.ax1x.com/2018/11/21/F9f74A.png)
+
+
+
+
+> 问题2 如图
+![](https://s1.ax1x.com/2018/11/21/F9fb9I.png)
+若出现如上图报错的
+
+解决方案：搜索BMBaseLibrary，将其改为 ErosPluginBaseLibrary。然后重新run即可
+
+如图
+![](https://s1.ax1x.com/2018/11/21/F9fq3t.png)
+
+
+
 ## Q: android 提交google play收到SSL Error Handler错误
 
 因为 SSL 的验证 google 检查的更严一些，但是国内一般都不会做这个检测。
