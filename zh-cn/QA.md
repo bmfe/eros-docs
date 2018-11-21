@@ -1,6 +1,6 @@
 ## Q: 有办法把方法挂载到this上面吗？挂到vue实例上，全局那种，到每个组件都能直接this.xxx()调用。
 
-如图![](https://s1.ax1x.com/2018/11/21/F9h02t.png)
+如图![](https://i.loli.net/2018/11/21/5bf4f8a857021.png)
 
 每个页面使用的时候直接 this.$test
 
@@ -10,19 +10,19 @@
 
 解决方案：若出现该位置报错，改为图中划线的代码即可
 
-![](https://s1.ax1x.com/2018/11/21/F9f74A.png)
+![](https://i.loli.net/2018/11/21/5bf4f8e4c8671.png)
 
 
 
 
 > 问题2 如图
-![](https://s1.ax1x.com/2018/11/21/F9fb9I.png)
+![](https://i.loli.net/2018/11/21/5bf4f9244e907.png)
 若出现如上图报错的
 
-解决方案：搜索BMBaseLibrary，将其改为 ErosPluginBaseLibrary。然后重新run即可
+解决方案：搜索BMBaseLibrary，这两处地方将其改为 ErosPluginBaseLibrary。然后重新run即可
 
 如图
-![](https://s1.ax1x.com/2018/11/21/F9fq3t.png)
+![](https://i.loli.net/2018/11/21/5bf4f924ae23a.png)
 
 
 ## Q: android 提交google play收到SSL Error Handler错误
