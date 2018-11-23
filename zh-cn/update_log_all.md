@@ -1,3 +1,23 @@
+## 2018.11.23
+### 重点更新
+* [iOS-update] 解决WeexSDK 与 微信SDK`WXLogLevel`命名冲突问题，请按下面的方式修复WeexSDK依赖方式，继续；
+* [iOS-update] 基础库（ErosPluginBaseLibrary）更新 1.3.4 版本，1.优化App启动逻辑，避免热更新时重复初始化Weex环境；2.解决BMEvent `off` 方法不能取消监听事件的问题；
+* [iOS-教程] 升级 Xcode 10后会编译报错，请参考这篇文章来解决相关问题；[请戳这里](https://www.jianshu.com/p/6d94278d62b3)
+* WeexSDK 0.19.0 更新内容 [请戳这里](https://github.com/apache/incubator-weex/releases) <br>
+
+ >  说明：由于 Android 新版本 WeexSDK 变化较大，升级需要修改的地方过多，请再给小哥哥一些时间，迟一些发布更新；
+
+### iOS 升级
+1.修改 WeexSDK 依赖Eros仓库版本 0.19 <br>
+2.修改 ErosPluginBaseLibrary 基础库为 1.3.4 版本
+
+```ruby
+# 其他依赖库不用修改
+pod 'WeexSDK', :git => 'https://github.com/bmfe/WeexiOSSDK.git', :tag => '0.19'
+pod 'ErosPluginBaseLibrary', :git => 'https://github.com/bmfe/eros-plugin-ios-baseLibrary.git', :tag => '1.3.4'
+```
+2.执行 `pod update` 拉取新版本依赖；
+
 ## 2018.11.14
 ### 重点更新
 * [iOS-update] 适配WeexSDK 0.19.0版本，基础库（ErosPluginBaseLibrary）更新 1.3.3 版本；

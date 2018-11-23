@@ -62,6 +62,10 @@ project(':nexus').projectDir = new File(settingsDir,'/nexus/nexus')
 * 具体Android 插件详细集成方式 您还可以参考[Android 插件依赖](/zh-cn/android_plugin_integration)
 
 ## Change Log
+**iOS 1.3.3** 2018.11.23<br>
+* 优化App启动逻辑，避免热更新时重复初始化Weex环境；
+* 解决BMEvent `off` 方法不能取消监听事件的问题；
+
 **iOS 1.3.3** 2018.11.14<br>
 * [update] 适配WeexSDK 0.19.0版本；
 * 升级部分依赖库；
