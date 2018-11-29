@@ -57,7 +57,7 @@ pod 'ErosPluginBaseLibrary', :git => 'https://github.com/bmfe/eros-plugin-ios-ba
 2.执行 `pod update` 拉取新版本依赖；
 
 ### Android 升级
-1、模板代码修改 `/platforms/android/WeexFrameworkWrapper/app/src/main/AndroidManifest.xml`文件修[参考此文件](https://github.com/bmfe/eros-template/blob/master/platforms/android/WeexFrameworkWrapper/app/src/main/AndroidManifest.xml)。<br/> 其他 `com.eros.wx（老包 是 com.benmu.wx）` 包下 文件也需要对应修改[参考此目录](https://github.com/bmfe/eros-template/tree/master/platforms/android/WeexFrameworkWrapper/app/src/main/java/com/eros/wx)。
+1、模板代码修改 `/platforms/android/WeexFrameworkWrapper/app/src/main/AndroidManifest.xml`文件[参考此文件](https://github.com/bmfe/eros-template/blob/master/platforms/android/WeexFrameworkWrapper/app/src/main/AndroidManifest.xml)。<br/> 其他 `com.eros.wx（老包 是 com.benmu.wx）` 包下 文件也需要对应修改[参考此目录](https://github.com/bmfe/eros-template/tree/master/platforms/android/WeexFrameworkWrapper/app/src/main/java/com/eros/wx)。
 
 > 如果您已经自己修改包名 则不需要 修改 模板里的代码。 只需要更新库目录下的代码即可
 
