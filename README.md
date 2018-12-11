@@ -6,15 +6,14 @@
 |---------|---------|
 |[eros-demo](https://bmfe.github.io/eros-docs/zh-cn/image/show.gif)|[eros-demo](https://bmfe.github.io/eros-docs/zh-cn/image/androidDemo.gif)|-->
 
-| iOS download QR code | Android download QR code |
-|---------|---------|
-|![ios下载](https://bmfe.github.io/eros-docs/zh-cn/image/iosqr.png)|![android 下载](http://upload.ouliu.net/i/201801241911376ee1z.png)|
-
-* [iOS 下载链接](http://fir.im/eros)
+| Android download QR code |
+|---------|
+|![android 下载](http://upload.ouliu.net/i/201801241911376ee1z.png)|
+ 
 * [Android 下载链接](https://fir.im/weexerosandroid)
 
 
-> 开发者可以扫描二维码来下载 eros app 来进行体验，iOS首次打开App需要在 **设置->通用->设备管理 信任开发证书。**
+> 开发者可以扫描二维码来下载 Android 版本 eros app 来进行体验，iOS 请自行按照教程运行 demo 查看效果；
 
 # 开发之前你需要知道
 **如果您是前端开发者：**
