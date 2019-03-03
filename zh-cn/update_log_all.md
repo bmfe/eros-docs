@@ -1,3 +1,23 @@
+## 2019.03.04
+### 重点更新
+* [iOS-update] 升级适配 WeexSDK 0.21.0 版本；
+* [iOS-update] 基础库（ErosPluginBaseLibrary）更新 1.3.5 版本;
+
+ >  说明：由于 Android 新版本 WeexSDK 变化较大，升级需要修改的地方过多，请再给小哥哥一些时间，迟一些发布更新；
+
+### iOS 升级
+编辑 Podfile 修改 `WeexSDK`、`WXDevtool`、`ErosPluginBaseLibrary` 三个库的引用
+
+```ruby
+#WeexSDK
+pod 'WeexSDK', :git => 'https://github.com/bmfe/incubator-weex.git'
+#Weex debugger 调试工具，只在开发模式集成
+pod 'WXDevtool', :git => 'https://github.com/bmfe/weex-devtool-iOS.git', :configurations => ['Debug']
+#Eros iOS 基础库
+pod 'ErosPluginBaseLibrary', :git => 'https://github.com/bmfe/eros-plugin-ios-baseLibrary.git', :tag => '1.3.5'
+```
+2.执行 `pod update` 拉取新版本依赖；
+
 ## 2018.11.23
 ### 重点更新
 * [iOS-update] 解决WeexSDK 与 微信SDK`WXLogLevel`命名冲突问题，请按下面的方式修复WeexSDK依赖方式，继续；
