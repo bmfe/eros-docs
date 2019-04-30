@@ -1,3 +1,14 @@
+## 2019.04.29
+### 重点更新
+* [iOS-update] 基础库升级 1.3.6
+* [iOS-update] BMWebViewController适配刘海屏；增加backgroundColor属性；关闭bounces属性；
+* [iOS-bugfix] 修复不能动态设置加载更多问题;
+* [iOS-bugfix] statusBarStyle设置后全局生效，不能单独设置;
+* [iOS-bugfix] hook weex 的 keyboardWasShown 方法造成键盘隐藏后UI回到原位的问题；
+以上更新感谢 @d o n g
+
+ >  说明：由于 Android 新版本 WeexSDK 变化较大，升级需要修改的地方过多，请再给小哥哥一些时间，迟一些发布更新；
+
 ## 2019.03.04
 ### 重点更新
 * [iOS-update] 升级适配 WeexSDK 0.21.0 版本；
