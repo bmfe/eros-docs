@@ -83,9 +83,9 @@ api.registerApp("你的wx appID")
 
 引用Module
 
-	```js
-	var bmWXPay = weex.requireModule('bmWXPay')
-	```
+```js
+var bmWXPay = weex.requireModule('bmWXPay')
+```
 
 **API**
 
